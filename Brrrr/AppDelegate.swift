@@ -9,6 +9,9 @@
 import UIKit
 import Fabric
 import Crashlytics
+import SwiftyBeaver
+
+let log = SwiftyBeaver.self
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

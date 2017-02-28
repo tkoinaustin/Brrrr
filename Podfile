@@ -7,6 +7,7 @@ target 'Brrrr' do
   pod 'Crashlytics'
   pod 'SwiftyJSON'
   pod 'PromiseKit/CorePromise'
+  pod 'SwiftyBeaver'
 
   target 'BrrrrTests' do
   end
