@@ -10,12 +10,18 @@
 		10B44002A4F224391C1353C2 /* Pods_BrrrrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CCD85F1BE4658245A2A55C /* Pods_BrrrrTests.framework */; };
 		1E6A285A0BFC7894A585F2CA /* Pods_Brrrr_BrrrrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23076826A2F997228A2DC497 /* Pods_Brrrr_BrrrrTests.framework */; };
 		3F5B41F8A78B4F531927E24C /* Pods_Brrrr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2CDB918DC2E26CB56B418A4 /* Pods_Brrrr.framework */; };
+		CB3C60C31E66E18400B5DE01 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C21E66E18400B5DE01 /* Endpoints.swift */; };
+		CB3C60C61E67065C00B5DE01 /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C51E67065C00B5DE01 /* DataPoint.swift */; };
+		CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C71E6709F700B5DE01 /* DataBlock.swift */; };
+		CB3C60CA1E67BE5F00B5DE01 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C91E67BE5F00B5DE01 /* Alert.swift */; };
+		CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */; };
 		CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD512C31E63B4A500614C3A /* AppDelegate.swift */; };
 		CBD512C61E63B4A500614C3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD512C51E63B4A500614C3A /* ViewController.swift */; };
 		CBD512C91E63B4A500614C3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD512C71E63B4A500614C3A /* Main.storyboard */; };
 		CBD512CB1E63B4A500614C3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBD512CA1E63B4A500614C3A /* Assets.xcassets */; };
 		CBD512CE1E63B4A500614C3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD512CC1E63B4A500614C3A /* LaunchScreen.storyboard */; };
 		CBD512D91E63B4A500614C3A /* BrrrrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD512D81E63B4A500614C3A /* BrrrrTests.swift */; };
+		CBD512E81E65245200614C3A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD512E71E65245200614C3A /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,11 @@
 		A2CDB918DC2E26CB56B418A4 /* Pods_Brrrr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Brrrr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB02F42ED7129974CA6C6D17 /* Pods-Brrrr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Brrrr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Brrrr/Pods-Brrrr.release.xcconfig"; sourceTree = "<group>"; };
 		B3D44BF47F53953D980194AB /* Pods-BrrrrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrrrrTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrrrrTests/Pods-BrrrrTests.release.xcconfig"; sourceTree = "<group>"; };
+		CB3C60C21E66E18400B5DE01 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = API/Endpoints.swift; sourceTree = "<group>"; };
+		CB3C60C51E67065C00B5DE01 /* DataPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataPoint.swift; path = Models/DataPoint.swift; sourceTree = "<group>"; };
+		CB3C60C71E6709F700B5DE01 /* DataBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBlock.swift; path = Models/DataBlock.swift; sourceTree = "<group>"; };
+		CB3C60C91E67BE5F00B5DE01 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Models/Alert.swift; sourceTree = "<group>"; };
+		CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DarkSkyResponse.swift; path = Models/DarkSkyResponse.swift; sourceTree = "<group>"; };
 		CBD512C01E63B4A500614C3A /* Brrrr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brrrr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD512C31E63B4A500614C3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBD512C51E63B4A500614C3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +58,7 @@
 		CBD512D41E63B4A500614C3A /* BrrrrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrrrrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD512D81E63B4A500614C3A /* BrrrrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrrrrTests.swift; sourceTree = "<group>"; };
 		CBD512DA1E63B4A500614C3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBD512E71E65245200614C3A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = API/API.swift; sourceTree = "<group>"; };
 		E16A14F6096532BFC510344D /* Pods-BrrrrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrrrrTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrrrrTests/Pods-BrrrrTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +83,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB3C60C41E6705F900B5DE01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB3C60C51E67065C00B5DE01 /* DataPoint.swift */,
+				CB3C60C71E6709F700B5DE01 /* DataBlock.swift */,
+				CB3C60C91E67BE5F00B5DE01 /* Alert.swift */,
+				CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		CBD512B71E63B4A500614C3A = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +123,8 @@
 				CBD512CA1E63B4A500614C3A /* Assets.xcassets */,
 				CBD512CC1E63B4A500614C3A /* LaunchScreen.storyboard */,
 				CBD512CF1E63B4A500614C3A /* Info.plist */,
+				CBD512E61E6523E700614C3A /* API */,
+				CB3C60C41E6705F900B5DE01 /* Models */,
 			);
 			path = Brrrr;
 			sourceTree = "<group>";
@@ -111,6 +136,15 @@
 				CBD512DA1E63B4A500614C3A /* Info.plist */,
 			);
 			path = BrrrrTests;
+			sourceTree = "<group>";
+		};
+		CBD512E61E6523E700614C3A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CBD512E71E65245200614C3A /* API.swift */,
+				CB3C60C21E66E18400B5DE01 /* Endpoints.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 		EEE9A1FA55E3E6CE4EFF01F5 /* Pods */ = {
@@ -355,8 +389,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */,
 				CBD512C61E63B4A500614C3A /* ViewController.swift in Sources */,
+				CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */,
+				CBD512E81E65245200614C3A /* API.swift in Sources */,
+				CB3C60C61E67065C00B5DE01 /* DataPoint.swift in Sources */,
+				CB3C60C31E66E18400B5DE01 /* Endpoints.swift in Sources */,
 				CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */,
+				CB3C60CA1E67BE5F00B5DE01 /* Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

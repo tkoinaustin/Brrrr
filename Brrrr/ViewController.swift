@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import PromiseKit
 
 class ViewController: UIViewController {
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    //    let data = DarkSkyResponse.load()
+    DarkSkyResponse.loadPromise().then { darkSkyData in
+//      print("\(darkSkyData)")
+      print("\(darkSkyData.minutely?.summary)")
+    }
+    //      if let currentTemp = darkSkyData["currently"]["apparentTemperature"].string {
+    //        print("temperature is \(currentTemp)")
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
+  
 }
