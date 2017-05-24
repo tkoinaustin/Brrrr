@@ -12,11 +12,11 @@ import SwiftyJSON
 class DataPoint {
   let data: JSON
   
-  var apparentTemperature: String? { return data["apparentTemperature"].string }
-  var apparentTemperatureMax: String? { return data["apparentTemperatureMax"].string }
-  var apparentTemperatureMaxTime: String? { return data["apparentTemperatureMaxTime"].string }
-  var apparentTemperatureMin: String? { return data["apparentTemperatureMin"].string }
-  var apparentTemperatureMinTime: String? { return data["apparentTemperatureMinTime"].string }
+  var apparentTemperature: NSNumber { return data["apparentTemperature"].numberValue }
+  var apparentTemperatureMax: NSNumber { return data["apparentTemperatureMax"].numberValue }
+  var apparentTemperatureMaxTime: NSNumber { return data["apparentTemperatureMaxTime"].numberValue }
+  var apparentTemperatureMin: NSNumber { return data["apparentTemperatureMin"].numberValue }
+  var apparentTemperatureMinTime: NSNumber { return data["apparentTemperatureMinTime"].numberValue }
   var cloudCover: String? { return data["cloudCover", "contentUrl"].string }
   var humidity: String? { return data["humidity"].string }
   var icon: String? { return data["icon"].string }
@@ -39,10 +39,11 @@ class DataPoint {
   var temperatureMaxTime: String? { return data["temperatureMaxTime"].string }
   var temperatureMin: String? { return data["temperatureMin"].string }
   var temperatureMinTime: String? { return data["temperatureMinTime"].string }
-  var time: String? { return data["time"].string }
+  var timeValue: Double? { return data["time"].double }
   var visibility: String? { return data["visibility"].string }
   var windBearing: String? { return data["windBearing"].string }
   var windSpeed: String? { return data["windSpeed"].string }
+  var time: Date? { return Date(timeIntervalSince1970: data["time"].double!) }
 
   required init?(from data: JSON) {
     self.data = data

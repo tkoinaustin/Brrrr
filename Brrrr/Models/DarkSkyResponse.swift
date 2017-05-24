@@ -19,17 +19,29 @@ class DarkSkyResponse {
   
   var latitude: String { return data["latitude"].stringValue }
   var longitude: String { return data["longitude"].stringValue }
-  var timezone: String { return data["descritimezoneption"].stringValue }
+  var timezone: String { return data["timezone"].stringValue }
   let currently: DataPoint?
   let minutely: DataBlock?
   let hourly: DataBlock?
   let daily: DataBlock?
   let alerts: [Alert]?
+  var locale: Locale!
+  let dateFormatter = DateFormatter()
+  let tempFormatter = NumberFormatter()
   
   required init?(from data: JSON) {
     guard DataBlock.isValid(data) else { return nil }
     
     self.data = data
+    
+    self.locale = Locale(identifier: data["timezone"].stringValue)
+    
+    self.dateFormatter.dateStyle = .short
+    self.dateFormatter.timeStyle = .short
+    self.dateFormatter.locale = self.locale
+    
+    self.tempFormatter.maximumFractionDigits = 0
+    
     self.currently = DataPoint(from: self.data["currently"])
     self.minutely = DataBlock(from: self.data["minutely"])
     self.hourly = DataBlock(from: self.data["hourly"])

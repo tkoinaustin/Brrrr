@@ -27,8 +27,8 @@ class Endpoints {
     return API.fire(request)
   }
   
-//  static func getHistory(_ location: String, date: Date) -> APIResponse {
-//    let request = APIRequest(.get, path: Endpoints.history(location: location, date: date).path())
-//    return API.call(request)
-//  }
+  static func getHistory(_ location: String, date: Date) -> Promise<APIResponse> {
+    let request = APIRequest(.get, path: Endpoints.history(location: location, date: date).path())
+    return API.fire(request)
+  }
 }
