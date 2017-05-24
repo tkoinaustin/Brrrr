@@ -8,6 +8,8 @@ target 'Brrrr' do
   pod 'SwiftyJSON'
   pod 'PromiseKit/CorePromise'
   pod 'SwiftyBeaver'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
   target 'BrrrrTests' do
   end
