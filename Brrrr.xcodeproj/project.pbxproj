@@ -15,6 +15,8 @@
 		CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C71E6709F700B5DE01 /* DataBlock.swift */; };
 		CB3C60CA1E67BE5F00B5DE01 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C91E67BE5F00B5DE01 /* Alert.swift */; };
 		CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */; };
+		CB5D08E01ED5E5F1008F51FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */; };
+		CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5D08E11ED5E603008F51FD /* MainView.storyboard */; };
 		CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD512C31E63B4A500614C3A /* AppDelegate.swift */; };
 		CBD512C61E63B4A500614C3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD512C51E63B4A500614C3A /* ViewController.swift */; };
 		CBD512C91E63B4A500614C3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD512C71E63B4A500614C3A /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		CB3C60C71E6709F700B5DE01 /* DataBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBlock.swift; path = Models/DataBlock.swift; sourceTree = "<group>"; };
 		CB3C60C91E67BE5F00B5DE01 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Models/Alert.swift; sourceTree = "<group>"; };
 		CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DarkSkyResponse.swift; path = Models/DarkSkyResponse.swift; sourceTree = "<group>"; };
+		CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Views/Main/MainViewController.swift; sourceTree = "<group>"; };
+		CB5D08E11ED5E603008F51FD /* MainView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainView.storyboard; path = Views/Main/MainView.storyboard; sourceTree = "<group>"; };
 		CBD512C01E63B4A500614C3A /* Brrrr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brrrr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD512C31E63B4A500614C3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBD512C51E63B4A500614C3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +98,24 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		CB5D08DD1ED5E558008F51FD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CBD512CC1E63B4A500614C3A /* LaunchScreen.storyboard */,
+				CB5D08DE1ED5E593008F51FD /* Main */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CB5D08DE1ED5E593008F51FD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */,
+				CB5D08E11ED5E603008F51FD /* MainView.storyboard */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 		CBD512B71E63B4A500614C3A = {
 			isa = PBXGroup;
 			children = (
@@ -121,10 +143,10 @@
 				CBD512C51E63B4A500614C3A /* ViewController.swift */,
 				CBD512C71E63B4A500614C3A /* Main.storyboard */,
 				CBD512CA1E63B4A500614C3A /* Assets.xcassets */,
-				CBD512CC1E63B4A500614C3A /* LaunchScreen.storyboard */,
 				CBD512CF1E63B4A500614C3A /* Info.plist */,
 				CBD512E61E6523E700614C3A /* API */,
 				CB3C60C41E6705F900B5DE01 /* Models */,
+				CB5D08DD1ED5E558008F51FD /* Views */,
 			);
 			path = Brrrr;
 			sourceTree = "<group>";
@@ -264,6 +286,7 @@
 			files = (
 				CBD512CE1E63B4A500614C3A /* LaunchScreen.storyboard in Resources */,
 				CBD512CB1E63B4A500614C3A /* Assets.xcassets in Resources */,
+				CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */,
 				CBD512C91E63B4A500614C3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,7 +403,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+			shellScript = "# \"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -395,6 +418,7 @@
 				CBD512E81E65245200614C3A /* API.swift in Sources */,
 				CB3C60C61E67065C00B5DE01 /* DataPoint.swift in Sources */,
 				CB3C60C31E66E18400B5DE01 /* Endpoints.swift in Sources */,
+				CB5D08E01ED5E5F1008F51FD /* MainViewController.swift in Sources */,
 				CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */,
 				CB3C60CA1E67BE5F00B5DE01 /* Alert.swift in Sources */,
 			);
