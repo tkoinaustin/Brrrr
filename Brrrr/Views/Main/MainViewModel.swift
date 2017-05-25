@@ -15,6 +15,8 @@ class MainViewModel {
   let darkSky = Variable<DarkSkyResponse>(DarkSkyResponse.empty!)
   
   let locationDescription: Driver<String>
+  let locationLatitude: Driver<String>
+  let locationLongitude: Driver<CLLocationDegrees>
 
   init(_ searchCriteria: ControlProperty<String>) {
     let place = searchCriteria.asObservable()
@@ -33,7 +35,21 @@ class MainViewModel {
         if place.isEmpty { return "" }
         return "\(place[0].name ?? ""), \(place[0].administrativeArea ?? ""), \(place[0].isoCountryCode ?? ""), \(place[0].postalCode ?? "") \n "
       }
-      .asDriver(onErrorJustReturn: "No match found")    
+      .asDriver(onErrorJustReturn: "No match found")
+    
+    locationLatitude = place
+      .map { place in
+        if place.isEmpty { return "" }
+        return place[0].location!.coordinate.latitude.description
+    }
+    .asDriver(onErrorJustReturn: "")
+    
+    locationLongitude = place
+      .map { place in
+        if place.isEmpty { return 0 }
+        return place[0].location!.coordinate.longitude
+      }
+      .asDriver(onErrorJustReturn: 0)
   }
   
   func dataRequest() -> Observable<DarkSkyResponse> {
