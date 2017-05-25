@@ -17,9 +17,9 @@
 		CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */; };
 		CB5D08E01ED5E5F1008F51FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */; };
 		CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5D08E11ED5E603008F51FD /* MainView.storyboard */; };
+		CB5D08E41ED62DEC008F51FD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */; };
+		CB5D08E81ED768F4008F51FD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08E71ED768F4008F51FD /* Location.swift */; };
 		CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD512C31E63B4A500614C3A /* AppDelegate.swift */; };
-		CBD512C61E63B4A500614C3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD512C51E63B4A500614C3A /* ViewController.swift */; };
-		CBD512C91E63B4A500614C3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD512C71E63B4A500614C3A /* Main.storyboard */; };
 		CBD512CB1E63B4A500614C3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBD512CA1E63B4A500614C3A /* Assets.xcassets */; };
 		CBD512CE1E63B4A500614C3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD512CC1E63B4A500614C3A /* LaunchScreen.storyboard */; };
 		CBD512D91E63B4A500614C3A /* BrrrrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD512D81E63B4A500614C3A /* BrrrrTests.swift */; };
@@ -52,10 +52,10 @@
 		CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DarkSkyResponse.swift; path = Models/DarkSkyResponse.swift; sourceTree = "<group>"; };
 		CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Views/Main/MainViewController.swift; sourceTree = "<group>"; };
 		CB5D08E11ED5E603008F51FD /* MainView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainView.storyboard; path = Views/Main/MainView.storyboard; sourceTree = "<group>"; };
+		CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = Views/Main/MainViewModel.swift; sourceTree = "<group>"; };
+		CB5D08E71ED768F4008F51FD /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = API/Location.swift; sourceTree = "<group>"; };
 		CBD512C01E63B4A500614C3A /* Brrrr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brrrr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD512C31E63B4A500614C3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBD512C51E63B4A500614C3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CBD512C81E63B4A500614C3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBD512CA1E63B4A500614C3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBD512CD1E63B4A500614C3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBD512CF1E63B4A500614C3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,6 +110,7 @@
 		CB5D08DE1ED5E593008F51FD /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */,
 				CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */,
 				CB5D08E11ED5E603008F51FD /* MainView.storyboard */,
 			);
@@ -140,8 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				CBD512C31E63B4A500614C3A /* AppDelegate.swift */,
-				CBD512C51E63B4A500614C3A /* ViewController.swift */,
-				CBD512C71E63B4A500614C3A /* Main.storyboard */,
 				CBD512CA1E63B4A500614C3A /* Assets.xcassets */,
 				CBD512CF1E63B4A500614C3A /* Info.plist */,
 				CBD512E61E6523E700614C3A /* API */,
@@ -165,6 +164,7 @@
 			children = (
 				CBD512E71E65245200614C3A /* API.swift */,
 				CB3C60C21E66E18400B5DE01 /* Endpoints.swift */,
+				CB5D08E71ED768F4008F51FD /* Location.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -287,7 +287,6 @@
 				CBD512CE1E63B4A500614C3A /* LaunchScreen.storyboard in Resources */,
 				CBD512CB1E63B4A500614C3A /* Assets.xcassets in Resources */,
 				CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */,
-				CBD512C91E63B4A500614C3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,10 +412,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */,
-				CBD512C61E63B4A500614C3A /* ViewController.swift in Sources */,
+				CB5D08E81ED768F4008F51FD /* Location.swift in Sources */,
 				CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */,
 				CBD512E81E65245200614C3A /* API.swift in Sources */,
 				CB3C60C61E67065C00B5DE01 /* DataPoint.swift in Sources */,
+				CB5D08E41ED62DEC008F51FD /* MainViewModel.swift in Sources */,
 				CB3C60C31E66E18400B5DE01 /* Endpoints.swift in Sources */,
 				CB5D08E01ED5E5F1008F51FD /* MainViewController.swift in Sources */,
 				CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */,
@@ -443,14 +443,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CBD512C71E63B4A500614C3A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CBD512C81E63B4A500614C3A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CBD512CC1E63B4A500614C3A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

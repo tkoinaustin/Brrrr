@@ -29,6 +29,8 @@ class DarkSkyResponse {
   let dateFormatter = DateFormatter()
   let tempFormatter = NumberFormatter()
   
+  static let empty = DarkSkyResponse(from: ["empty": "response"])
+  
   required init?(from data: JSON) {
     guard DataBlock.isValid(data) else { return nil }
     

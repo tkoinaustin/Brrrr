@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,12 +21,70 @@
                     <view key="view" contentMode="scaleToFill" id="WCy-4V-sM5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnE-Ka-Yqa">
+                                <rect key="frame" x="165" y="607" width="45" height="30"/>
+                                <state key="normal" title="Hourly"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTS-94-x76">
+                                <rect key="frame" x="230" y="607" width="34" height="30"/>
+                                <state key="normal" title="Daily"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpP-3l-7wL">
+                                <rect key="frame" x="86" y="607" width="59" height="30"/>
+                                <state key="normal" title="Minutely"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yx-2e-nap">
+                                <rect key="frame" x="16" y="543" width="343" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="wqX-5f-o0D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2C-pU-WIu">
+                                <rect key="frame" x="16" y="34" width="31" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eYd-Qe-1K0">
+                                <rect key="frame" x="57" y="30" width="302" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xnE-Ka-Yqa" firstAttribute="baseline" secondItem="KpP-3l-7wL" secondAttribute="baseline" id="0LD-lN-nL4"/>
+                            <constraint firstItem="9Yx-2e-nap" firstAttribute="trailing" secondItem="WCy-4V-sM5" secondAttribute="trailingMargin" id="3YH-54-58b"/>
+                            <constraint firstItem="xnE-Ka-Yqa" firstAttribute="baseline" secondItem="KpP-3l-7wL" secondAttribute="baseline" id="47A-J8-2jN"/>
+                            <constraint firstItem="eYd-Qe-1K0" firstAttribute="baseline" secondItem="f2C-pU-WIu" secondAttribute="baseline" id="BhH-TP-gJR"/>
+                            <constraint firstItem="xnE-Ka-Yqa" firstAttribute="centerX" secondItem="WCy-4V-sM5" secondAttribute="centerX" id="Cwu-IH-Czn"/>
+                            <constraint firstItem="uTS-94-x76" firstAttribute="baseline" secondItem="KpP-3l-7wL" secondAttribute="baseline" id="Iot-Yr-iFJ"/>
+                            <constraint firstItem="uTS-94-x76" firstAttribute="leading" secondItem="xnE-Ka-Yqa" secondAttribute="trailing" constant="20" id="Owp-p4-LNi"/>
+                            <constraint firstItem="79f-lj-C5v" firstAttribute="top" secondItem="xnE-Ka-Yqa" secondAttribute="bottom" constant="30" id="PTb-1A-sSI"/>
+                            <constraint firstItem="uTS-94-x76" firstAttribute="leading" secondItem="xnE-Ka-Yqa" secondAttribute="trailing" constant="20" id="Rwu-Bd-nn7"/>
+                            <constraint firstItem="uTS-94-x76" firstAttribute="baseline" secondItem="KpP-3l-7wL" secondAttribute="baseline" id="Sa1-g5-cKL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eYd-Qe-1K0" secondAttribute="trailing" id="Y8f-Rg-XLD"/>
+                            <constraint firstItem="eYd-Qe-1K0" firstAttribute="top" secondItem="BMb-NA-4OB" secondAttribute="bottom" constant="10" id="ZIi-m0-w4v"/>
+                            <constraint firstItem="f2C-pU-WIu" firstAttribute="leading" secondItem="WCy-4V-sM5" secondAttribute="leadingMargin" id="m0P-gF-08Q"/>
+                            <constraint firstItem="9Yx-2e-nap" firstAttribute="leading" secondItem="WCy-4V-sM5" secondAttribute="leadingMargin" id="m6T-1k-g9i"/>
+                            <constraint firstItem="eYd-Qe-1K0" firstAttribute="leading" secondItem="f2C-pU-WIu" secondAttribute="trailing" constant="10" id="mOg-aw-jYL"/>
+                            <constraint firstItem="xnE-Ka-Yqa" firstAttribute="top" secondItem="9Yx-2e-nap" secondAttribute="bottom" constant="30" id="nND-qT-A9y"/>
+                            <constraint firstItem="xnE-Ka-Yqa" firstAttribute="leading" secondItem="KpP-3l-7wL" secondAttribute="trailing" constant="20" id="u5g-kc-Ps7"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchField" destination="eYd-Qe-1K0" id="teq-sC-Z5X"/>
+                        <outlet property="searchResultsLabel" destination="9Yx-2e-nap" id="mbW-eL-Clu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPz-lQ-JPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="172" y="65"/>
+            <point key="canvasLocation" x="172" y="64.31784107946028"/>
         </scene>
     </scenes>
 </document>
