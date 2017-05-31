@@ -19,22 +19,23 @@ class MainViewModel {
   let locationLatitude: Driver<String>
   let locationLongitude: Driver<String>
   let currentConditions: Driver<String>
+  let endEditing: Observable<Void>
 
   //swiftlint:disable function_body_length
   //swiftlint:disable line_length
-  init(searchCriteria: ControlProperty<String>,
-       minuteAction: ControlEvent<Void>
+  init(searchCriteria: Observable<String>,
+       searchClick: Observable<Void>,
+       cancelClick: Observable<Void>
     ) {
-    let coordinates = searchCriteria.asObservable()
-      .debounce(0.5, scheduler: MainScheduler.instance)
-      .distinctUntilChanged()
-      .filter { !$0.characters.isEmpty }
-      .debug("place")
+    
+    let coordinates = searchClick
+    .withLatestFrom(searchCriteria)
       .flatMap { searchString in
         return Location.getCoordinates(searchString)
-          .catchErrorJustReturn([CLPlacemark]())
-      }
-      .share()
+    }
+    .share()
+    
+    endEditing = Observable.of(searchClick, cancelClick).merge()
     
     locationDescription = coordinates
       .map { place in
@@ -74,12 +75,6 @@ class MainViewModel {
     }
     .asDriver(onErrorJustReturn: "")
 
-    minuteAction.asObservable()
-      .subscribe(onNext: { [weak self] _ in
-        self?.showMinutelyData()
-      })
-    .addDisposableTo(disposeBag)
-    
     weather
       .subscribe(onNext: { data in
         self.darkSky.value = data
@@ -98,7 +93,17 @@ class MainViewModel {
     }
   }
   
-  private func showMinutelyData() {
+  func showHourlyData() {
+    guard let items = darkSky.value.hourly?.item else { return }
+    for item in items {
+      let clouds = item.cloudCover == nil ? "" : "\nCloud Cover: \(item.cloudCover!)%"
+      let humid = item.humidity == nil ? "" : "\nHumidity: \(item.humidity!)%"
+      let precipError = item.precipIntensityError == nil ? "" : "+/-\(item.precipIntensityError!)"
+      let precipType = item.precipType == nil ? "" : ", Type: \(item.precipType!)"
+      print("\(String(describing: item.prettyDate!)), \(item.summary!)\nTemp: \(item.temperature!)\u{00B0}F\nFeels like: \(item.apparentTemperature!)\u{00B0}F\(clouds)\(humid)\nProb: \(String(describing: item.precipProbability))\(precipError), Intnsty: \(String(describing: item.precipIntensity))\(precipType)\n")
+    }
+  }
+  func showMinutelyData() {
     guard let items = darkSky.value.minutely?.item else { return }
     for point in items {
       let precipError = point.precipIntensityError == nil ? "" : "+/-\(point.precipIntensityError!)"
