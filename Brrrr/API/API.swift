@@ -11,7 +11,6 @@ import PromiseKit
 import SwiftyJSON
 
 let darkskySecret = "8df9435548d5c5b86730f20a760be59c"
-let location = "30.533110,-97.901670"
 
 struct APIResponse {
   let raw: URLResponse?

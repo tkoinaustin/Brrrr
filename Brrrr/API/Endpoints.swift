@@ -8,26 +8,29 @@
 
 import Foundation
 import PromiseKit
+import CoreLocation
 
 class Endpoints {
   private enum Endpoints {
-    case forecast(location: String)
-    case history(location: String, date: Date)
+    case forecast(location: CLLocation)
+    case history(location: CLLocation, date: Date)
     
     func path() -> String {
       switch self {
-      case .forecast(location: let location): return "/forecast/\(darkskySecret)/\(location)"
-      case .history(location: let location, date: let date): return "/forecast/\(darkskySecret)/\(location),\(date)"
+      case .forecast(location: let location):
+        return "/forecast/\(darkskySecret)/\(location.coordinate.latitude),\(location.coordinate.longitude)"
+      case .history(location: let location, date: let date):
+        return "/forecast/\(darkskySecret)/\(location.coordinate.latitude),\(location.coordinate.longitude),\(date)"
       }
     }
   }
   
-  static func getForcast(_ location: String) -> Promise<APIResponse> {
+  static func getForcast(_ location: CLLocation) -> Promise<APIResponse> {
     let request = APIRequest(.get, path: Endpoints.forecast(location: location).path())
     return API.fire(request)
   }
   
-  static func getHistory(_ location: String, date: Date) -> Promise<APIResponse> {
+  static func getHistory(_ location: CLLocation, date: Date) -> Promise<APIResponse> {
     let request = APIRequest(.get, path: Endpoints.history(location: location, date: date).path())
     return API.fire(request)
   }

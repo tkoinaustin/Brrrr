@@ -9,6 +9,7 @@
 import UIKit
 import PromiseKit
 import SwiftyJSON
+import CoreLocation
 
 enum ModelError: Error {
   case invalidData
@@ -44,10 +45,10 @@ class DarkSkyResponse {
     
     self.tempFormatter.maximumFractionDigits = 0
     
-    self.currently = DataPoint(from: self.data["currently"])
-    self.minutely = DataBlock(from: self.data["minutely"])
-    self.hourly = DataBlock(from: self.data["hourly"])
-    self.daily = DataBlock(from: self.data["daily"])
+    self.currently = DataPoint(from: self.data["currently"], formatters: [dateFormatter, tempFormatter])
+    self.minutely = DataBlock(from: self.data["minutely"], formatters: [dateFormatter, tempFormatter])
+    self.hourly = DataBlock(from: self.data["hourly"], formatters: [dateFormatter, tempFormatter])
+    self.daily = DataBlock(from: self.data["daily"], formatters: [dateFormatter, tempFormatter])
     
     var alerts = [Alert]()
     for item in self.data["alerts"].arrayValue {
@@ -59,11 +60,11 @@ class DarkSkyResponse {
   }
   
   static func isValid(_ data: JSON) -> Bool {
-    if let _ = data.dictionary { return true }
+    if data.dictionary != nil { return true }
     else { return false }
   }
   
-  static func loadPromise() -> Promise<DarkSkyResponse> {
+  static func loadWeather(_ location: CLLocation) -> Promise<DarkSkyResponse> {
     return Endpoints.getForcast(location).then(on: DispatchQueue.global(qos: .background)) { response in
       return Promise<DarkSkyResponse> { fulfill, reject in
       guard let darkSkyResponse = DarkSkyResponse(from: response.body) else { return reject(ModelError.invalidData) }
