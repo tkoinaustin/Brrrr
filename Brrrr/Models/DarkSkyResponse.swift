@@ -39,8 +39,7 @@ class DarkSkyResponse {
     
     self.locale = Locale(identifier: data["timezone"].stringValue)
     
-    self.dateFormatter.dateStyle = .short
-    self.dateFormatter.timeStyle = .short
+    self.dateFormatter.dateFormat = "ha"
     self.dateFormatter.locale = self.locale
     
     self.tempFormatter.maximumFractionDigits = 0

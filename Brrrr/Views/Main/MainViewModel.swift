@@ -14,7 +14,10 @@ import RxCocoa
 class MainViewModel {
   let disposeBag = DisposeBag()
   var darkSky = Variable<DarkSkyResponse>(DarkSkyResponse.empty!)
+  var hourlyData = Variable<[DataPoint]>([])
+  var dailyData = Variable<[DataPoint]>([])
   
+  let dailyForecast: Driver<[DataPoint]>
   let locationDescription: Driver<String>
   let locationLatitude: Driver<String>
   let locationLongitude: Driver<String>
@@ -74,10 +77,22 @@ class MainViewModel {
         return "\(item.summary!)\nTemp: \(item.temperature!)\u{00B0}F\nFeels like: \(item.apparentTemperature!)\u{00B0}F\(clouds)\(humid)"
     }
     .asDriver(onErrorJustReturn: "")
+    
+    dailyForecast = weather
+      .map { data in
+        return (data.daily?.items)!
+      }
+      .asDriver(onErrorJustReturn: [])
 
     weather
       .subscribe(onNext: { data in
         self.darkSky.value = data
+        if let hourly = data.hourly?.items {
+          self.hourlyData.value = hourly
+        }
+        if let daily = data.daily?.items {
+          self.dailyData.value = daily
+        }
       })
       .addDisposableTo(disposeBag)
 }
@@ -85,7 +100,9 @@ class MainViewModel {
   // this turns the promise into an observable
   static func dataRequest(_ location: CLLocation) -> Observable<DarkSkyResponse> {
     return Observable.create { observer in
+      UIApplication.shared.isNetworkActivityIndicatorVisible = true
       DarkSkyResponse.loadWeather(location).then { darkSkyData -> Void in
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         observer.onNext(darkSkyData)
         observer.onCompleted()
       }
@@ -93,8 +110,15 @@ class MainViewModel {
     }
   }
   
+  func showDailyData() {
+    guard let items = darkSky.value.daily?.items else { return }
+    for item in items {
+      print("\(item.temperatureMax)/\(item.temperatureMin) \(item.humidity!)%h \(item.dayOfWeek) \(DateService.hhmma(item.sunriseTime))/\(DateService.hhmma(item.sunsetTime))")
+    }
+  }
+  
   func showHourlyData() {
-    guard let items = darkSky.value.hourly?.item else { return }
+    guard let items = darkSky.value.hourly?.items else { return }
     for item in items {
       let clouds = item.cloudCover == nil ? "" : "\nCloud Cover: \(item.cloudCover!)%"
       let humid = item.humidity == nil ? "" : "\nHumidity: \(item.humidity!)%"
@@ -104,7 +128,7 @@ class MainViewModel {
     }
   }
   func showMinutelyData() {
-    guard let items = darkSky.value.minutely?.item else { return }
+    guard let items = darkSky.value.minutely?.items else { return }
     for point in items {
       let precipError = point.precipIntensityError == nil ? "" : "+/-\(point.precipIntensityError!)"
       let precipType = point.precipType == nil ? "" : ", Type: \(point.precipType!)"

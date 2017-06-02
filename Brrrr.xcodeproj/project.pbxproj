@@ -15,6 +15,15 @@
 		CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C71E6709F700B5DE01 /* DataBlock.swift */; };
 		CB3C60CA1E67BE5F00B5DE01 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C91E67BE5F00B5DE01 /* Alert.swift */; };
 		CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */; };
+		CB5918C11EDF65C60093AC57 /* HourlyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C01EDF65C60093AC57 /* HourlyCell.xib */; };
+		CB5918C31EDF65D80093AC57 /* HourlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918C21EDF65D80093AC57 /* HourlyCell.swift */; };
+		CB5918C71EE083AF0093AC57 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C51EE083AF0093AC57 /* LICENSE */; };
+		CB5918C81EE083AF0093AC57 /* weather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C61EE083AF0093AC57 /* weather.ttf */; };
+		CB5918CD1EE09C440093AC57 /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918CC1EE09C440093AC57 /* DailyCell.swift */; };
+		CB5918CF1EE09C5F0093AC57 /* DailyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5918CE1EE09C5F0093AC57 /* DailyCell.xib */; };
+		CB5918D31EE0C0EC0093AC57 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D21EE0C0EC0093AC57 /* XibLoadable.swift */; };
+		CB5918D71EE1F4510093AC57 /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D51EE1F4510093AC57 /* DateService.swift */; };
+		CB5918D81EE1F4510093AC57 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D61EE1F4510093AC57 /* Icons.swift */; };
 		CB5D08E01ED5E5F1008F51FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */; };
 		CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5D08E11ED5E603008F51FD /* MainView.storyboard */; };
 		CB5D08E41ED62DEC008F51FD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */; };
@@ -50,6 +59,15 @@
 		CB3C60C71E6709F700B5DE01 /* DataBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBlock.swift; path = Models/DataBlock.swift; sourceTree = "<group>"; };
 		CB3C60C91E67BE5F00B5DE01 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Models/Alert.swift; sourceTree = "<group>"; };
 		CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DarkSkyResponse.swift; path = Models/DarkSkyResponse.swift; sourceTree = "<group>"; };
+		CB5918C01EDF65C60093AC57 /* HourlyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HourlyCell.xib; path = Components/Hourly/HourlyCell.xib; sourceTree = "<group>"; };
+		CB5918C21EDF65D80093AC57 /* HourlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HourlyCell.swift; path = Components/Hourly/HourlyCell.swift; sourceTree = "<group>"; };
+		CB5918C51EE083AF0093AC57 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Assets/LICENSE; sourceTree = "<group>"; };
+		CB5918C61EE083AF0093AC57 /* weather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = weather.ttf; path = Assets/weather.ttf; sourceTree = "<group>"; };
+		CB5918CC1EE09C440093AC57 /* DailyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyCell.swift; path = Components/Daily/DailyCell.swift; sourceTree = "<group>"; };
+		CB5918CE1EE09C5F0093AC57 /* DailyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DailyCell.xib; path = Components/Daily/DailyCell.xib; sourceTree = "<group>"; };
+		CB5918D21EE0C0EC0093AC57 /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibLoadable.swift; path = Components/XibLoadable.swift; sourceTree = "<group>"; };
+		CB5918D51EE1F4510093AC57 /* DateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateService.swift; path = Services/DateService.swift; sourceTree = "<group>"; };
+		CB5918D61EE1F4510093AC57 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icons.swift; path = Services/Icons.swift; sourceTree = "<group>"; };
 		CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Views/Main/MainViewController.swift; sourceTree = "<group>"; };
 		CB5D08E11ED5E603008F51FD /* MainView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainView.storyboard; path = Views/Main/MainView.storyboard; sourceTree = "<group>"; };
 		CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = Views/Main/MainViewModel.swift; sourceTree = "<group>"; };
@@ -98,6 +116,52 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		CB5918BE1EDF657A0093AC57 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CB5918D21EE0C0EC0093AC57 /* XibLoadable.swift */,
+				CB5918CB1EE09C140093AC57 /* Daily */,
+				CB5918BF1EDF65990093AC57 /* Hourly */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		CB5918BF1EDF65990093AC57 /* Hourly */ = {
+			isa = PBXGroup;
+			children = (
+				CB5918C21EDF65D80093AC57 /* HourlyCell.swift */,
+				CB5918C01EDF65C60093AC57 /* HourlyCell.xib */,
+			);
+			name = Hourly;
+			sourceTree = "<group>";
+		};
+		CB5918C41EE083990093AC57 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CB5918C51EE083AF0093AC57 /* LICENSE */,
+				CB5918C61EE083AF0093AC57 /* weather.ttf */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		CB5918CB1EE09C140093AC57 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				CB5918CC1EE09C440093AC57 /* DailyCell.swift */,
+				CB5918CE1EE09C5F0093AC57 /* DailyCell.xib */,
+			);
+			name = Daily;
+			sourceTree = "<group>";
+		};
+		CB5918D41EE1F30E0093AC57 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CB5918D51EE1F4510093AC57 /* DateService.swift */,
+				CB5918D61EE1F4510093AC57 /* Icons.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		CB5D08DD1ED5E558008F51FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,7 +208,10 @@
 				CBD512CA1E63B4A500614C3A /* Assets.xcassets */,
 				CBD512CF1E63B4A500614C3A /* Info.plist */,
 				CBD512E61E6523E700614C3A /* API */,
+				CB5918C41EE083990093AC57 /* Assets */,
+				CB5918D41EE1F30E0093AC57 /* Services */,
 				CB3C60C41E6705F900B5DE01 /* Models */,
+				CB5918BE1EDF657A0093AC57 /* Components */,
 				CB5D08DD1ED5E558008F51FD /* Views */,
 			);
 			path = Brrrr;
@@ -285,8 +352,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBD512CE1E63B4A500614C3A /* LaunchScreen.storyboard in Resources */,
+				CB5918C81EE083AF0093AC57 /* weather.ttf in Resources */,
 				CBD512CB1E63B4A500614C3A /* Assets.xcassets in Resources */,
+				CB5918C11EDF65C60093AC57 /* HourlyCell.xib in Resources */,
 				CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */,
+				CB5918C71EE083AF0093AC57 /* LICENSE in Resources */,
+				CB5918CF1EE09C5F0093AC57 /* DailyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,14 +482,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB5918C31EDF65D80093AC57 /* HourlyCell.swift in Sources */,
 				CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */,
 				CB5D08E81ED768F4008F51FD /* Location.swift in Sources */,
 				CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */,
 				CBD512E81E65245200614C3A /* API.swift in Sources */,
+				CB5918D71EE1F4510093AC57 /* DateService.swift in Sources */,
 				CB3C60C61E67065C00B5DE01 /* DataPoint.swift in Sources */,
 				CB5D08E41ED62DEC008F51FD /* MainViewModel.swift in Sources */,
+				CB5918D81EE1F4510093AC57 /* Icons.swift in Sources */,
 				CB3C60C31E66E18400B5DE01 /* Endpoints.swift in Sources */,
+				CB5918CD1EE09C440093AC57 /* DailyCell.swift in Sources */,
 				CB5D08E01ED5E5F1008F51FD /* MainViewController.swift in Sources */,
+				CB5918D31EE0C0EC0093AC57 /* XibLoadable.swift in Sources */,
 				CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */,
 				CB3C60CA1E67BE5F00B5DE01 /* Alert.swift in Sources */,
 			);

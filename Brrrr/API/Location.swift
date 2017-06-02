@@ -16,7 +16,9 @@ class Location {
   static func getCoordinates(_ location: String) -> Observable<[CLPlacemark]> {
     print("getCoordinates")
     return Observable<[CLPlacemark]>.create { observer in
+      UIApplication.shared.isNetworkActivityIndicatorVisible = true
       self.geocoder.geocodeAddressString(location) { placemarks, error in
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         guard error == nil else {
           observer.onError(error!)
           return

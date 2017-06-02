@@ -12,7 +12,7 @@ import SwiftyJSON
 class DataBlock {
   let data: JSON
   
-  let item: [DataPoint]
+  let items: [DataPoint]
   var summary: String? { return data["summary"].string }
   var icon: String? { return data["icon"].string }
   let dateFormatter: DateFormatter!
@@ -34,7 +34,7 @@ class DataBlock {
       }
     }
     
-    self.item = items
+    self.items = items
   }
   
   static func isValid(_ data: JSON) -> Bool {

@@ -21,7 +21,7 @@ class DataPoint {
   var apparentTemperatureMinTime: NSNumber { return data["apparentTemperatureMinTime"].numberValue }
   var cloudCover: String? { return tempFormatter.string(from: NSNumber(value: (data["cloudCover"].numberValue.floatValue * 100.0))) }
   var humidity: String? { return tempFormatter.string(from: NSNumber(value: (data["humidity"].numberValue.floatValue * 100.0))) }
-  var icon: String? { return data["icon"].string }
+  var icon: String { return Icon.meaning(data["icon"].stringValue) }
   var moonPhase: String? { return data["moonPhase"].string }
   var nearestStormBearing: String? { return data["nearestStormBearing"].string }
   var nearestStormDistance: String? { return data["nearestStormDistance"].string }
@@ -35,19 +35,20 @@ class DataPoint {
   var precipType: String? { return data["precipType"].string }
   var pressure: String? { return data["pressure"].string }
   var summary: String? { return data["summary"].string }
-  var sunriseTime: String { return data["sunriseTime"].stringValue }
-  var sunsetTime: String? { return data["sunsetTime"].string }
+  var sunriseTime: Double { return data["sunriseTime"].doubleValue }
+  var sunsetTime: Double { return data["sunsetTime"].doubleValue }
   var temperature: String? { return tempFormatter.string(from: data["temperature"].numberValue) }
-  var temperatureMax: String? { return data["temperatureMax"].string }
+  var temperatureMax: String { return tempFormatter.string(from: data["temperatureMax"].numberValue)! }
   var temperatureMaxTime: String? { return data["temperatureMaxTime"].string }
-  var temperatureMin: String? { return data["temperatureMin"].string }
+  var temperatureMin: String { return tempFormatter.string(from: data["temperatureMin"].numberValue)! }
   var temperatureMinTime: String? { return data["temperatureMinTime"].string }
   var timeValue: Double? { return data["time"].double }
-  var visibility: String? { return data["visibility"].string }
+  var visibility: String? { return tempFormatter.string(from: data["visibility"].numberValue) }
   var windBearing: String? { return data["windBearing"].string }
   var windSpeed: String? { return data["windSpeed"].string }
   var time: Date? { return Date(timeIntervalSince1970: data["time"].doubleValue) }
   var prettyDate: String? { return dateFormatter.string(from:Date(timeIntervalSince1970: data["time"].doubleValue)) }
+  var dayOfWeek: String { return DateService.dayOfWeek(data["time"].doubleValue) }
 
   required init?(from data: JSON, formatters: [Formatter]) {
     guard let dateFormatter = formatters[0] as? DateFormatter else { return nil }
