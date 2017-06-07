@@ -14,7 +14,7 @@ import CoreLocation
 class MainViewController: UIViewController {
   let disposeBag = DisposeBag()
   
-  private lazy var viewModel: MainViewModel = {
+  fileprivate lazy var viewModel: MainViewModel = {
     return MainViewModel(searchCriteria: self.searchBar.rx.text.orEmpty.asObservable(),
                          searchClick: self.searchBar.rx.searchButtonClicked.asObservable(),
                          cancelClick: self.searchBar.rx.cancelButtonClicked.asObservable())
@@ -29,6 +29,7 @@ class MainViewController: UIViewController {
   @IBOutlet private weak var symbolsLabel: UILabel!
   @IBOutlet private weak var scrollView: UIScrollView!
   
+  @IBOutlet weak var currentView: HeaderCell!
   @IBOutlet private weak var hourlyConditions: UICollectionView! { didSet {
     let hourlyCell = String(describing: HourlyCell.self)
     hourlyConditions.register(UINib(nibName: hourlyCell, bundle: Bundle.main),
@@ -41,7 +42,13 @@ class MainViewController: UIViewController {
     hourlyConditions.collectionViewLayout = layout
     }}
 
-  @IBOutlet private var dailyItems: [DailyCell]!
+  @IBOutlet fileprivate weak var tableView: UITableView! { didSet {
+    tableView.dataSource = self
+    tableView.delegate = self
+    tableView.estimatedRowHeight = 100
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.contentInset = UIEdgeInsets(top: 75, left: 0, bottom: 0, right: 0)
+  }}
   
   @IBAction func currentAction(_ sender: UIButton) {
     viewModel.showCurrentData()
@@ -58,34 +65,15 @@ class MainViewController: UIViewController {
   @IBAction func dailyAction(_ sender: UIButton) {
     viewModel.showDailyData()
   }
-  
+  var fds: UITableViewHeaderFooterView!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     bind()
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    scrollView.layoutIfNeeded()
-  }
-  
   //swiftlint:disable function_body_length
   func bind() {
-    viewModel.locationDescription
-      .drive(searchResultsLabel.rx.text)
-      .addDisposableTo(disposeBag)
-    
-    viewModel.locationLatitude
-      .drive(latitudeLabel.rx.text)
-      .addDisposableTo(disposeBag)
-    
-    viewModel.locationLongitude
-      .drive(longitudeLabel.rx.text)
-      .addDisposableTo(disposeBag)
-    
-    viewModel.currentConditions
-      .drive(currentConditionsLabel.rx.text)
-      .addDisposableTo(disposeBag)
     
     viewModel.endEditing.asObservable()
       .subscribe(onNext: { [weak self] in
@@ -96,12 +84,8 @@ class MainViewController: UIViewController {
     viewModel.dailyData.asObservable()
       .debug("dailyData")
       .subscribe(onNext: { [weak self] dailyArray in
-        var counter = 0
-        guard dailyArray.count > 6 else { return }
-        for forecast in dailyArray {
-          self?.dailyItems[counter].data = forecast
-          counter += 1
-        }
+        self?.tableView.reloadData()
+        self?.currentView.data = self?.viewModel.darkSky.value.currently
       })
       .addDisposableTo(disposeBag)
     
@@ -114,4 +98,24 @@ class MainViewController: UIViewController {
       }
       .addDisposableTo(disposeBag)
   }
+}
+
+extension MainViewController: UITableViewDelegate {
+  
+}
+
+extension MainViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return viewModel.dailyData.value.count
+  }
+  
+  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let  cell = tableView.dequeueReusableCell(withIdentifier: "DailyTableViewCell")     
+    guard let dailyTableCell = cell as? DailyTableCell else { return  UITableViewCell() }
+
+    dailyTableCell.data = viewModel.dailyData.value[indexPath.row]
+    
+    return dailyTableCell
+  }
+
 }

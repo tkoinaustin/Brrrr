@@ -34,10 +34,10 @@ class DataPoint {
   var precipProbability: String { return data["precipProbability"].numberValue.description }
   var precipType: String? { return data["precipType"].string }
   var pressure: String? { return data["pressure"].string }
-  var summary: String? { return data["summary"].string }
+  var summary: String { return data["summary"].stringValue }
   var sunriseTime: Double { return data["sunriseTime"].doubleValue }
   var sunsetTime: Double { return data["sunsetTime"].doubleValue }
-  var temperature: String? { return tempFormatter.string(from: data["temperature"].numberValue) }
+  var temperature: String { return tempFormatter.string(from: data["temperature"].numberValue)! }
   var temperatureMax: String { return tempFormatter.string(from: data["temperatureMax"].numberValue)! }
   var temperatureMaxTime: String? { return data["temperatureMaxTime"].string }
   var temperatureMin: String { return tempFormatter.string(from: data["temperatureMin"].numberValue)! }

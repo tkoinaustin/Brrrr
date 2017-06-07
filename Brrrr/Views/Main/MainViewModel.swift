@@ -74,7 +74,7 @@ class MainViewModel {
         let clouds = item.cloudCover == nil ? "" : "\nCloud Cover: \(item.cloudCover!)%"
         let humid = item.humidity == nil ? "" : "\nHumidity: \(item.humidity!)%"
         
-        return "\(item.summary!)\nTemp: \(item.temperature!)\u{00B0}F\nFeels like: \(item.apparentTemperature!)\u{00B0}F\(clouds)\(humid)"
+        return "\(item.summary)\nTemp: \(item.temperature)\u{00B0}F\nFeels like: \(item.apparentTemperature!)\u{00B0}F\(clouds)\(humid)"
     }
     .asDriver(onErrorJustReturn: "")
     
@@ -124,7 +124,7 @@ class MainViewModel {
       let humid = item.humidity == nil ? "" : "\nHumidity: \(item.humidity!)%"
       let precipError = item.precipIntensityError == nil ? "" : "+/-\(item.precipIntensityError!)"
       let precipType = item.precipType == nil ? "" : ", Type: \(item.precipType!)"
-      print("\(String(describing: item.prettyDate!)), \(item.summary!)\nTemp: \(item.temperature!)\u{00B0}F\nFeels like: \(item.apparentTemperature!)\u{00B0}F\(clouds)\(humid)\nProb: \(String(describing: item.precipProbability))\(precipError), Intnsty: \(String(describing: item.precipIntensity))\(precipType)\n")
+      print("\(String(describing: item.prettyDate!)), \(item.summary)\nTemp: \(item.temperature)\u{00B0}F\nFeels like: \(item.apparentTemperature!)\u{00B0}F\(clouds)\(humid)\nProb: \(String(describing: item.precipProbability))\(precipError), Intnsty: \(String(describing: item.precipIntensity))\(precipType)\n")
     }
   }
   func showMinutelyData() {
@@ -141,6 +141,6 @@ class MainViewModel {
     let clouds = item.cloudCover == nil ? "" : "\nCloud Cover: \(item.cloudCover!)%"
     let humid = item.humidity == nil ? "" : "\nHumidity: \(item.humidity!)%"
     
-    print("\(item.summary!)\nTemp: \(item.temperature!)\u{00B0}F\nFeels like: \(item.apparentTemperature!)\u{00B0}F\(clouds)\(humid)")
+    print("\(item.summary)\nTemp: \(item.temperature)\u{00B0}F\nFeels like: \(item.apparentTemperature!)\u{00B0}F\(clouds)\(humid)")
   }
 }
