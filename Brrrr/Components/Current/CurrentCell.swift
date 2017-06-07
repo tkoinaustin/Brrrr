@@ -28,6 +28,4 @@ class CurrentCell: UITableViewCell {
   @IBOutlet private weak var feelsLikeLabel: UILabel!
   @IBOutlet private weak var visibilityLabel: UILabel!
   @IBOutlet private weak var barometricLabel: UILabel!
-  
-
 }

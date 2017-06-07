@@ -109,38 +109,4 @@ class MainViewModel {
       return Disposables.create()
     }
   }
-  
-  func showDailyData() {
-    guard let items = darkSky.value.daily?.items else { return }
-    for item in items {
-      print("\(item.temperatureMax)/\(item.temperatureMin) \(item.humidity!)%h \(item.dayOfWeek) \(DateService.hhmma(item.sunriseTime))/\(DateService.hhmma(item.sunsetTime))")
-    }
-  }
-  
-  func showHourlyData() {
-    guard let items = darkSky.value.hourly?.items else { return }
-    for item in items {
-      let clouds = item.cloudCover == nil ? "" : "\nCloud Cover: \(item.cloudCover!)%"
-      let humid = item.humidity == nil ? "" : "\nHumidity: \(item.humidity!)%"
-      let precipError = item.precipIntensityError == nil ? "" : "+/-\(item.precipIntensityError!)"
-      let precipType = item.precipType == nil ? "" : ", Type: \(item.precipType!)"
-      print("\(String(describing: item.prettyDate!)), \(item.summary)\nTemp: \(item.temperature)\u{00B0}F\nFeels like: \(item.apparentTemperature)\u{00B0}F\(clouds)\(humid)\nProb: \(String(describing: item.precipProbability))\(precipError), Intnsty: \(String(describing: item.precipIntensity))\(precipType)\n")
-    }
-  }
-  func showMinutelyData() {
-    guard let items = darkSky.value.minutely?.items else { return }
-    for point in items {
-      let precipError = point.precipIntensityError == nil ? "" : "+/-\(point.precipIntensityError!)"
-      let precipType = point.precipType == nil ? "" : ", Type: \(point.precipType!)"
-      print("\(String(describing: point.prettyDate!)), Prob: \(String(describing: point.precipProbability))\(precipError), Intnsty: \(String(describing: point.precipIntensity))\(precipType)")
-    }
-  }
-  
-  func showCurrentData() {
-    guard let item = darkSky.value.currently else { return }
-    let clouds = item.cloudCover == nil ? "" : "\nCloud Cover: \(item.cloudCover!)%"
-    let humid = item.humidity == nil ? "" : "\nHumidity: \(item.humidity!)%"
-    
-    print("\(item.summary)\nTemp: \(item.temperature)\u{00B0}F\nFeels like: \(item.apparentTemperature)\u{00B0}F\(clouds)\(humid)")
-  }
 }

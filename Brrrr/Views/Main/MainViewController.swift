@@ -46,26 +46,10 @@ class MainViewController: UIViewController {
   @IBOutlet fileprivate weak var tableView: UITableView! { didSet {
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.estimatedRowHeight = 100
+    tableView.estimatedRowHeight = 44
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
   }}
-  
-  @IBAction func currentAction(_ sender: UIButton) {
-    viewModel.showCurrentData()
-  }
-
-  @IBAction func minutelyAction(_ sender: UIButton) {
-    viewModel.showMinutelyData()
-  }
-  
-  @IBAction func hourlyAction(_ sender: Any) {
-    viewModel.showHourlyData()
-  }
-  
-  @IBAction func dailyAction(_ sender: UIButton) {
-    viewModel.showDailyData()
-  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -92,7 +76,7 @@ class MainViewController: UIViewController {
       .skip(1)
       .subscribe(onNext: { [weak self] darksky in
         self?.headerView.cityLabel.text = self?.searchBar.text
-        self?.headerView.data = self?.viewModel.darkSky.value.currently
+        self?.headerView.data = darksky.currently
 
       })
       .addDisposableTo(disposeBag)
@@ -110,20 +94,10 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let offset = scrollView.contentOffset.y
-//    print("offset is \(offset), header height is \(headerView.frame.size.height)")
-    var scale: CGFloat = 1.0
-    if offset < 0 {
-      scale = (max(offset, -50) - 50) / (-100)
-      hourlyTopConstraint.constant = -(125 + offset)
-      headerView.tempLabel.alpha = max((-75.0 - offset)/75.0, 0)
-    } else {
-      scale = 0.5
-      hourlyTopConstraint.constant = -125
-      headerView.tempLabel.alpha = 0.0
-    }
-    self.headerView.cityLabel.transform = CGAffineTransform.init(scaleX: scale, y: scale)
-    headerView.cityLabelConstraint.constant = 20 * scale
-    headerView.forecastLabelConstraint.constant = 8 * scale * scale
+    headerView.offset = offset
+    print("offset is \(offset), header height is \(headerView.frame.size.height)")
+    if offset < 0 { hourlyTopConstraint.constant = -(120 + offset) }
+    else { hourlyTopConstraint.constant = -120 }
   }
 
 }
@@ -132,7 +106,7 @@ extension MainViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.dailyData.value.count + 1
   }
-  
+
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if indexPath.row < viewModel.dailyData.value.count {
       let  cell = tableView.dequeueReusableCell(withIdentifier: "DailyTableViewCell")
