@@ -80,7 +80,7 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="firstBaseline" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rsG-Fl-wcI">
-                                <rect key="frame" x="39.5" y="607" width="296" height="30"/>
+                                <rect key="frame" x="39.5" y="637" width="296" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbc-qT-CYN">
                                         <rect key="frame" x="0.0" y="0.0" width="59" height="30"/>
@@ -127,17 +127,17 @@
                                     <constraint firstAttribute="height" constant="75" id="hP3-fo-QXQ"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="9Fx-8i-S4N">
-                                    <size key="itemSize" width="75" height="75"/>
+                                    <size key="itemSize" width="75" height="70"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="h0s-5V-NtK">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="75" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -149,15 +149,15 @@
                         <constraints>
                             <constraint firstItem="rsG-Fl-wcI" firstAttribute="centerX" secondItem="WCy-4V-sM5" secondAttribute="centerX" id="2ex-Dz-8EM"/>
                             <constraint firstItem="ND1-2A-QQH" firstAttribute="leading" secondItem="WCy-4V-sM5" secondAttribute="leading" id="5RZ-bh-BfN"/>
-                            <constraint firstItem="79f-lj-C5v" firstAttribute="top" secondItem="rsG-Fl-wcI" secondAttribute="bottom" constant="30" id="6DY-ms-aqH"/>
+                            <constraint firstItem="79f-lj-C5v" firstAttribute="top" secondItem="rsG-Fl-wcI" secondAttribute="bottom" id="6DY-ms-aqH"/>
                             <constraint firstItem="5hW-BR-yo8" firstAttribute="leading" secondItem="WCy-4V-sM5" secondAttribute="leading" id="7XG-62-GZG"/>
                             <constraint firstItem="t0g-0p-Rim" firstAttribute="leading" secondItem="WCy-4V-sM5" secondAttribute="leading" id="9OI-Ct-nt3"/>
                             <constraint firstItem="t0g-0p-Rim" firstAttribute="top" secondItem="9pI-E8-rtO" secondAttribute="bottom" id="JHV-di-PIh"/>
                             <constraint firstAttribute="trailing" secondItem="9pI-E8-rtO" secondAttribute="trailing" id="Jhs-jj-tb2"/>
                             <constraint firstItem="9pI-E8-rtO" firstAttribute="leading" secondItem="WCy-4V-sM5" secondAttribute="leading" id="SOg-Pe-vkm"/>
                             <constraint firstAttribute="trailing" secondItem="ND1-2A-QQH" secondAttribute="trailing" id="TMV-V9-Ibz"/>
-                            <constraint firstItem="ND1-2A-QQH" firstAttribute="top" secondItem="9pI-E8-rtO" secondAttribute="bottom" id="bZg-NM-IHR"/>
-                            <constraint firstItem="rsG-Fl-wcI" firstAttribute="top" secondItem="ND1-2A-QQH" secondAttribute="bottom" constant="8" id="bm5-iQ-PTx"/>
+                            <constraint firstItem="ND1-2A-QQH" firstAttribute="top" secondItem="9pI-E8-rtO" secondAttribute="bottom" constant="-45" id="bZg-NM-IHR"/>
+                            <constraint firstItem="rsG-Fl-wcI" firstAttribute="top" secondItem="ND1-2A-QQH" secondAttribute="bottom" id="bm5-iQ-PTx"/>
                             <constraint firstAttribute="trailing" secondItem="5hW-BR-yo8" secondAttribute="trailing" id="gUH-sf-vM6"/>
                             <constraint firstAttribute="trailing" secondItem="t0g-0p-Rim" secondAttribute="trailing" id="lsM-51-Lic"/>
                             <constraint firstItem="9pI-E8-rtO" firstAttribute="top" secondItem="5hW-BR-yo8" secondAttribute="bottom" id="ovX-rn-wIh"/>
@@ -167,6 +167,7 @@
                     <connections>
                         <outlet property="currentView" destination="9pI-E8-rtO" id="YaO-37-lyg"/>
                         <outlet property="hourlyConditions" destination="t0g-0p-Rim" id="tGP-5U-ZEK"/>
+                        <outlet property="hourlyTopConstraint" destination="JHV-di-PIh" id="udI-Vp-pyf"/>
                         <outlet property="minuteButton" destination="KpP-3l-7wL" id="8Cr-wv-6oe"/>
                         <outlet property="searchBar" destination="5hW-BR-yo8" id="mCU-ZY-YVS"/>
                         <outlet property="tableView" destination="ND1-2A-QQH" id="bez-nW-CR4"/>

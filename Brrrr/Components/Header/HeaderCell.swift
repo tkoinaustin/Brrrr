@@ -16,8 +16,8 @@ class HeaderCell: UIView, XibLoadable {
     forecastLabel.text = "\(data.summary)"
     tempLabel.text = "\(data.temperature)\u{00B0}"
     }}
-  @IBOutlet weak var cityLabel: UILabel!
-  @IBOutlet weak var forecastLabel: UILabel!
+  @IBOutlet private weak var cityLabel: UILabel!
+  @IBOutlet private weak var forecastLabel: UILabel!
   @IBOutlet weak var tempLabel: UILabel!
   
   func setup() {

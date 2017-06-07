@@ -14,6 +14,7 @@ import CoreLocation
 class MainViewController: UIViewController {
   let disposeBag = DisposeBag()
   
+  @IBOutlet private weak var hourlyTopConstraint: NSLayoutConstraint!
   fileprivate lazy var viewModel: MainViewModel = {
     return MainViewModel(searchCriteria: self.searchBar.rx.text.orEmpty.asObservable(),
                          searchClick: self.searchBar.rx.searchButtonClicked.asObservable(),
@@ -29,7 +30,7 @@ class MainViewController: UIViewController {
   @IBOutlet private weak var symbolsLabel: UILabel!
   @IBOutlet private weak var scrollView: UIScrollView!
   
-  @IBOutlet weak var currentView: HeaderCell!
+  @IBOutlet private weak var currentView: HeaderCell!
   @IBOutlet private weak var hourlyConditions: UICollectionView! { didSet {
     let hourlyCell = String(describing: HourlyCell.self)
     hourlyConditions.register(UINib(nibName: hourlyCell, bundle: Bundle.main),
@@ -44,10 +45,9 @@ class MainViewController: UIViewController {
 
   @IBOutlet fileprivate weak var tableView: UITableView! { didSet {
     tableView.dataSource = self
-    tableView.delegate = self
     tableView.estimatedRowHeight = 100
     tableView.rowHeight = UITableViewAutomaticDimension
-    tableView.contentInset = UIEdgeInsets(top: 75, left: 0, bottom: 0, right: 0)
+    tableView.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
   }}
   
   @IBAction func currentAction(_ sender: UIButton) {
@@ -72,6 +72,18 @@ class MainViewController: UIViewController {
     bind()
   }
   
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let offset = scrollView.contentOffset.y
+    print("offset y is \(offset)")
+    if offset < 0 {
+      hourlyTopConstraint.constant = -(120 + offset)
+      currentView.tempLabel.alpha = max((-75.0 - offset)/75.0, 0)
+    } else {
+      hourlyTopConstraint.constant = -120
+      currentView.tempLabel.alpha = 0.0
+    }
+  }
+  
   //swiftlint:disable function_body_length
   func bind() {
     
@@ -83,7 +95,7 @@ class MainViewController: UIViewController {
     
     viewModel.dailyData.asObservable()
       .debug("dailyData")
-      .subscribe(onNext: { [weak self] dailyArray in
+      .subscribe(onNext: { [weak self] _ in
         self?.tableView.reloadData()
         self?.currentView.data = self?.viewModel.darkSky.value.currently
       })
@@ -98,10 +110,6 @@ class MainViewController: UIViewController {
       }
       .addDisposableTo(disposeBag)
   }
-}
-
-extension MainViewController: UITableViewDelegate {
-  
 }
 
 extension MainViewController: UITableViewDataSource {
