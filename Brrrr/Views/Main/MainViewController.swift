@@ -110,7 +110,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let offset = scrollView.contentOffset.y
-    print("offset is \(offset), header height is \(headerView.frame.size.height)")
+//    print("offset is \(offset), header height is \(headerView.frame.size.height)")
     var scale: CGFloat = 1.0
     if offset < 0 {
       scale = (max(offset, -50) - 50) / (-100)
@@ -121,9 +121,9 @@ extension MainViewController: UITableViewDelegate {
       hourlyTopConstraint.constant = -125
       headerView.tempLabel.alpha = 0.0
     }
-    UIView.animate(withDuration: 0, animations: {
-      self.headerView.cityLabel.transform = CGAffineTransform.init(scaleX: scale, y: scale)
-    })
+    self.headerView.cityLabel.transform = CGAffineTransform.init(scaleX: scale, y: scale)
+    headerView.cityLabelConstraint.constant = 20 * scale
+    headerView.forecastLabelConstraint.constant = 8 * scale * scale
   }
 
 }

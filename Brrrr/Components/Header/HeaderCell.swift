@@ -18,6 +18,8 @@ class HeaderCell: UIView, XibLoadable {
   @IBOutlet weak var cityLabel: UILabel!
   @IBOutlet private weak var forecastLabel: UILabel!
   @IBOutlet weak var tempLabel: UILabel!
+  @IBOutlet weak var cityLabelConstraint: NSLayoutConstraint!
+  @IBOutlet weak var forecastLabelConstraint: NSLayoutConstraint!
   
   func setup() {
   }

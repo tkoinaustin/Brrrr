@@ -22,13 +22,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="250" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwz-B8-KGo">
-                    <rect key="frame" x="188" y="28" width="0.0" height="193"/>
+                    <rect key="frame" x="188" y="28" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Cuu-0c-tEM">
-                    <rect key="frame" x="192.5" y="229" width="0.0" height="0.0"/>
+                    <rect key="frame" x="192.5" y="36" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="72"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -38,7 +38,6 @@
                 <constraint firstItem="hwz-B8-KGo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0mH-Oc-6FL"/>
                 <constraint firstItem="Cuu-0c-tEM" firstAttribute="top" secondItem="hwz-B8-KGo" secondAttribute="bottom" constant="8" id="NJx-Q1-N00"/>
                 <constraint firstItem="QeI-hZ-61d" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="P0S-7r-kwr"/>
-                <constraint firstAttribute="bottom" secondItem="Cuu-0c-tEM" secondAttribute="bottom" constant="40" id="QqY-zF-No5"/>
                 <constraint firstItem="QeI-hZ-61d" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YC3-zv-R6R"/>
                 <constraint firstItem="hwz-B8-KGo" firstAttribute="top" secondItem="QeI-hZ-61d" secondAttribute="bottom" constant="8" id="b2n-cq-CkE"/>
                 <constraint firstItem="Cuu-0c-tEM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="5" id="feS-hl-vvy"/>
@@ -49,7 +48,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="cityLabel" destination="QeI-hZ-61d" id="JOe-td-nfq"/>
+                <outlet property="cityLabelConstraint" destination="P0S-7r-kwr" id="y4k-i0-bCc"/>
                 <outlet property="forecastLabel" destination="hwz-B8-KGo" id="WHP-YW-Yf3"/>
+                <outlet property="forecastLabelConstraint" destination="b2n-cq-CkE" id="M0b-46-Inr"/>
                 <outlet property="tempLabel" destination="Cuu-0c-tEM" id="Fax-JJ-Ugp"/>
             </connections>
             <point key="canvasLocation" x="27.5" y="-108.5"/>
