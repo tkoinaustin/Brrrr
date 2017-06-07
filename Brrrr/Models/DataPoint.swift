@@ -14,7 +14,7 @@ class DataPoint {
   let dateFormatter: DateFormatter!
   let tempFormatter: NumberFormatter!
   
-  var apparentTemperature: String? { return tempFormatter.string(from: data["apparentTemperature"].numberValue) }
+  var apparentTemperature: String { return tempFormatter.string(from: data["apparentTemperature"].numberValue)! }
   var apparentTemperatureMax: NSNumber { return data["apparentTemperatureMax"].numberValue }
   var apparentTemperatureMaxTime: NSNumber { return data["apparentTemperatureMaxTime"].numberValue }
   var apparentTemperatureMin: NSNumber { return data["apparentTemperatureMin"].numberValue }
@@ -33,7 +33,7 @@ class DataPoint {
   var precipIntensityMaxTime: String? { return data["precipIntensityMaxTime"].string }
   var precipProbability: String { return data["precipProbability"].numberValue.description }
   var precipType: String? { return data["precipType"].string }
-  var pressure: String? { return data["pressure"].string }
+  var pressure: String { return data["pressure"].intValue.description }
   var summary: String { return data["summary"].stringValue }
   var sunriseTime: Double { return data["sunriseTime"].doubleValue }
   var sunsetTime: Double { return data["sunsetTime"].doubleValue }
@@ -44,8 +44,8 @@ class DataPoint {
   var temperatureMinTime: String? { return data["temperatureMinTime"].string }
   var timeValue: Double? { return data["time"].double }
   var visibility: String? { return tempFormatter.string(from: data["visibility"].numberValue) }
-  var windBearing: String? { return data["windBearing"].string }
-  var windSpeed: String? { return data["windSpeed"].string }
+  var windBearing: String { return data["windBearing"].stringValue }
+  var windSpeed: String { return data["windSpeed"].numberValue.description }
   var time: Date? { return Date(timeIntervalSince1970: data["time"].doubleValue) }
   var prettyDate: String? { return dateFormatter.string(from:Date(timeIntervalSince1970: data["time"].doubleValue)) }
   var dayOfWeek: String { return DateService.dayOfWeek(data["time"].doubleValue) }

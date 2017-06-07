@@ -19,13 +19,13 @@
 		CB5918C31EDF65D80093AC57 /* HourlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918C21EDF65D80093AC57 /* HourlyCell.swift */; };
 		CB5918C71EE083AF0093AC57 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C51EE083AF0093AC57 /* LICENSE */; };
 		CB5918C81EE083AF0093AC57 /* weather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C61EE083AF0093AC57 /* weather.ttf */; };
-		CB5918CF1EE09C5F0093AC57 /* DailyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5918CE1EE09C5F0093AC57 /* DailyCell.xib */; };
 		CB5918D31EE0C0EC0093AC57 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D21EE0C0EC0093AC57 /* XibLoadable.swift */; };
 		CB5918D71EE1F4510093AC57 /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D51EE1F4510093AC57 /* DateService.swift */; };
 		CB5918D81EE1F4510093AC57 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D61EE1F4510093AC57 /* Icons.swift */; };
 		CB5918DC1EE6EF8D0093AC57 /* DailyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918DB1EE6EF8D0093AC57 /* DailyTableCell.swift */; };
 		CB5918DF1EE723FC0093AC57 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918DE1EE723FC0093AC57 /* HeaderCell.swift */; };
 		CB5918E11EE750BA0093AC57 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5918E01EE750BA0093AC57 /* HeaderCell.xib */; };
+		CB5918E61EE868040093AC57 /* CurrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918E51EE868040093AC57 /* CurrentCell.swift */; };
 		CB5D08E01ED5E5F1008F51FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */; };
 		CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5D08E11ED5E603008F51FD /* MainView.storyboard */; };
 		CB5D08E41ED62DEC008F51FD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */; };
@@ -65,13 +65,13 @@
 		CB5918C21EDF65D80093AC57 /* HourlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HourlyCell.swift; path = Components/Hourly/HourlyCell.swift; sourceTree = "<group>"; };
 		CB5918C51EE083AF0093AC57 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Assets/LICENSE; sourceTree = "<group>"; };
 		CB5918C61EE083AF0093AC57 /* weather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = weather.ttf; path = Assets/weather.ttf; sourceTree = "<group>"; };
-		CB5918CE1EE09C5F0093AC57 /* DailyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DailyCell.xib; path = Components/Daily/DailyCell.xib; sourceTree = "<group>"; };
 		CB5918D21EE0C0EC0093AC57 /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibLoadable.swift; path = Components/XibLoadable.swift; sourceTree = "<group>"; };
 		CB5918D51EE1F4510093AC57 /* DateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateService.swift; path = Services/DateService.swift; sourceTree = "<group>"; };
 		CB5918D61EE1F4510093AC57 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icons.swift; path = Services/Icons.swift; sourceTree = "<group>"; };
 		CB5918DB1EE6EF8D0093AC57 /* DailyTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyTableCell.swift; path = Components/Daily/DailyTableCell.swift; sourceTree = "<group>"; };
 		CB5918DE1EE723FC0093AC57 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderCell.swift; path = Components/Header/HeaderCell.swift; sourceTree = "<group>"; };
 		CB5918E01EE750BA0093AC57 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderCell.xib; path = Components/Header/HeaderCell.xib; sourceTree = "<group>"; };
+		CB5918E51EE868040093AC57 /* CurrentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentCell.swift; path = Components/Current/CurrentCell.swift; sourceTree = "<group>"; };
 		CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Views/Main/MainViewController.swift; sourceTree = "<group>"; };
 		CB5D08E11ED5E603008F51FD /* MainView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainView.storyboard; path = Views/Main/MainView.storyboard; sourceTree = "<group>"; };
 		CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = Views/Main/MainViewModel.swift; sourceTree = "<group>"; };
@@ -127,6 +127,7 @@
 				CB5918D21EE0C0EC0093AC57 /* XibLoadable.swift */,
 				CB5918CB1EE09C140093AC57 /* Daily */,
 				CB5918BF1EDF65990093AC57 /* Hourly */,
+				CB5918E41EE867C00093AC57 /* Current */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -152,7 +153,6 @@
 		CB5918CB1EE09C140093AC57 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
-				CB5918CE1EE09C5F0093AC57 /* DailyCell.xib */,
 				CB5918DB1EE6EF8D0093AC57 /* DailyTableCell.swift */,
 			);
 			name = Daily;
@@ -174,6 +174,14 @@
 				CB5918E01EE750BA0093AC57 /* HeaderCell.xib */,
 			);
 			name = Header;
+			sourceTree = "<group>";
+		};
+		CB5918E41EE867C00093AC57 /* Current */ = {
+			isa = PBXGroup;
+			children = (
+				CB5918E51EE868040093AC57 /* CurrentCell.swift */,
+			);
+			name = Current;
 			sourceTree = "<group>";
 		};
 		CB5D08DD1ED5E558008F51FD /* Views */ = {
@@ -372,7 +380,6 @@
 				CB5918C11EDF65C60093AC57 /* HourlyCell.xib in Resources */,
 				CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */,
 				CB5918C71EE083AF0093AC57 /* LICENSE in Resources */,
-				CB5918CF1EE09C5F0093AC57 /* DailyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +508,7 @@
 				CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */,
 				CB5D08E81ED768F4008F51FD /* Location.swift in Sources */,
 				CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */,
+				CB5918E61EE868040093AC57 /* CurrentCell.swift in Sources */,
 				CBD512E81E65245200614C3A /* API.swift in Sources */,
 				CB5918D71EE1F4510093AC57 /* DateService.swift in Sources */,
 				CB3C60C61E67065C00B5DE01 /* DataPoint.swift in Sources */,

@@ -14,7 +14,7 @@ import CoreLocation
 class MainViewController: UIViewController {
   let disposeBag = DisposeBag()
   
-  @IBOutlet private weak var hourlyTopConstraint: NSLayoutConstraint!
+  @IBOutlet fileprivate weak var hourlyTopConstraint: NSLayoutConstraint!
   fileprivate lazy var viewModel: MainViewModel = {
     return MainViewModel(searchCriteria: self.searchBar.rx.text.orEmpty.asObservable(),
                          searchClick: self.searchBar.rx.searchButtonClicked.asObservable(),
@@ -29,8 +29,8 @@ class MainViewController: UIViewController {
   @IBOutlet private weak var currentConditionsLabel: UILabel!
   @IBOutlet private weak var symbolsLabel: UILabel!
   @IBOutlet private weak var scrollView: UIScrollView!
+  @IBOutlet fileprivate weak var headerView: HeaderCell!
   
-  @IBOutlet private weak var currentView: HeaderCell!
   @IBOutlet private weak var hourlyConditions: UICollectionView! { didSet {
     let hourlyCell = String(describing: HourlyCell.self)
     hourlyConditions.register(UINib(nibName: hourlyCell, bundle: Bundle.main),
@@ -45,6 +45,7 @@ class MainViewController: UIViewController {
 
   @IBOutlet fileprivate weak var tableView: UITableView! { didSet {
     tableView.dataSource = self
+    tableView.delegate = self
     tableView.estimatedRowHeight = 100
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
@@ -65,23 +66,10 @@ class MainViewController: UIViewController {
   @IBAction func dailyAction(_ sender: UIButton) {
     viewModel.showDailyData()
   }
-  var fds: UITableViewHeaderFooterView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     bind()
-  }
-  
-  func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    let offset = scrollView.contentOffset.y
-    print("offset y is \(offset)")
-    if offset < 0 {
-      hourlyTopConstraint.constant = -(120 + offset)
-      currentView.tempLabel.alpha = max((-75.0 - offset)/75.0, 0)
-    } else {
-      hourlyTopConstraint.constant = -120
-      currentView.tempLabel.alpha = 0.0
-    }
   }
   
   //swiftlint:disable function_body_length
@@ -94,10 +82,18 @@ class MainViewController: UIViewController {
     .addDisposableTo(disposeBag)
     
     viewModel.dailyData.asObservable()
-      .debug("dailyData")
+      .skip(1)
       .subscribe(onNext: { [weak self] _ in
         self?.tableView.reloadData()
-        self?.currentView.data = self?.viewModel.darkSky.value.currently
+      })
+      .addDisposableTo(disposeBag)
+    
+    viewModel.darkSky.asObservable()
+      .skip(1)
+      .subscribe(onNext: { [weak self] darksky in
+        self?.headerView.cityLabel.text = self?.searchBar.text
+        self?.headerView.data = self?.viewModel.darkSky.value.currently
+
       })
       .addDisposableTo(disposeBag)
     
@@ -111,19 +107,49 @@ class MainViewController: UIViewController {
       .addDisposableTo(disposeBag)
   }
 }
+extension MainViewController: UITableViewDelegate {
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let offset = scrollView.contentOffset.y
+    print("offset is \(offset), header height is \(headerView.frame.size.height)")
+    var scale: CGFloat = 1.0
+    if offset < 0 {
+      scale = (max(offset, -50) - 50) / (-100)
+      hourlyTopConstraint.constant = -(125 + offset)
+      headerView.tempLabel.alpha = max((-75.0 - offset)/75.0, 0)
+    } else {
+      scale = 0.5
+      hourlyTopConstraint.constant = -125
+      headerView.tempLabel.alpha = 0.0
+    }
+    UIView.animate(withDuration: 0, animations: {
+      self.headerView.cityLabel.transform = CGAffineTransform.init(scaleX: scale, y: scale)
+    })
+  }
+
+}
 
 extension MainViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel.dailyData.value.count
+    return viewModel.dailyData.value.count + 1
   }
   
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let  cell = tableView.dequeueReusableCell(withIdentifier: "DailyTableViewCell")     
-    guard let dailyTableCell = cell as? DailyTableCell else { return  UITableViewCell() }
-
-    dailyTableCell.data = viewModel.dailyData.value[indexPath.row]
-    
-    return dailyTableCell
+    if indexPath.row < viewModel.dailyData.value.count {
+      let  cell = tableView.dequeueReusableCell(withIdentifier: "DailyTableViewCell")
+      guard let dailyTableCell = cell as? DailyTableCell else { return  UITableViewCell() }
+      
+      dailyTableCell.data = viewModel.dailyData.value[indexPath.row]
+      
+      return dailyTableCell
+    } else {
+      let  cell = tableView.dequeueReusableCell(withIdentifier: "CurrentTableViewCell")
+      guard let currentTableViewCell = cell as? CurrentCell else { return  UITableViewCell() }
+      
+      if let currentData = viewModel.darkSky.value.currently, !currentData.data.isEmpty {
+        currentTableViewCell.data = currentData
+      }
+      
+      return currentTableViewCell
+    }
   }
-
 }

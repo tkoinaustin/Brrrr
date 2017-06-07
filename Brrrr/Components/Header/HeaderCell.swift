@@ -12,11 +12,10 @@ class HeaderCell: UIView, XibLoadable {
   var ibTag: Int = 43
   var data: DataPoint! { didSet {
     guard data != nil else { return }
-    cityLabel.text = "Austin"
     forecastLabel.text = "\(data.summary)"
     tempLabel.text = "\(data.temperature)\u{00B0}"
     }}
-  @IBOutlet private weak var cityLabel: UILabel!
+  @IBOutlet weak var cityLabel: UILabel!
   @IBOutlet private weak var forecastLabel: UILabel!
   @IBOutlet weak var tempLabel: UILabel!
   
