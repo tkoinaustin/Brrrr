@@ -11,9 +11,9 @@ import UIKit
 class DailyTableCell: UITableViewCell {
   
   var data: DataPoint! { didSet {
-    tempLabel.text = "\(data.temperatureMax)/\(data.temperatureMin)\u{00B0}F \(data.humidity!)% \(data.dayOfWeek)"
+    tempLabel.text = "\(data.temperatureMax)/\(data.temperatureMin)\u{00B0}F \(data.humidity) \(data.dayOfWeek)"
     iconLabel.text = data.icon
-    timeLabel.text = "\(DateService.hhmma(data.sunriseTime))/\(DateService.hhmma(data.sunsetTime))"
+    timeLabel.text = "\(FormatService.hhmma(data.sunriseTime))/\(FormatService.hhmma(data.sunsetTime))"
     }}
   
   @IBOutlet private weak var tempLabel: UILabel!

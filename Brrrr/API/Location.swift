@@ -8,29 +8,22 @@
 
 import Foundation
 import CoreLocation
-import RxSwift
+import PromiseKit
 
 class Location {
   static var geocoder = CLGeocoder()
 
-  static func getCoordinates(_ location: String) -> Observable<[CLPlacemark]> {
-    print("getCoordinates")
-    return Observable<[CLPlacemark]>.create { observer in
-      UIApplication.shared.isNetworkActivityIndicatorVisible = true
+  static func getCoordinates(_ location: String) -> Promise<[CLPlacemark]> {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    return Promise<[CLPlacemark]> { fulfill, reject in
       self.geocoder.geocodeAddressString(location) { placemarks, error in
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        guard error == nil else {
-          observer.onError(error!)
-          return
-        }
-        if let places = placemarks {
-          print("places = \(places)")
-          observer.onNext(places)
-          observer.onCompleted()
-        }
+        
+        if let error = error { return reject(error) }
+        
+        if let places = placemarks { return fulfill(places) }
+        else { return reject(APIError.geocoder(location: location)) }
       }
-      return Disposables.create()
     }
   }
-
 }

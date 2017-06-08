@@ -10,10 +10,10 @@ import UIKit
 
 class CurrentCell: UITableViewCell {
   var data: DataPoint! { didSet {
-    labelsView.isHidden = false
-    dataView.isHidden = false
+    labelsView.isHidden = data.data.isEmpty
+    dataView.isHidden = data.data.isEmpty
     temperatureLabel.text = "\(data.temperature)\u{00B0}F"
-    humidityLabel.text = "\(data.humidity!)%"
+    humidityLabel.text = "\(data.humidity)%"
     windLabel.text = "\(data.windSpeed) mph bearing \(data.windBearing)\u{00B0}"
     feelsLikeLabel.text = "\(data.apparentTemperature)\u{00B0}F"
     visibilityLabel.text = "\(data.visibility!) miles"

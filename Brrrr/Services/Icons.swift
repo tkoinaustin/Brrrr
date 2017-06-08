@@ -22,9 +22,7 @@ class Icon {
       return "\u{f119}"
     case "sleet", "03n":
       return "\u{f116}"
-    case "wind":
-      return "\u{f10e}"
-    case "fog":
+    case "wind", "fog":
       return "\u{f10e}"
     case "cloudy":
       return "\u{f111}"

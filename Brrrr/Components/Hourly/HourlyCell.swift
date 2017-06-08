@@ -16,7 +16,7 @@ class HourlyCell: UICollectionViewCell {
   @IBOutlet private weak var date: UILabel!
   
   func load(_ data: DataPoint) {
-    self.temperature.text = "\(data.temperature)\u{00B0}F"
+    self.temperature.text = "\(data.temperature)F"
     self.icon.text = "\(data.icon)"
     self.date.text = "\(String(describing: data.prettyDate!))"
   }

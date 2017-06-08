@@ -13,7 +13,7 @@ class HeaderCell: UIView, XibLoadable {
   var data: DataPoint! { didSet {
     guard data != nil else { return }
     forecastLabel.text = "\(data.summary)"
-    tempLabel.text = "\(data.temperature)\u{00B0}"
+    tempLabel.text = data.data.dictionaryValue.isEmpty ? "" : "\(data.temperature)"
     }}
   
   var offset: CGFloat = -120 { didSet {

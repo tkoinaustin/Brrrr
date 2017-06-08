@@ -20,7 +20,7 @@
 		CB5918C71EE083AF0093AC57 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C51EE083AF0093AC57 /* LICENSE */; };
 		CB5918C81EE083AF0093AC57 /* weather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C61EE083AF0093AC57 /* weather.ttf */; };
 		CB5918D31EE0C0EC0093AC57 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D21EE0C0EC0093AC57 /* XibLoadable.swift */; };
-		CB5918D71EE1F4510093AC57 /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D51EE1F4510093AC57 /* DateService.swift */; };
+		CB5918D71EE1F4510093AC57 /* FormatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D51EE1F4510093AC57 /* FormatService.swift */; };
 		CB5918D81EE1F4510093AC57 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D61EE1F4510093AC57 /* Icons.swift */; };
 		CB5918DC1EE6EF8D0093AC57 /* DailyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918DB1EE6EF8D0093AC57 /* DailyTableCell.swift */; };
 		CB5918DF1EE723FC0093AC57 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918DE1EE723FC0093AC57 /* HeaderCell.swift */; };
@@ -66,7 +66,7 @@
 		CB5918C51EE083AF0093AC57 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Assets/LICENSE; sourceTree = "<group>"; };
 		CB5918C61EE083AF0093AC57 /* weather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = weather.ttf; path = Assets/weather.ttf; sourceTree = "<group>"; };
 		CB5918D21EE0C0EC0093AC57 /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibLoadable.swift; path = Components/XibLoadable.swift; sourceTree = "<group>"; };
-		CB5918D51EE1F4510093AC57 /* DateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateService.swift; path = Services/DateService.swift; sourceTree = "<group>"; };
+		CB5918D51EE1F4510093AC57 /* FormatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatService.swift; path = Services/FormatService.swift; sourceTree = "<group>"; };
 		CB5918D61EE1F4510093AC57 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icons.swift; path = Services/Icons.swift; sourceTree = "<group>"; };
 		CB5918DB1EE6EF8D0093AC57 /* DailyTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyTableCell.swift; path = Components/Daily/DailyTableCell.swift; sourceTree = "<group>"; };
 		CB5918DE1EE723FC0093AC57 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderCell.swift; path = Components/Header/HeaderCell.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 		CB5918D41EE1F30E0093AC57 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CB5918D51EE1F4510093AC57 /* DateService.swift */,
+				CB5918D51EE1F4510093AC57 /* FormatService.swift */,
 				CB5918D61EE1F4510093AC57 /* Icons.swift */,
 			);
 			name = Services;
@@ -420,7 +420,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		282D9D966478C39E94DF806D /* [CP] Copy Pods Resources */ = {
@@ -465,7 +465,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B23011A66CA2F2B341A3C503 /* [CP] Copy Pods Resources */ = {
@@ -510,7 +510,7 @@
 				CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */,
 				CB5918E61EE868040093AC57 /* CurrentCell.swift in Sources */,
 				CBD512E81E65245200614C3A /* API.swift in Sources */,
-				CB5918D71EE1F4510093AC57 /* DateService.swift in Sources */,
+				CB5918D71EE1F4510093AC57 /* FormatService.swift in Sources */,
 				CB3C60C61E67065C00B5DE01 /* DataPoint.swift in Sources */,
 				CB5D08E41ED62DEC008F51FD /* MainViewModel.swift in Sources */,
 				CB5918D81EE1F4510093AC57 /* Icons.swift in Sources */,
@@ -658,6 +658,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tko-solutions.Brrrr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -672,6 +673,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tko-solutions.Brrrr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

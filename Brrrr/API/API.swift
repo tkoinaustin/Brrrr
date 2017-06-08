@@ -22,7 +22,27 @@ enum HTTPMethod: String {
 }
 
 enum APIError: Error {
-  case generic, body, request, server
+  case generic
+  case body
+  case request
+  case server
+  case reachability
+  case geocoder (location: String)
+  case badkey
+  case noResults
+  
+  func desc() -> String {
+    switch self {
+    case .generic: return "Generic API Error"
+    case .body: return "Error with API body Error"
+    case .request: return "Error with API request Error"
+    case .server: return "Server Error"
+    case .reachability: return "Network is unreachable, check network settings"
+    case .geocoder(let location): return "Unable to find location matching \(location)"
+    case .badkey: return "OpenCage API key problem"
+    case .noResults: return "The query returned no results"
+    }
+  }
 }
 
 struct APIRequest {
@@ -61,12 +81,7 @@ class API {
   static func fire(_ request: APIRequest) -> Promise<APIResponse> {
     
     return Promise<APIResponse> { fulfill, reject in
-      log.info("started http request: \(request.urlRequest)")
-      
       session.dataTask(with: request.urlRequest) { (data, response, error) in
-        
-        log.info("finished http request: \(request.urlRequest)")
-        
         switch (data, response, error) {
         case (_, _, .some(let error)): reject(error)
           
