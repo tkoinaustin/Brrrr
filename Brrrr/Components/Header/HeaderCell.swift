@@ -18,7 +18,7 @@ class HeaderCell: UIView, XibLoadable {
       tempLabel.text = ""
       cityLabel.text = ""
     }
-    }}
+  }}
   
   var offset: CGFloat = -120 { didSet {
     var scale: CGFloat = 1.0

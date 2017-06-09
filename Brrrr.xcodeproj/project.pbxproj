@@ -288,6 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBD512DD1E63B4A500614C3A /* Build configuration list for PBXNativeTarget "Brrrr" */;
 			buildPhases = (
+				CB0993371EEA2E9B000787FD /* Bump build number on archive */,
 				58BC7413FE72C9413D1B76FA /* [CP] Check Pods Manifest.lock */,
 				CBD512BC1E63B4A500614C3A /* Sources */,
 				CBD512BD1E63B4A500614C3A /* Frameworks */,
@@ -483,6 +484,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Brrrr-BrrrrTests/Pods-Brrrr-BrrrrTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CB0993371EEA2E9B000787FD /* Bump build number on archive */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bump build number on archive";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\nfi";
+		};
 		CBD512E31E63B94900614C3A /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -655,7 +670,7 @@
 				DEVELOPMENT_TEAM = H4UQYGEL4C;
 				INFOPLIST_FILE = Brrrr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tko-solutions.Brrrr";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tko-solutions.brrrr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -670,7 +685,7 @@
 				DEVELOPMENT_TEAM = H4UQYGEL4C;
 				INFOPLIST_FILE = Brrrr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tko-solutions.Brrrr";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tko-solutions.brrrr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

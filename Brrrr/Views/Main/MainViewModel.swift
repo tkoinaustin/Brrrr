@@ -35,9 +35,9 @@ class MainViewModel {
   var city: String {
     guard let address = place.addressDictionary else { return "" }
     print("address: \(address)")
-    let countryCode = address["CountryCode"]!
-    let state = address["State"]!
-    let city = address["City"]!
+    guard let countryCode = address["CountryCode"] else { return "" }
+    guard let state = address["State"] else { return "" }
+    guard let city = address["City"] else { return "" }
     let suffix = countryCode as? String == "US" ? state : countryCode
     return"\(city), \(suffix)"
   }
