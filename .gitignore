@@ -37,3 +37,6 @@ build/
 # CocoaPods
 Pods/
 /*.xcworkspace
+
+# User settings files to be overridden
+APIinfo.plist

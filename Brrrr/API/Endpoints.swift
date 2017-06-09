@@ -18,9 +18,9 @@ class Endpoints {
     func path() -> String {
       switch self {
       case .forecast(location: let location):
-        return "/forecast/\(darkskySecret)/\(location.coordinate.latitude),\(location.coordinate.longitude)"
+        return "/forecast/\(API.apiKey)/\(location.coordinate.latitude),\(location.coordinate.longitude)"
       case .history(location: let location, date: let date):
-        return "/forecast/\(darkskySecret)/\(location.coordinate.latitude),\(location.coordinate.longitude),\(date)"
+        return "/forecast/\(API.apiKey)/\(location.coordinate.latitude),\(location.coordinate.longitude),\(date)"
       }
     }
   }

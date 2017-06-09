@@ -10,8 +10,6 @@ import UIKit
 import PromiseKit
 import SwiftyJSON
 
-let darkskySecret = "8df9435548d5c5b86730f20a760be59c"
-
 struct APIResponse {
   let raw: URLResponse?
   let body: JSON
@@ -71,6 +69,14 @@ struct APIRequest {
 
 class API {
   static var baseURL = URL(string: "https://api.darksky.net")!
+  
+  static var apiKey = { () -> String in
+    guard let fileUrl = Bundle.main.url(forResource: "APIinfo", withExtension: "plist")
+      else { return "bad file" }
+    let dictionary =  NSDictionary(contentsOf: fileUrl) as? [String: String]
+    guard let dict = dictionary else { return "bad dictionary" }
+    return dict["DarkSkyAPIKey"] ?? "bad key"
+  }()
 
   static var session: URLSession {
     let shared = URLSession.shared
