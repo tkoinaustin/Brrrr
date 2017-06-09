@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import PromiseKit
 import CoreLocation
 
 class Endpoints {
@@ -25,13 +24,13 @@ class Endpoints {
     }
   }
   
-  static func getForcast(_ location: CLLocation) -> Promise<APIResponse> {
+  static func getForcast(_ location: CLLocation, closure: @escaping ((APIResponse) -> Void)) {
     let request = APIRequest(.get, path: Endpoints.forecast(location: location).path())
-    return API.fire(request)
+    return API.fire(request, closure: closure)
   }
   
-  static func getHistory(_ location: CLLocation, date: Date) -> Promise<APIResponse> {
+  static func getHistory(_ location: CLLocation, date: Date, closure: @escaping ((APIResponse) -> Void)) {
     let request = APIRequest(.get, path: Endpoints.history(location: location, date: date).path())
-    return API.fire(request)
+    return API.fire(request, closure: closure)
   }
 }

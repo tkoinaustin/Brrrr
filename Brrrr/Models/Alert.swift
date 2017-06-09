@@ -6,7 +6,7 @@
 //  Copyright © 2017 TKO Solutions. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import SwiftyJSON
 
 class Alert {

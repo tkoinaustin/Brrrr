@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import PromiseKit
 import SwiftyJSON
 
 struct APIResponse {
-  let raw: URLResponse?
-  let body: JSON
+  var raw: URLResponse?
+  var body: JSON?
+  var error: APIError?
 }
 
 enum HTTPMethod: String {
@@ -84,27 +84,25 @@ class API {
     return shared
   }
 
-  static func fire(_ request: APIRequest) -> Promise<APIResponse> {
-    
-    return Promise<APIResponse> { fulfill, reject in
+  static func fire(_ request: APIRequest, closure: @escaping ((APIResponse) -> Void)) {
+    var apiResponse = APIResponse()
       session.dataTask(with: request.urlRequest) { (data, response, error) in
         switch (data, response, error) {
-        case (_, _, .some(let error)): reject(error)
+        case (_, _, .some(_)): apiResponse.error = APIError.request
           
-        case (.none, _, _): reject(APIError.body)
+        case (.none, _, _): apiResponse.error = APIError.body
           
         case (.some(let data), .some(let response as HTTPURLResponse), _):
           switch response.statusCode {
-          case 400...499: return reject(APIError.request)
-          case 500...599: return reject(APIError.server)
+          case 400...499: apiResponse.error = APIError.request
+          case 500...599: apiResponse.error = APIError.server
           default:
-            print("raw: \(response)\nbody: \(JSON(data: data))")
-            return fulfill(APIResponse(raw: response, body: JSON(data: data)))
+            apiResponse.raw = response
+            apiResponse.body = JSON(data: data)
           }
-          
-        default: return reject(APIError.body)
+        default: apiResponse.error = APIError.body
         }
+        closure(apiResponse)
       }.resume()
     }
   }
-}

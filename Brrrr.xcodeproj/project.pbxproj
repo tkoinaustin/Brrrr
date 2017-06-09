@@ -208,10 +208,10 @@
 		CB5D08DE1ED5E593008F51FD /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				CB5918FD1EEAED740093AC57 /* MainView.storyboard */,
-				CB5918FE1EEAED740093AC57 /* MainViewController.swift */,
-				CB5918FF1EEAED740093AC57 /* MainViewModel.swift */,
 				CB5918F61EEAED5B0093AC57 /* Components */,
+				CB5918FF1EEAED740093AC57 /* MainViewModel.swift */,
+				CB5918FE1EEAED740093AC57 /* MainViewController.swift */,
+				CB5918FD1EEAED740093AC57 /* MainView.storyboard */,
 			);
 			name = Main;
 			sourceTree = "<group>";

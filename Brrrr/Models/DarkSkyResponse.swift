@@ -6,8 +6,7 @@
 //  Copyright © 2017 TKO Solutions. All rights reserved.
 //
 
-import UIKit
-import PromiseKit
+import Foundation
 import SwiftyJSON
 import CoreLocation
 
@@ -64,12 +63,10 @@ class DarkSkyResponse {
     else { return false }
   }
   
-  static func loadWeather(_ location: CLLocation) -> Promise<DarkSkyResponse> {
-    return Endpoints.getForcast(location).then(on: DispatchQueue.global(qos: .background)) { response in
-      return Promise<DarkSkyResponse> { fulfill, reject in
-      guard let darkSkyResponse = DarkSkyResponse(from: response.body) else { return reject(ModelError.invalidData) }
-      return fulfill(darkSkyResponse)
-      }
+  static func loadWeather(_ location: CLLocation, closure: @escaping ((DarkSkyResponse) -> Void)) {
+    return Endpoints.getForcast(location) { response in
+      let darkSkyResponse = DarkSkyResponse(from: response.body!)
+      closure(darkSkyResponse!)
     }
   }
 }

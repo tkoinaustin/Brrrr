@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreLocation
-import PromiseKit
+//import PromiseKit
 import SwiftyJSON
 
 class MainViewModel {
@@ -30,15 +30,13 @@ class MainViewModel {
     guard let current = darkSky?.currently else { return nil }
     return current
   }
-  var place: CLPlacemark!
+  var place: CLPlacemark?
   
   var city: String {
-    guard let address = place.addressDictionary else { return "" }
-    print("address: \(address)")
-    guard let countryCode = address["CountryCode"] else { return "" }
-    guard let state = address["State"] else { return "" }
-    guard let city = address["City"] else { return "" }
-    let suffix = countryCode as? String == "US" ? state : countryCode
+    let countryCode = place?.addressDictionary?["CountryCode"] as? String
+    let state = place?.addressDictionary?["State"] as? String ?? ""
+    let city = place?.addressDictionary?["City"] as? String ?? ""
+    let suffix = countryCode == "US" ? state : countryCode ?? ""
     return"\(city), \(suffix)"
   }
   
@@ -51,33 +49,28 @@ class MainViewModel {
   
   func searchForEvents() {
     guard searchString != "" else { return }
-    _ = Location.getCoordinates(searchString).then { places -> Void in
-      print("places[0] = \(places[0])")
-      self.place = places[0]
-      guard let location = places[0].location else { return }
-      _ = self.dataRequest(location)
-      }.catch {error in
-        guard let apiError = error as? APIError else { return }
-        self.showError(apiError)
+    Location.getCoordinates(searchString) { places, error in
+      if let error = error {
+        self.showError(error)
+      } else {
+        self.place = places[0]
+        guard let location = places[0].location else { return }
+        _ = self.dataRequest(location)
+      }
     }
   }
-
-  func dataRequest(_ location: CLLocation) -> Promise<Void> {
+  
+  func dataRequest(_ location: CLLocation) {
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    return DarkSkyResponse.loadWeather(location).then { darkSkyData -> Promise<Void> in
+    DarkSkyResponse.loadWeather(location) { darkSkyData  in
+      UIApplication.shared.isNetworkActivityIndicatorVisible = false
       self.darkSky = darkSkyData
-      self.updateUI()
+      DispatchQueue.main.async {
+        self.updateUI()
+      }
       if darkSkyData.data == JSON.null {
         self.showError(APIError.noResults)
       }
-      return Promise { fulfill, _ in
-        fulfill()
-      }
-      }.catch { error in
-        guard let apiError = error as? APIError else { return }
-        self.showError(apiError)
-      }.always {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
   }
 }

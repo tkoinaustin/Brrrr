@@ -6,23 +6,23 @@
 //  Copyright © 2017 TKO Solutions. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreLocation
-import PromiseKit
 
 class Location {
   static var geocoder = CLGeocoder()
 
-  static func getCoordinates(_ location: String) -> Promise<[CLPlacemark]> {
+  static func getCoordinates(_ location: String, closure: @escaping (([CLPlacemark], APIError?) -> Void)) {
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    return Promise<[CLPlacemark]> { fulfill, reject in
-      self.geocoder.geocodeAddressString(location) { placemarks, error in
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        
-        if error != nil { return reject(APIError.geocoder(location: location)) }
-        
-        if let places = placemarks { return fulfill(places) }
-        else { return reject(APIError.geocoder(location: location)) }
+    self.geocoder.geocodeAddressString(location) { placemarks, error in
+      UIApplication.shared.isNetworkActivityIndicatorVisible = false
+      
+      if error != nil { closure([CLPlacemark](), APIError.geocoder(location: location)) }
+      else {
+        if let places = placemarks { closure(places, nil)
+        } else {
+          closure([CLPlacemark](), APIError.geocoder(location: location))
+        }
       }
     }
   }
