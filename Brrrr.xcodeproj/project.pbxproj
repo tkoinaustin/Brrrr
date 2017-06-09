@@ -15,21 +15,21 @@
 		CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C71E6709F700B5DE01 /* DataBlock.swift */; };
 		CB3C60CA1E67BE5F00B5DE01 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C91E67BE5F00B5DE01 /* Alert.swift */; };
 		CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */; };
-		CB5918C11EDF65C60093AC57 /* HourlyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C01EDF65C60093AC57 /* HourlyCell.xib */; };
-		CB5918C31EDF65D80093AC57 /* HourlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918C21EDF65D80093AC57 /* HourlyCell.swift */; };
 		CB5918C71EE083AF0093AC57 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C51EE083AF0093AC57 /* LICENSE */; };
 		CB5918C81EE083AF0093AC57 /* weather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C61EE083AF0093AC57 /* weather.ttf */; };
-		CB5918D31EE0C0EC0093AC57 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D21EE0C0EC0093AC57 /* XibLoadable.swift */; };
 		CB5918D71EE1F4510093AC57 /* FormatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D51EE1F4510093AC57 /* FormatService.swift */; };
 		CB5918D81EE1F4510093AC57 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D61EE1F4510093AC57 /* Icons.swift */; };
-		CB5918DC1EE6EF8D0093AC57 /* DailyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918DB1EE6EF8D0093AC57 /* DailyTableCell.swift */; };
-		CB5918DF1EE723FC0093AC57 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918DE1EE723FC0093AC57 /* HeaderCell.swift */; };
-		CB5918E11EE750BA0093AC57 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5918E01EE750BA0093AC57 /* HeaderCell.xib */; };
-		CB5918E61EE868040093AC57 /* CurrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918E51EE868040093AC57 /* CurrentCell.swift */; };
 		CB5918E81EEAD82D0093AC57 /* APIinfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB5918E71EEAD82D0093AC57 /* APIinfo.plist */; };
-		CB5D08E01ED5E5F1008F51FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */; };
-		CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5D08E11ED5E603008F51FD /* MainView.storyboard */; };
-		CB5D08E41ED62DEC008F51FD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */; };
+		CB5918F11EEAED250093AC57 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918EB1EEAED250093AC57 /* HeaderCell.swift */; };
+		CB5918F21EEAED250093AC57 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5918EC1EEAED250093AC57 /* HeaderCell.xib */; };
+		CB5918F31EEAED250093AC57 /* HourlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918EE1EEAED250093AC57 /* HourlyCell.swift */; };
+		CB5918F41EEAED250093AC57 /* HourlyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5918EF1EEAED250093AC57 /* HourlyCell.xib */; };
+		CB5918F51EEAED250093AC57 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918F01EEAED250093AC57 /* XibLoadable.swift */; };
+		CB5918FB1EEAED5B0093AC57 /* CurrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918F81EEAED5B0093AC57 /* CurrentCell.swift */; };
+		CB5918FC1EEAED5B0093AC57 /* DailyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918FA1EEAED5B0093AC57 /* DailyTableCell.swift */; };
+		CB5919001EEAED740093AC57 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5918FD1EEAED740093AC57 /* MainView.storyboard */; };
+		CB5919011EEAED740093AC57 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918FE1EEAED740093AC57 /* MainViewController.swift */; };
+		CB5919021EEAED740093AC57 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918FF1EEAED740093AC57 /* MainViewModel.swift */; };
 		CB5D08E81ED768F4008F51FD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08E71ED768F4008F51FD /* Location.swift */; };
 		CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD512C31E63B4A500614C3A /* AppDelegate.swift */; };
 		CBD512CB1E63B4A500614C3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBD512CA1E63B4A500614C3A /* Assets.xcassets */; };
@@ -62,21 +62,21 @@
 		CB3C60C71E6709F700B5DE01 /* DataBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBlock.swift; path = Models/DataBlock.swift; sourceTree = "<group>"; };
 		CB3C60C91E67BE5F00B5DE01 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Models/Alert.swift; sourceTree = "<group>"; };
 		CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DarkSkyResponse.swift; path = Models/DarkSkyResponse.swift; sourceTree = "<group>"; };
-		CB5918C01EDF65C60093AC57 /* HourlyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HourlyCell.xib; path = Components/Hourly/HourlyCell.xib; sourceTree = "<group>"; };
-		CB5918C21EDF65D80093AC57 /* HourlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HourlyCell.swift; path = Components/Hourly/HourlyCell.swift; sourceTree = "<group>"; };
 		CB5918C51EE083AF0093AC57 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Assets/LICENSE; sourceTree = "<group>"; };
 		CB5918C61EE083AF0093AC57 /* weather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = weather.ttf; path = Assets/weather.ttf; sourceTree = "<group>"; };
-		CB5918D21EE0C0EC0093AC57 /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibLoadable.swift; path = Components/XibLoadable.swift; sourceTree = "<group>"; };
 		CB5918D51EE1F4510093AC57 /* FormatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatService.swift; path = Services/FormatService.swift; sourceTree = "<group>"; };
 		CB5918D61EE1F4510093AC57 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icons.swift; path = Services/Icons.swift; sourceTree = "<group>"; };
-		CB5918DB1EE6EF8D0093AC57 /* DailyTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyTableCell.swift; path = Components/Daily/DailyTableCell.swift; sourceTree = "<group>"; };
-		CB5918DE1EE723FC0093AC57 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderCell.swift; path = Components/Header/HeaderCell.swift; sourceTree = "<group>"; };
-		CB5918E01EE750BA0093AC57 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderCell.xib; path = Components/Header/HeaderCell.xib; sourceTree = "<group>"; };
-		CB5918E51EE868040093AC57 /* CurrentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentCell.swift; path = Components/Current/CurrentCell.swift; sourceTree = "<group>"; };
 		CB5918E71EEAD82D0093AC57 /* APIinfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIinfo.plist; sourceTree = "<group>"; };
-		CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Views/Main/MainViewController.swift; sourceTree = "<group>"; };
-		CB5D08E11ED5E603008F51FD /* MainView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainView.storyboard; path = Views/Main/MainView.storyboard; sourceTree = "<group>"; };
-		CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = Views/Main/MainViewModel.swift; sourceTree = "<group>"; };
+		CB5918EB1EEAED250093AC57 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		CB5918EC1EEAED250093AC57 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
+		CB5918EE1EEAED250093AC57 /* HourlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyCell.swift; sourceTree = "<group>"; };
+		CB5918EF1EEAED250093AC57 /* HourlyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HourlyCell.xib; sourceTree = "<group>"; };
+		CB5918F01EEAED250093AC57 /* XibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibLoadable.swift; path = Views/XibLoadable.swift; sourceTree = "<group>"; };
+		CB5918F81EEAED5B0093AC57 /* CurrentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentCell.swift; sourceTree = "<group>"; };
+		CB5918FA1EEAED5B0093AC57 /* DailyTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTableCell.swift; sourceTree = "<group>"; };
+		CB5918FD1EEAED740093AC57 /* MainView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainView.storyboard; path = ViewControllers/Main/MainView.storyboard; sourceTree = "<group>"; };
+		CB5918FE1EEAED740093AC57 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/Main/MainViewController.swift; sourceTree = "<group>"; };
+		CB5918FF1EEAED740093AC57 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = ViewControllers/Main/MainViewModel.swift; sourceTree = "<group>"; };
 		CB5D08E71ED768F4008F51FD /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = API/Location.swift; sourceTree = "<group>"; };
 		CBD512C01E63B4A500614C3A /* Brrrr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brrrr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD512C31E63B4A500614C3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,25 +122,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		CB5918BE1EDF657A0093AC57 /* Components */ = {
+		CB5918BE1EDF657A0093AC57 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CB5918DD1EE723C50093AC57 /* Header */,
-				CB5918D21EE0C0EC0093AC57 /* XibLoadable.swift */,
-				CB5918CB1EE09C140093AC57 /* Daily */,
-				CB5918BF1EDF65990093AC57 /* Hourly */,
-				CB5918E41EE867C00093AC57 /* Current */,
+				CB5918EA1EEAED250093AC57 /* Header */,
+				CB5918ED1EEAED250093AC57 /* Hourly */,
+				CB5918F01EEAED250093AC57 /* XibLoadable.swift */,
 			);
-			name = Components;
-			sourceTree = "<group>";
-		};
-		CB5918BF1EDF65990093AC57 /* Hourly */ = {
-			isa = PBXGroup;
-			children = (
-				CB5918C21EDF65D80093AC57 /* HourlyCell.swift */,
-				CB5918C01EDF65C60093AC57 /* HourlyCell.xib */,
-			);
-			name = Hourly;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		CB5918C41EE083990093AC57 /* Assets */ = {
@@ -152,14 +141,6 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
-		CB5918CB1EE09C140093AC57 /* Daily */ = {
-			isa = PBXGroup;
-			children = (
-				CB5918DB1EE6EF8D0093AC57 /* DailyTableCell.swift */,
-			);
-			name = Daily;
-			sourceTree = "<group>";
-		};
 		CB5918D41EE1F30E0093AC57 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,38 +150,68 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
-		CB5918DD1EE723C50093AC57 /* Header */ = {
+		CB5918EA1EEAED250093AC57 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				CB5918DE1EE723FC0093AC57 /* HeaderCell.swift */,
-				CB5918E01EE750BA0093AC57 /* HeaderCell.xib */,
+				CB5918EB1EEAED250093AC57 /* HeaderCell.swift */,
+				CB5918EC1EEAED250093AC57 /* HeaderCell.xib */,
 			);
 			name = Header;
+			path = Views/Header;
 			sourceTree = "<group>";
 		};
-		CB5918E41EE867C00093AC57 /* Current */ = {
+		CB5918ED1EEAED250093AC57 /* Hourly */ = {
 			isa = PBXGroup;
 			children = (
-				CB5918E51EE868040093AC57 /* CurrentCell.swift */,
+				CB5918EE1EEAED250093AC57 /* HourlyCell.swift */,
+				CB5918EF1EEAED250093AC57 /* HourlyCell.xib */,
 			);
-			name = Current;
+			name = Hourly;
+			path = Views/Hourly;
 			sourceTree = "<group>";
 		};
-		CB5D08DD1ED5E558008F51FD /* Views */ = {
+		CB5918F61EEAED5B0093AC57 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CB5918F71EEAED5B0093AC57 /* Current */,
+				CB5918F91EEAED5B0093AC57 /* Daily */,
+			);
+			name = Components;
+			path = ViewControllers/Main/Components;
+			sourceTree = "<group>";
+		};
+		CB5918F71EEAED5B0093AC57 /* Current */ = {
+			isa = PBXGroup;
+			children = (
+				CB5918F81EEAED5B0093AC57 /* CurrentCell.swift */,
+			);
+			path = Current;
+			sourceTree = "<group>";
+		};
+		CB5918F91EEAED5B0093AC57 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				CB5918FA1EEAED5B0093AC57 /* DailyTableCell.swift */,
+			);
+			path = Daily;
+			sourceTree = "<group>";
+		};
+		CB5D08DD1ED5E558008F51FD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				CBD512CC1E63B4A500614C3A /* LaunchScreen.storyboard */,
 				CB5D08DE1ED5E593008F51FD /* Main */,
 			);
-			name = Views;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		CB5D08DE1ED5E593008F51FD /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */,
-				CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */,
-				CB5D08E11ED5E603008F51FD /* MainView.storyboard */,
+				CB5918FD1EEAED740093AC57 /* MainView.storyboard */,
+				CB5918FE1EEAED740093AC57 /* MainViewController.swift */,
+				CB5918FF1EEAED740093AC57 /* MainViewModel.swift */,
+				CB5918F61EEAED5B0093AC57 /* Components */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -236,8 +247,8 @@
 				CB5918C41EE083990093AC57 /* Assets */,
 				CB5918D41EE1F30E0093AC57 /* Services */,
 				CB3C60C41E6705F900B5DE01 /* Models */,
-				CB5918BE1EDF657A0093AC57 /* Components */,
-				CB5D08DD1ED5E558008F51FD /* Views */,
+				CB5918BE1EDF657A0093AC57 /* Views */,
+				CB5D08DD1ED5E558008F51FD /* ViewControllers */,
 			);
 			path = Brrrr;
 			sourceTree = "<group>";
@@ -377,13 +388,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB5918E11EE750BA0093AC57 /* HeaderCell.xib in Resources */,
 				CBD512CE1E63B4A500614C3A /* LaunchScreen.storyboard in Resources */,
 				CB5918C81EE083AF0093AC57 /* weather.ttf in Resources */,
+				CB5919001EEAED740093AC57 /* MainView.storyboard in Resources */,
 				CBD512CB1E63B4A500614C3A /* Assets.xcassets in Resources */,
-				CB5918C11EDF65C60093AC57 /* HourlyCell.xib in Resources */,
+				CB5918F41EEAED250093AC57 /* HourlyCell.xib in Resources */,
 				CB5918E81EEAD82D0093AC57 /* APIinfo.plist in Resources */,
-				CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */,
+				CB5918F21EEAED250093AC57 /* HeaderCell.xib in Resources */,
 				CB5918C71EE083AF0093AC57 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,23 +534,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB5918C31EDF65D80093AC57 /* HourlyCell.swift in Sources */,
 				CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */,
 				CB5D08E81ED768F4008F51FD /* Location.swift in Sources */,
 				CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */,
-				CB5918E61EE868040093AC57 /* CurrentCell.swift in Sources */,
+				CB5918F11EEAED250093AC57 /* HeaderCell.swift in Sources */,
 				CBD512E81E65245200614C3A /* API.swift in Sources */,
+				CB5918F51EEAED250093AC57 /* XibLoadable.swift in Sources */,
 				CB5918D71EE1F4510093AC57 /* FormatService.swift in Sources */,
+				CB5919011EEAED740093AC57 /* MainViewController.swift in Sources */,
+				CB5919021EEAED740093AC57 /* MainViewModel.swift in Sources */,
+				CB5918FC1EEAED5B0093AC57 /* DailyTableCell.swift in Sources */,
+				CB5918F31EEAED250093AC57 /* HourlyCell.swift in Sources */,
 				CB3C60C61E67065C00B5DE01 /* DataPoint.swift in Sources */,
-				CB5D08E41ED62DEC008F51FD /* MainViewModel.swift in Sources */,
 				CB5918D81EE1F4510093AC57 /* Icons.swift in Sources */,
 				CB3C60C31E66E18400B5DE01 /* Endpoints.swift in Sources */,
-				CB5918DC1EE6EF8D0093AC57 /* DailyTableCell.swift in Sources */,
-				CB5D08E01ED5E5F1008F51FD /* MainViewController.swift in Sources */,
-				CB5918D31EE0C0EC0093AC57 /* XibLoadable.swift in Sources */,
 				CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */,
-				CB5918DF1EE723FC0093AC57 /* HeaderCell.swift in Sources */,
 				CB3C60CA1E67BE5F00B5DE01 /* Alert.swift in Sources */,
+				CB5918FB1EEAED5B0093AC57 /* CurrentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
