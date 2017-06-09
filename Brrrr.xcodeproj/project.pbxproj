@@ -26,6 +26,7 @@
 		CB5918DF1EE723FC0093AC57 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918DE1EE723FC0093AC57 /* HeaderCell.swift */; };
 		CB5918E11EE750BA0093AC57 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5918E01EE750BA0093AC57 /* HeaderCell.xib */; };
 		CB5918E61EE868040093AC57 /* CurrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918E51EE868040093AC57 /* CurrentCell.swift */; };
+		CB5918E81EEAD82D0093AC57 /* APIinfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB5918E71EEAD82D0093AC57 /* APIinfo.plist */; };
 		CB5D08E01ED5E5F1008F51FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */; };
 		CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5D08E11ED5E603008F51FD /* MainView.storyboard */; };
 		CB5D08E41ED62DEC008F51FD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */; };
@@ -72,6 +73,7 @@
 		CB5918DE1EE723FC0093AC57 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderCell.swift; path = Components/Header/HeaderCell.swift; sourceTree = "<group>"; };
 		CB5918E01EE750BA0093AC57 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderCell.xib; path = Components/Header/HeaderCell.xib; sourceTree = "<group>"; };
 		CB5918E51EE868040093AC57 /* CurrentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentCell.swift; path = Components/Current/CurrentCell.swift; sourceTree = "<group>"; };
+		CB5918E71EEAD82D0093AC57 /* APIinfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIinfo.plist; sourceTree = "<group>"; };
 		CB5D08DF1ED5E5F1008F51FD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Views/Main/MainViewController.swift; sourceTree = "<group>"; };
 		CB5D08E11ED5E603008F51FD /* MainView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainView.storyboard; path = Views/Main/MainView.storyboard; sourceTree = "<group>"; };
 		CB5D08E31ED62DEC008F51FD /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = Views/Main/MainViewModel.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				CBD512C31E63B4A500614C3A /* AppDelegate.swift */,
 				CBD512CA1E63B4A500614C3A /* Assets.xcassets */,
 				CBD512CF1E63B4A500614C3A /* Info.plist */,
+				CB5918E71EEAD82D0093AC57 /* APIinfo.plist */,
 				CBD512E61E6523E700614C3A /* API */,
 				CB5918C41EE083990093AC57 /* Assets */,
 				CB5918D41EE1F30E0093AC57 /* Services */,
@@ -379,6 +382,7 @@
 				CB5918C81EE083AF0093AC57 /* weather.ttf in Resources */,
 				CBD512CB1E63B4A500614C3A /* Assets.xcassets in Resources */,
 				CB5918C11EDF65C60093AC57 /* HourlyCell.xib in Resources */,
+				CB5918E81EEAD82D0093AC57 /* APIinfo.plist in Resources */,
 				CB5D08E21ED5E603008F51FD /* MainView.storyboard in Resources */,
 				CB5918C71EE083AF0093AC57 /* LICENSE in Resources */,
 			);
