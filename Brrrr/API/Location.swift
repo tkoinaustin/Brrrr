@@ -19,7 +19,7 @@ class Location {
       self.geocoder.geocodeAddressString(location) { placemarks, error in
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
-        if let error = error { return reject(error) }
+        if error != nil { return reject(APIError.geocoder(location: location)) }
         
         if let places = placemarks { return fulfill(places) }
         else { return reject(APIError.geocoder(location: location)) }

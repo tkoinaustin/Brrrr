@@ -46,7 +46,7 @@ class MainViewController: UIViewController {
     viewModel.updateUI = {
       self.tableView.reloadData()
       self.hourlyConditions.reloadData()
-      self.headerView.cityLabel.text = self.searchBar.text
+      self.headerView.cityLabel.text = self.viewModel.city
       self.headerView.data = self.viewModel.currentData
     }
   }

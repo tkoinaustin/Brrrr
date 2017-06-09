@@ -45,10 +45,10 @@ class DarkSkyResponse {
     
     self.tempFormatter.maximumFractionDigits = 0
     
-    self.currently = DataPoint(from: self.data["currently"], formatters: [dateFormatter, tempFormatter])
-    self.minutely = DataBlock(from: self.data["minutely"], formatters: [dateFormatter, tempFormatter])
-    self.hourly = DataBlock(from: self.data["hourly"], formatters: [dateFormatter, tempFormatter])
-    self.daily = DataBlock(from: self.data["daily"], formatters: [dateFormatter, tempFormatter])
+    self.currently = DataPoint(from: self.data["currently"])
+    self.minutely = DataBlock(from: self.data["minutely"])
+    self.hourly = DataBlock(from: self.data["hourly"])
+    self.daily = DataBlock(from: self.data["daily"])
     
     var alerts = [Alert]()
     for item in self.data["alerts"].arrayValue {

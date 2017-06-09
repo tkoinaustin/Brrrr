@@ -30,19 +30,35 @@ class MainViewModel {
     guard let current = darkSky?.currently else { return nil }
     return current
   }
+  var place: CLPlacemark!
+  
+  var city: String {
+    guard let address = place.addressDictionary else { return "" }
+    print("address: \(address)")
+    let countryCode = address["CountryCode"]!
+    let state = address["State"]!
+    let city = address["City"]!
+    let suffix = countryCode as? String == "US" ? state : countryCode
+    return"\(city), \(suffix)"
+  }
   
   var searchString: String = "" { didSet {
     if searchString == "" {
       darkSky = DarkSkyResponse.empty
       updateUI()
     }
-    }}
+  }}
   
   func searchForEvents() {
     guard searchString != "" else { return }
     _ = Location.getCoordinates(searchString).then { places -> Void in
+      print("places[0] = \(places[0])")
+      self.place = places[0]
       guard let location = places[0].location else { return }
       _ = self.dataRequest(location)
+      }.catch {error in
+        guard let apiError = error as? APIError else { return }
+        self.showError(apiError)
     }
   }
 

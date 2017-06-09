@@ -11,16 +11,14 @@ import SwiftyJSON
 
 class DataPoint {
   let data: JSON
-  let dateFormatter: DateFormatter!
-  let tempFormatter: NumberFormatter!
   
-  var apparentTemperature: String { return tempFormatter.string(from: data["apparentTemperature"].numberValue)! }
+  var apparentTemperature: String { return FormatService.tmp(data["apparentTemperature"].numberValue) }
   var apparentTemperatureMax: NSNumber { return data["apparentTemperatureMax"].numberValue }
   var apparentTemperatureMaxTime: NSNumber { return data["apparentTemperatureMaxTime"].numberValue }
   var apparentTemperatureMin: NSNumber { return data["apparentTemperatureMin"].numberValue }
   var apparentTemperatureMinTime: NSNumber { return data["apparentTemperatureMinTime"].numberValue }
-  var cloudCover: String { return FormatService.percent(data["cloudCover"].numberValue) }
-  var humidity: String { return FormatService.percent(data["humidity"].numberValue) }
+  var cloudCover: String { return FormatService.pct(data["cloudCover"].numberValue) }
+  var humidity: String { return FormatService.pct(data["humidity"].numberValue) }
   var icon: String { return Icon.meaning(data["icon"].stringValue) }
   var moonPhase: String? { return data["moonPhase"].string }
   var nearestStormBearing: String? { return data["nearestStormBearing"].string }
@@ -38,23 +36,19 @@ class DataPoint {
   var sunriseTime: Double { return data["sunriseTime"].doubleValue }
   var sunsetTime: Double { return data["sunsetTime"].doubleValue }
   var temperature: String { return FormatService.degrees(data["temperature"].numberValue) }
-  var temperatureMax: String { return tempFormatter.string(from: data["temperatureMax"].numberValue)! }
+  var temperatureMax: String { return FormatService.tmp(data["temperatureMax"].numberValue) }
   var temperatureMaxTime: String? { return data["temperatureMaxTime"].string }
-  var temperatureMin: String { return tempFormatter.string(from: data["temperatureMin"].numberValue)! }
+  var temperatureMin: String { return FormatService.tmp(data["temperatureMin"].numberValue) }
   var temperatureMinTime: String? { return data["temperatureMinTime"].string }
   var timeValue: Double? { return data["time"].double }
-  var visibility: String? { return tempFormatter.string(from: data["visibility"].numberValue) }
+  var visibility: String { return FormatService.tmp( data["visibility"].numberValue) }
   var windBearing: String { return data["windBearing"].stringValue }
   var windSpeed: String { return data["windSpeed"].numberValue.description }
   var time: Date? { return Date(timeIntervalSince1970: data["time"].doubleValue) }
   var prettyDate: String? { return FormatService.ha(data["time"].doubleValue) }
   var dayOfWeek: String { return FormatService.dayOfWeek(data["time"].doubleValue) }
 
-  required init?(from data: JSON, formatters: [Formatter]) {
-    guard let dateFormatter = formatters[0] as? DateFormatter else { return nil }
-    guard let tempFormatter = formatters[1] as? NumberFormatter else { return nil }
-    self.dateFormatter = dateFormatter
-    self.tempFormatter = tempFormatter
+  required init?(from data: JSON) { //, formatters: [Formatter]) {
     self.data = data
   }
 }

@@ -35,7 +35,7 @@ class FormatService {
     return formatter.string(from: date)
   }
   
-  static func percent (_ number: NSNumber) -> String {
+  static func pct (_ number: NSNumber) -> String {
     let tempFormatter = NumberFormatter()
     tempFormatter.maximumFractionDigits = 0
     let value = NSNumber(value: number.floatValue * 100.0)
@@ -43,7 +43,7 @@ class FormatService {
     return "\(result)%"
   }
   
-  static func temperature (_ number: NSNumber) -> String {
+  static func tmp (_ number: NSNumber) -> String {
     let tempFormatter = NumberFormatter()
     tempFormatter.maximumFractionDigits = 0
     guard let result = tempFormatter.string(from: number) else { return "" }

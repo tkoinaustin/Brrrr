@@ -15,21 +15,15 @@ class DataBlock {
   let items: [DataPoint]
   var summary: String? { return data["summary"].string }
   var icon: String? { return data["icon"].string }
-  let dateFormatter: DateFormatter!
-  let tempFormatter: NumberFormatter!
 
-  required init?(from data: JSON, formatters: [Formatter]) {
-    guard let dateFormatter = formatters[0] as? DateFormatter else { return nil }
-    guard let tempFormatter = formatters[1] as? NumberFormatter else { return nil }
+  required init?(from data: JSON) {
     guard DataBlock.isValid(data) else { return nil }
     
-    self.dateFormatter = dateFormatter
-    self.tempFormatter = tempFormatter
     self.data = data
     var items = [DataPoint]()
     
     for item in self.data["data"].arrayValue {
-      if let dataPoint = DataPoint(from: item, formatters: [dateFormatter, tempFormatter]) {
+      if let dataPoint = DataPoint(from: item) {
         items.append(dataPoint)
       }
     }
