@@ -12,7 +12,6 @@ import SwiftyJSON
 struct APIResponse {
   var raw: URLResponse?
   var body: JSON?
-  var error: APIError?
 }
 
 enum HTTPMethod: String {
@@ -32,8 +31,8 @@ enum APIError: Error {
   func desc() -> String {
     switch self {
     case .generic: return "Generic API Error"
-    case .body: return "Error with API body Error"
-    case .request: return "Error with API request Error"
+    case .body: return "Error with API body"
+    case .request: return "Error with API request"
     case .server: return "Server Error"
     case .reachability: return "Network is unreachable, check network settings"
     case .geocoder(let location): return "Unable to find location matching \(location)"
@@ -67,6 +66,8 @@ struct APIRequest {
   }
 }
 
+typealias ResponseBuilder = () throws -> (APIResponse)
+
 class API {
   static var baseURL = URL(string: "https://api.darksky.net")!
   
@@ -84,25 +85,29 @@ class API {
     return shared
   }
 
-  static func fire(_ request: APIRequest, closure: @escaping ((APIResponse) -> Void)) {
-    var apiResponse = APIResponse()
-      session.dataTask(with: request.urlRequest) { (data, response, error) in
-        switch (data, response, error) {
-        case (_, _, .some(_)): apiResponse.error = APIError.request
-          
-        case (.none, _, _): apiResponse.error = APIError.body
-          
-        case (.some(let data), .some(let response as HTTPURLResponse), _):
-          switch response.statusCode {
-          case 400...499: apiResponse.error = APIError.request
-          case 500...599: apiResponse.error = APIError.server
-          default:
-            apiResponse.raw = response
-            apiResponse.body = JSON(data: data)
-          }
-        default: apiResponse.error = APIError.body
-        }
-        closure(apiResponse)
-      }.resume()
+  static func fire(_ request: APIRequest, completion: @escaping (ResponseBuilder) -> Void) {
+//    var apiResponse = APIResponse()
+      session.dataTask(with: request.urlRequest) { (data, response, error) -> Void in
+        completion({ _ in
+          if error == nil { throw APIError.request }
+          guard let data = data else { throw APIError.noResults }
+          return APIResponse(raw: response, body: JSON(data: data))
+//          switch (data, response, error) {
+//          case (_, _, .some(_)): { throw APIError.request }
+//            
+//          case (.none, _, _): { throw APIError.body}
+//            
+//          case (.some(let data), .some(let response as HTTPURLResponse), _):
+//            switch response.statusCode {
+//            case 400...499: { throw APIError.request }
+//            case 500...599:  { throw APIError.server }
+//            default:
+//              apiResponse.raw = response
+//              apiResponse.body = JSON(data: data)
+//            }
+//          default:  { throw APIError.body }
+//          }
+        })
+        }.resume()
     }
   }

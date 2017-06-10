@@ -49,28 +49,33 @@ class MainViewModel {
   
   func searchForEvents() {
     guard searchString != "" else { return }
-    Location.getCoordinates(searchString) { places, error in
-      if let error = error {
-        self.showError(error)
-      } else {
+    Location.getCoordinates(searchString) { (placemarkBuilder: PlacemarkBuilder) in
+      do {
+        let places = try placemarkBuilder()
         self.place = places[0]
         guard let location = places[0].location else { return }
         _ = self.dataRequest(location)
+      } catch {
+        guard let apiError = error as? APIError else { return }
+        self.showError(apiError)
       }
     }
   }
-  
+
+  //typealias DarkSkyBuilder = () throws -> (DarkSkyResponse)
   func dataRequest(_ location: CLLocation) {
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    DarkSkyResponse.loadWeather(location) { darkSkyData  in
-      UIApplication.shared.isNetworkActivityIndicatorVisible = false
-      self.darkSky = darkSkyData
-      DispatchQueue.main.async {
-        self.updateUI()
-      }
+      DarkSkyResponse.loadWeather(location) { darkSkyData  in
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        self.darkSky = darkSkyData
+        DispatchQueue.main.async {
+          self.updateUI()
+        }
       if darkSkyData.data == JSON.null {
         self.showError(APIError.noResults)
       }
     }
   }
 }
+
+
