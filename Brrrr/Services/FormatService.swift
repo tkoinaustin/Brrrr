@@ -35,6 +35,14 @@ class FormatService {
     return formatter.string(from: date)
   }
   
+  static func longDate (_ date: Double) -> String {
+    let formatter = DateFormatter()
+    formatter.timeZone = FormatService.timezone
+    formatter.dateFormat = "EEEE, MMMM d"
+    let date = Date(timeIntervalSince1970: date)
+    return formatter.string(from: date)
+  }
+  
   static func pct (_ number: NSNumber) -> String {
     let tempFormatter = NumberFormatter()
     tempFormatter.maximumFractionDigits = 0

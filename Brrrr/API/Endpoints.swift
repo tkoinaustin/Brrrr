@@ -24,7 +24,7 @@ class Endpoints {
     }
   }
   
-  static func getForcast(_ location: CLLocation, completion: @escaping (ResponseBuilder) -> Void) {
+  static func getForcast(_ location: CLLocation, completion: @escaping (() throws -> (APIResponse)) -> Void) {
     let request = APIRequest(.get, path: Endpoints.forecast(location: location).path())
     return API.fire(request, completion: completion)
   }

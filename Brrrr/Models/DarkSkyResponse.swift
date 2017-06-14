@@ -63,17 +63,12 @@ class DarkSkyResponse {
     else { return false }
   }
   
-  //typealias ResponseBuilder = () throws -> (APIResponse)
-  //typealias DarkSkyBuilder = () throws -> (DarkSkyResponse)
-  static func loadWeather(_ location: CLLocation, closure: @escaping ((DarkSkyResponse) -> Void)) {
+  static func loadWeather(_ location: CLLocation, closure: @escaping ((DarkSkyResponse) throws -> Void)) rethrows -> Void {
     return Endpoints.getForcast(location) { response in
       do {
-        var darkSkyResponse = DarkSkyResponse.empty
-        defer {
-          print("deferred")
-          closure(darkSkyResponse!)
+        if let darkSkyResponse = try DarkSkyResponse(from: response().body!) {
+          try closure(darkSkyResponse)
         }
-        darkSkyResponse = try DarkSkyResponse(from: response().body!)
       } catch {
         if let apiError = error as? APIError {
           print(apiError.desc())

@@ -47,6 +47,7 @@ class DataPoint {
   var time: Date? { return Date(timeIntervalSince1970: data["time"].doubleValue) }
   var prettyDate: String? { return FormatService.ha(data["time"].doubleValue) }
   var dayOfWeek: String { return FormatService.dayOfWeek(data["time"].doubleValue) }
+  var longDate: String { return FormatService.longDate(data["time"].doubleValue) }
 
   required init?(from data: JSON) { //, formatters: [Formatter]) {
     self.data = data

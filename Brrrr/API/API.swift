@@ -85,28 +85,24 @@ class API {
     return shared
   }
 
-  static func fire(_ request: APIRequest, completion: @escaping (ResponseBuilder) -> Void) {
-//    var apiResponse = APIResponse()
+  static func fire(_ request: APIRequest, completion: @escaping (() throws -> (APIResponse)) -> Void) {
       session.dataTask(with: request.urlRequest) { (data, response, error) -> Void in
         completion({ _ in
-          if error == nil { throw APIError.request }
-          guard let data = data else { throw APIError.noResults }
-          return APIResponse(raw: response, body: JSON(data: data))
-//          switch (data, response, error) {
-//          case (_, _, .some(_)): { throw APIError.request }
-//            
-//          case (.none, _, _): { throw APIError.body}
-//            
-//          case (.some(let data), .some(let response as HTTPURLResponse), _):
-//            switch response.statusCode {
-//            case 400...499: { throw APIError.request }
-//            case 500...599:  { throw APIError.server }
-//            default:
-//              apiResponse.raw = response
-//              apiResponse.body = JSON(data: data)
-//            }
-//          default:  { throw APIError.body }
-//          }
+          switch (data, response, error) {
+          case (_, _, .some(_)): throw APIError.request
+            
+          case (.none, _, _): throw APIError.body
+            
+          case (.some(let data), .some(let response as HTTPURLResponse), _):
+            switch response.statusCode {
+            case 400...499: throw APIError.request
+            case 500...599: throw APIError.server
+            default:
+              print("raw: \(response)\nbody: \(JSON(data: data))")
+              return APIResponse(raw: response, body: JSON(data: data))
+            }
+          default: throw APIError.body
+          }
         })
         }.resume()
     }

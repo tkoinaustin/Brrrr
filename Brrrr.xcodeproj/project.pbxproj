@@ -15,6 +15,9 @@
 		CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C71E6709F700B5DE01 /* DataBlock.swift */; };
 		CB3C60CA1E67BE5F00B5DE01 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60C91E67BE5F00B5DE01 /* Alert.swift */; };
 		CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */; };
+		CB526D091EF0B39A0010EE38 /* DailyView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB526D081EF0B39A0010EE38 /* DailyView.storyboard */; };
+		CB526D0B1EF0B3B40010EE38 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB526D0A1EF0B3B40010EE38 /* DailyViewController.swift */; };
+		CB526D0D1EF0CC9D0010EE38 /* DailyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB526D0C1EF0CC9D0010EE38 /* DailyViewModel.swift */; };
 		CB5918C71EE083AF0093AC57 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C51EE083AF0093AC57 /* LICENSE */; };
 		CB5918C81EE083AF0093AC57 /* weather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C61EE083AF0093AC57 /* weather.ttf */; };
 		CB5918D71EE1F4510093AC57 /* FormatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D51EE1F4510093AC57 /* FormatService.swift */; };
@@ -62,6 +65,9 @@
 		CB3C60C71E6709F700B5DE01 /* DataBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBlock.swift; path = Models/DataBlock.swift; sourceTree = "<group>"; };
 		CB3C60C91E67BE5F00B5DE01 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Models/Alert.swift; sourceTree = "<group>"; };
 		CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DarkSkyResponse.swift; path = Models/DarkSkyResponse.swift; sourceTree = "<group>"; };
+		CB526D081EF0B39A0010EE38 /* DailyView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DailyView.storyboard; path = ViewControllers/Daily/DailyView.storyboard; sourceTree = "<group>"; };
+		CB526D0A1EF0B3B40010EE38 /* DailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyViewController.swift; path = ViewControllers/Daily/DailyViewController.swift; sourceTree = "<group>"; };
+		CB526D0C1EF0CC9D0010EE38 /* DailyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyViewModel.swift; path = ViewControllers/Daily/DailyViewModel.swift; sourceTree = "<group>"; };
 		CB5918C51EE083AF0093AC57 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Assets/LICENSE; sourceTree = "<group>"; };
 		CB5918C61EE083AF0093AC57 /* weather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = weather.ttf; path = Assets/weather.ttf; sourceTree = "<group>"; };
 		CB5918D51EE1F4510093AC57 /* FormatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatService.swift; path = Services/FormatService.swift; sourceTree = "<group>"; };
@@ -120,6 +126,16 @@
 				CB3C60CB1E67C19A00B5DE01 /* DarkSkyResponse.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		CB526D071EF0B34C0010EE38 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				CB526D0C1EF0CC9D0010EE38 /* DailyViewModel.swift */,
+				CB526D0A1EF0B3B40010EE38 /* DailyViewController.swift */,
+				CB526D081EF0B39A0010EE38 /* DailyView.storyboard */,
+			);
+			name = Daily;
 			sourceTree = "<group>";
 		};
 		CB5918BE1EDF657A0093AC57 /* Views */ = {
@@ -201,6 +217,7 @@
 			children = (
 				CBD512CC1E63B4A500614C3A /* LaunchScreen.storyboard */,
 				CB5D08DE1ED5E593008F51FD /* Main */,
+				CB526D071EF0B34C0010EE38 /* Daily */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -393,6 +410,7 @@
 				CB5919001EEAED740093AC57 /* MainView.storyboard in Resources */,
 				CBD512CB1E63B4A500614C3A /* Assets.xcassets in Resources */,
 				CB5918F41EEAED250093AC57 /* HourlyCell.xib in Resources */,
+				CB526D091EF0B39A0010EE38 /* DailyView.storyboard in Resources */,
 				CB5918E81EEAD82D0093AC57 /* APIinfo.plist in Resources */,
 				CB5918F21EEAED250093AC57 /* HeaderCell.xib in Resources */,
 				CB5918C71EE083AF0093AC57 /* LICENSE in Resources */,
@@ -536,6 +554,7 @@
 			files = (
 				CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */,
 				CB5D08E81ED768F4008F51FD /* Location.swift in Sources */,
+				CB526D0B1EF0B3B40010EE38 /* DailyViewController.swift in Sources */,
 				CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */,
 				CB5918F11EEAED250093AC57 /* HeaderCell.swift in Sources */,
 				CBD512E81E65245200614C3A /* API.swift in Sources */,
@@ -547,6 +566,7 @@
 				CB5918F31EEAED250093AC57 /* HourlyCell.swift in Sources */,
 				CB3C60C61E67065C00B5DE01 /* DataPoint.swift in Sources */,
 				CB5918D81EE1F4510093AC57 /* Icons.swift in Sources */,
+				CB526D0D1EF0CC9D0010EE38 /* DailyViewModel.swift in Sources */,
 				CB3C60C31E66E18400B5DE01 /* Endpoints.swift in Sources */,
 				CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */,
 				CB3C60CA1E67BE5F00B5DE01 /* Alert.swift in Sources */,

@@ -42,6 +42,7 @@ class MainViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.isNavigationBarHidden = true
     viewModel.showError = showConnectionProblems
     viewModel.updateUI = {
       self.tableView.reloadData()
@@ -61,6 +62,14 @@ class MainViewController: UIViewController {
     self.present(alertViewController, animated: true)
   }
 
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let dailyViewController = segue.destination as? DailyViewController else { return }
+    guard let data = sender as? DataPoint else { return }
+    
+    dailyViewController.data = data
+    dailyViewController.city = viewModel.city
+    dailyViewController.date = data.longDate
+  }
 }
 
 extension MainViewController: UITableViewDelegate {
@@ -70,7 +79,14 @@ extension MainViewController: UITableViewDelegate {
     if offset < 0 { hourlyTopConstraint.constant = -(120 + offset) }
     else { hourlyTopConstraint.constant = -120 }
   }
-
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    self.tableView.deselectRow(at: indexPath, animated: true)
+    guard indexPath.row < viewModel.dailyData.count else { return }
+    
+    let data = viewModel.dailyData[indexPath.row]
+    self.performSegue(withIdentifier: "dailyViewSegue", sender: data)
+  }
 }
 
 extension MainViewController: UITableViewDataSource {
