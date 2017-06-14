@@ -22,6 +22,18 @@ class DailyViewController: UIViewController {
   @IBOutlet weak var dateLabel: UILabel! { didSet {
     dateLabel.text = date
   }}
+  @IBOutlet weak var highTempLabel: UILabel! { didSet {
+    highTempLabel.text = "\(data.temperatureMax)\u{00B0}F"
+  }}
+  @IBOutlet weak var highTempTimeLabel: UILabel!
+  @IBOutlet weak var highTempFeelsLikeLabel: UILabel!
+
+  @IBOutlet weak var lowTempLabel: UILabel! { didSet {
+    lowTempLabel.text = "\(data.temperatureMin)\u{00B0}F"
+  }}
+
+  @IBOutlet weak var lowTempTimeLabel: UILabel!
+  @IBOutlet weak var lowTempFeelsLikeLabel: UILabel!
   
   @IBAction func backAction(_ sender: UIButton) {
     _ = navigationController?.popViewController(animated: true)

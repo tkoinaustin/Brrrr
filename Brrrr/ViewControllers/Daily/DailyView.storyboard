@@ -221,6 +221,12 @@
                     <connections>
                         <outlet property="cityLabel" destination="0dc-F5-sSd" id="Bhq-Ra-3N9"/>
                         <outlet property="dateLabel" destination="20b-nV-waU" id="pi2-52-nhP"/>
+                        <outlet property="highTempFeelsLikeLabel" destination="NBo-Oo-8Te" id="4ft-yC-Mh0"/>
+                        <outlet property="highTempLabel" destination="hGR-la-vtW" id="hmY-Ih-AlW"/>
+                        <outlet property="highTempTimeLabel" destination="p14-Sg-itC" id="IGp-fq-tMH"/>
+                        <outlet property="lowTempFeelsLikeLabel" destination="PdI-t2-XAj" id="ZVQ-2N-wnf"/>
+                        <outlet property="lowTempLabel" destination="m2y-JG-TzF" id="0Lg-M4-qWS"/>
+                        <outlet property="lowTempTimeLabel" destination="fvM-9w-zzv" id="osy-b0-say"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puO-DV-WVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
