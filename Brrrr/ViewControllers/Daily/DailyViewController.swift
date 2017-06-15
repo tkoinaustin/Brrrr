@@ -52,7 +52,8 @@ class DailyViewController: UIViewController {
   }}
 
   @IBOutlet private weak var precipitationLabel: UILabel! { didSet {
-    precipitationLabel.text = "\(data.precipType)"
+    let precip = data.precipType == "" ? "none" : data.precipType
+    precipitationLabel.text = "\(precip)"
   }}
 
   @IBOutlet private weak var probabilityLabel: UILabel! { didSet {
@@ -68,8 +69,12 @@ class DailyViewController: UIViewController {
   }}
 
   @IBOutlet private weak var visibilityLabel: UILabel! { didSet {
-    let miles = data.visibility == "1" ? "mile" : "miles"
-    visibilityLabel.text = "\(data.visibility) \(miles)"
+    let miles = data.visibility
+    switch miles {
+      case "0": visibilityLabel.text = "unlimited"
+      case "1": visibilityLabel.text = "1 mile"
+    default: visibilityLabel.text = "\(miles) miles"
+    }
   }}
 
   @IBOutlet private weak var sunriseLabel: UILabel! { didSet {

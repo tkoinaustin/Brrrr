@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -17,26 +17,32 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HourlyCell" customModule="Brrrr" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="246"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" tag="12" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Y41-76-Ync">
-                    <rect key="frame" x="1" y="0.0" width="198" height="200"/>
+                    <rect key="frame" x="1" y="0.0" width="198" height="246"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="87 F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="orT-be-hzA">
-                            <rect key="frame" x="0.0" y="0.0" width="198" height="62"/>
+                            <rect key="frame" x="0.0" y="0.0" width="198" height="59"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostly Cloudy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SG7-NT-u59">
-                            <rect key="frame" x="0.0" y="64" width="198" height="71.5"/>
+                            <rect key="frame" x="0.0" y="61" width="198" height="68.5"/>
                             <fontDescription key="fontDescription" name="Flaticon" family="Flaticon" pointSize="22"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3d-Tp-vw0">
+                            <rect key="frame" x="0.0" y="131.5" width="198" height="48.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/3/17 3:24 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="89a-qT-5Df">
-                            <rect key="frame" x="0.0" y="137.5" width="198" height="62.5"/>
+                            <rect key="frame" x="0.0" y="182" width="198" height="64"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -57,9 +63,10 @@
             <connections>
                 <outlet property="date" destination="89a-qT-5Df" id="CFC-5k-oKc"/>
                 <outlet property="icon" destination="SG7-NT-u59" id="HJU-5p-K9D"/>
+                <outlet property="precipitation" destination="g3d-Tp-vw0" id="nHF-6k-TxA"/>
                 <outlet property="temperature" destination="orT-be-hzA" id="KZP-0i-dPc"/>
             </connections>
-            <point key="canvasLocation" x="-18.5" y="-185"/>
+            <point key="canvasLocation" x="-19" y="-162"/>
         </view>
     </objects>
 </document>
