@@ -101,6 +101,7 @@ class API {
               print("raw: \(response)\nbody: \(JSON(data: data))")
               return APIResponse(raw: response, body: JSON(data: data))
             }
+            
           default: throw APIError.body
           }
         })

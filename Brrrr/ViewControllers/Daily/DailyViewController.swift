@@ -19,22 +19,49 @@ class DailyViewController: UIViewController {
   @IBOutlet private weak var cityLabel: UILabel! { didSet {
     cityLabel.text = city
   }}
-  @IBOutlet weak var dateLabel: UILabel! { didSet {
+  @IBOutlet private weak var dateLabel: UILabel! { didSet {
     dateLabel.text = date
   }}
-  @IBOutlet weak var highTempLabel: UILabel! { didSet {
+
+  @IBOutlet private weak var summaryLabel: UILabel! { didSet {
+    summaryLabel.text = "\(data.summary)"
+    }}
+
+  @IBOutlet private weak var highTempLabel: UILabel! { didSet {
     highTempLabel.text = "\(data.temperatureMax)\u{00B0}F"
   }}
-  @IBOutlet weak var highTempTimeLabel: UILabel!
-  @IBOutlet weak var highTempFeelsLikeLabel: UILabel!
+  @IBOutlet private weak var highTempTimeLabel: UILabel! { didSet {
+      highTempTimeLabel.text = "\(FormatService.hhmma(data.temperatureMaxTime))"
+  }}
+  @IBOutlet private weak var highTempFeelsLikeLabel: UILabel! { didSet {
+    highTempFeelsLikeLabel.text = "\(data.apparentTemperatureMax)\u{00B0}F"
+  }}
 
-  @IBOutlet weak var lowTempLabel: UILabel! { didSet {
+  @IBOutlet private weak var lowTempLabel: UILabel! { didSet {
     lowTempLabel.text = "\(data.temperatureMin)\u{00B0}F"
   }}
 
-  @IBOutlet weak var lowTempTimeLabel: UILabel!
-  @IBOutlet weak var lowTempFeelsLikeLabel: UILabel!
+  @IBOutlet private weak var lowTempTimeLabel: UILabel! { didSet {
+    lowTempTimeLabel.text = "\(FormatService.hhmma(data.temperatureMinTime))"
+  }}
+
+  @IBOutlet private weak var lowTempFeelsLikeLabel: UILabel! { didSet {
+    lowTempFeelsLikeLabel.text = "\(data.apparentTemperatureMin)\u{00B0}F"
+  }}
+
+  @IBOutlet private weak var windLabel: UILabel! { didSet {
+    windLabel.text = "\(data.windSpeed) mph bearing \(data.windBearing)\u{00B0}"
+  }}
   
+  @IBOutlet private weak var humidityLabel: UILabel! { didSet {
+    humidityLabel.text = "\(data.humidity)"
+  }}
+
+  @IBOutlet private weak var visibilityLabel: UILabel! { didSet {
+    let miles = data.visibility == "1" ? "mile" : "miles"
+    visibilityLabel.text = "\(data.visibility) \(miles)"
+  }}
+
   @IBAction func backAction(_ sender: UIButton) {
     _ = navigationController?.popViewController(animated: true)
   }

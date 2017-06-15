@@ -13,10 +13,10 @@ class DataPoint {
   let data: JSON
   
   var apparentTemperature: String { return FormatService.tmp(data["apparentTemperature"].numberValue) }
-  var apparentTemperatureMax: NSNumber { return data["apparentTemperatureMax"].numberValue }
-  var apparentTemperatureMaxTime: NSNumber { return data["apparentTemperatureMaxTime"].numberValue }
-  var apparentTemperatureMin: NSNumber { return data["apparentTemperatureMin"].numberValue }
-  var apparentTemperatureMinTime: NSNumber { return data["apparentTemperatureMinTime"].numberValue }
+  var apparentTemperatureMax: String { return FormatService.tmp(data["apparentTemperatureMax"].numberValue) }
+  var apparentTemperatureMaxTime: Double { return data["apparentTemperatureMaxTime"].doubleValue }
+  var apparentTemperatureMin: String { return FormatService.tmp(data["apparentTemperatureMin"].numberValue) }
+  var apparentTemperatureMinTime: Double { return data["apparentTemperatureMinTime"].doubleValue }
   var cloudCover: String { return FormatService.pct(data["cloudCover"].numberValue) }
   var humidity: String { return FormatService.pct(data["humidity"].numberValue) }
   var icon: String { return Icon.meaning(data["icon"].stringValue) }
@@ -37,13 +37,13 @@ class DataPoint {
   var sunsetTime: Double { return data["sunsetTime"].doubleValue }
   var temperature: String { return FormatService.degrees(data["temperature"].numberValue) }
   var temperatureMax: String { return FormatService.tmp(data["temperatureMax"].numberValue) }
-  var temperatureMaxTime: String? { return data["temperatureMaxTime"].string }
+  var temperatureMaxTime: Double { return data["temperatureMaxTime"].doubleValue }
   var temperatureMin: String { return FormatService.tmp(data["temperatureMin"].numberValue) }
-  var temperatureMinTime: String? { return data["temperatureMinTime"].string }
+  var temperatureMinTime: Double { return data["temperatureMinTime"].doubleValue }
   var timeValue: Double? { return data["time"].double }
-  var visibility: String { return FormatService.tmp( data["visibility"].numberValue) }
-  var windBearing: String { return data["windBearing"].stringValue }
-  var windSpeed: String { return data["windSpeed"].numberValue.description }
+  var visibility: String { return FormatService.tmp(data["visibility"].numberValue) }
+  var windBearing: String { return FormatService.tmp(data["windBearing"].numberValue) }
+  var windSpeed: String { return FormatService.tmp(data["windSpeed"].numberValue) }
   var time: Date? { return Date(timeIntervalSince1970: data["time"].doubleValue) }
   var prettyDate: String? { return FormatService.ha(data["time"].doubleValue) }
   var dayOfWeek: String { return FormatService.dayOfWeek(data["time"].doubleValue) }
