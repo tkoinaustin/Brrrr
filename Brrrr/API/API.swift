@@ -119,7 +119,7 @@ class API {
       // Need to validate if there are length specifics for the API key
       guard results.count > 25 else { return false }
       
-      regex = try NSRegularExpression(pattern:"\\s")
+      regex = try NSRegularExpression(pattern: "[^0-9a-f]")
       results = regex.matches(in: key, range: NSRange(location: 0, length: nsString.length))
       guard results.isEmpty else { return false }
       
