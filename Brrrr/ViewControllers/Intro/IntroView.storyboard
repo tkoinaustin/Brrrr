@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mbV-2V-dNw">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Intro View Controller-->
+        <scene sceneID="0zy-FT-RUP">
+            <objects>
+                <viewController id="mbV-2V-dNw" customClass="IntroViewController" customModule="Brrrr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OcC-Ju-7du"/>
+                        <viewControllerLayoutGuide type="bottom" id="hEo-zh-iZV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2By-py-OmB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heavy_snow3" translatesAutoresizingMaskIntoConstraints="NO" id="heA-ps-YTQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNf-Il-N2T">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brrrr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fj0-ul-k7T">
+                                        <rect key="frame" x="102.5" y="275.5" width="170" height="115"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="96"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="bT1-yH-UL1">
+                                        <rect key="frame" x="50" y="176.5" width="275" height="314.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JyR-OC-fvQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="223.5"/>
+                                                <mutableString key="text">Using the predictive power of DarkSky weather's API, you can find the local forecast for your neighborhood as well as any spot in the country, or other countries as well.  Along withaccurate forecasts for the current conditions, you also get hourly and daily forecasts, so you can plan your days ahead.</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfW-pZ-FM1">
+                                                <rect key="frame" x="89" y="273.5" width="97" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="Continue"/>
+                                                <connections>
+                                                    <action selector="continueAction:" destination="mbV-2V-dNw" eventType="touchUpInside" id="drS-5z-pvA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bT1-yH-UL1" firstAttribute="centerY" secondItem="eNf-Il-N2T" secondAttribute="centerY" id="E8e-yi-03h"/>
+                                    <constraint firstItem="Fj0-ul-k7T" firstAttribute="centerX" secondItem="eNf-Il-N2T" secondAttribute="centerX" id="IHI-c8-Knw"/>
+                                    <constraint firstItem="bT1-yH-UL1" firstAttribute="leading" secondItem="eNf-Il-N2T" secondAttribute="leading" constant="50" id="YhB-Lm-80N"/>
+                                    <constraint firstAttribute="trailing" secondItem="bT1-yH-UL1" secondAttribute="trailing" constant="50" id="jAn-GX-5ou"/>
+                                    <constraint firstItem="Fj0-ul-k7T" firstAttribute="centerY" secondItem="eNf-Il-N2T" secondAttribute="centerY" id="jaH-5Y-pRb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eNf-Il-N2T" secondAttribute="trailing" id="5Ps-11-zQW"/>
+                            <constraint firstItem="eNf-Il-N2T" firstAttribute="top" secondItem="2By-py-OmB" secondAttribute="top" id="DWa-uD-okW"/>
+                            <constraint firstItem="eNf-Il-N2T" firstAttribute="leading" secondItem="2By-py-OmB" secondAttribute="leading" id="JYx-Di-4Rt"/>
+                            <constraint firstItem="heA-ps-YTQ" firstAttribute="leading" secondItem="2By-py-OmB" secondAttribute="leading" id="SKB-Fs-ajl"/>
+                            <constraint firstItem="heA-ps-YTQ" firstAttribute="top" secondItem="2By-py-OmB" secondAttribute="top" id="ZML-Jz-Gwk"/>
+                            <constraint firstItem="hEo-zh-iZV" firstAttribute="top" secondItem="heA-ps-YTQ" secondAttribute="bottom" id="fbx-zA-q0t"/>
+                            <constraint firstItem="hEo-zh-iZV" firstAttribute="top" secondItem="eNf-Il-N2T" secondAttribute="bottom" id="kx7-0O-kVI"/>
+                            <constraint firstAttribute="trailing" secondItem="heA-ps-YTQ" secondAttribute="trailing" id="s7q-Gu-txC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="brrrrLabel" destination="Fj0-ul-k7T" id="JbU-AU-K4G"/>
+                        <outlet property="continueButton" destination="ZfW-pZ-FM1" id="u2r-Kg-5o8"/>
+                        <outlet property="welcomeView" destination="bT1-yH-UL1" id="PcH-zQ-RXE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y0C-7s-yvr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-194.40000000000001" y="184.85757121439281"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="heavy_snow3" width="414" height="736"/>
+    </resources>
+</document>
