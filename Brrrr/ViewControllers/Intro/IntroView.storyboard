@@ -49,6 +49,7 @@
                                                 <state key="normal" title="Continue"/>
                                                 <connections>
                                                     <action selector="continueAction:" destination="mbV-2V-dNw" eventType="touchUpInside" id="drS-5z-pvA"/>
+                                                    <segue destination="Tt0-qj-hoG" kind="show" id="tnG-XA-jyX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -85,6 +86,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0C-7s-yvr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-194.40000000000001" y="184.85757121439281"/>
+        </scene>
+        <!--MainView-->
+        <scene sceneID="JQe-V5-I9P">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainView" id="Tt0-qj-hoG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oue-XE-JcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="469" y="184"/>
         </scene>
     </scenes>
     <resources>
