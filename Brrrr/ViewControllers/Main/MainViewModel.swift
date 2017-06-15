@@ -45,7 +45,7 @@ class MainViewModel {
       darkSky = DarkSkyResponse.empty
       updateUI()
     }
-  }}
+    }}
   
   func searchForEvents() {
     guard searchString != "" else { return }
@@ -61,25 +61,32 @@ class MainViewModel {
       }
     }
   }
-
+  
   func dataRequest(_ location: CLLocation) {
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
     
-      DarkSkyResponse.loadWeather(location) { darkSkyData, error  in
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        
-        if let data = darkSkyData { self.darkSky = data }
-        else { self.darkSky = DarkSkyResponse.empty }
-        
+    DarkSkyResponse.loadWeather(location) { darkSkyData, error  in
+      UIApplication.shared.isNetworkActivityIndicatorVisible = false
+      
+      if let data = darkSkyData { self.darkSky = data }
+      else { self.darkSky = DarkSkyResponse.empty }
+      
+      DispatchQueue.main.async {
+        self.updateUI()
+        self.saveLocation(self.city)
+      }
+      
+      if error != nil {
         DispatchQueue.main.async {
-          self.updateUI()
-        }
-        
-        if error != nil {
-          DispatchQueue.main.async {
-            self.showError(error!)
-          }
+          self.showError(error!)
         }
       }
+    }
+  }
+  
+  private func saveLocation(_ location: String) {
+    let defaults = UserDefaults.standard
+    print("Saving city location \(location)")
+    defaults.set(location, forKey: "LastSuccessfulLocation")
   }
 }
