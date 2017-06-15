@@ -30,9 +30,11 @@ class DailyViewController: UIViewController {
   @IBOutlet private weak var highTempLabel: UILabel! { didSet {
     highTempLabel.text = "\(data.temperatureMax)\u{00B0}F"
   }}
+  
   @IBOutlet private weak var highTempTimeLabel: UILabel! { didSet {
       highTempTimeLabel.text = "\(FormatService.hhmma(data.temperatureMaxTime))"
   }}
+  
   @IBOutlet private weak var highTempFeelsLikeLabel: UILabel! { didSet {
     highTempFeelsLikeLabel.text = "\(data.apparentTemperatureMax)\u{00B0}F"
   }}
@@ -49,6 +51,14 @@ class DailyViewController: UIViewController {
     lowTempFeelsLikeLabel.text = "\(data.apparentTemperatureMin)\u{00B0}F"
   }}
 
+  @IBOutlet private weak var precipitationLabel: UILabel! { didSet {
+    precipitationLabel.text = "\(data.precipType)"
+  }}
+
+  @IBOutlet private weak var probabilityLabel: UILabel! { didSet {
+    probabilityLabel.text = "\(data.precipProbability)"
+  }}
+  
   @IBOutlet private weak var windLabel: UILabel! { didSet {
     windLabel.text = "\(data.windSpeed) mph bearing \(data.windBearing)\u{00B0}"
   }}
@@ -62,6 +72,38 @@ class DailyViewController: UIViewController {
     visibilityLabel.text = "\(data.visibility) \(miles)"
   }}
 
+  @IBOutlet private weak var sunriseLabel: UILabel! { didSet {
+    sunriseLabel.text = "\(FormatService.hhmma(data.sunriseTime))"
+  }}
+  
+  @IBOutlet private weak var sunsetLabel: UILabel! { didSet {
+    sunsetLabel.text = "\(FormatService.hhmma(data.sunsetTime))"
+  }}
+  
+  @IBOutlet private weak var lunarLabel: UILabel! { didSet {
+    lunarLabel.text = "\(data.moonPhase)"
+  }}
+
+  @IBOutlet private weak var dewPointLabel: UILabel! { didSet {
+    dewPointLabel.text = "\(data.dewPoint)\u{00B0}F"
+  }}
+
+  @IBOutlet private weak var cloudCoverLabel: UILabel! { didSet {
+    cloudCoverLabel.text = "\(data.cloudCover)"
+  }}
+  
+  @IBOutlet private weak var barometerLabel: UILabel! { didSet {
+    barometerLabel.text = "\(data.pressure) mmHg"
+  }}
+
+  @IBOutlet private weak var ozoneLabel: UILabel! { didSet {
+    ozoneLabel.text = "\(data.ozone)"
+  }}
+  
+  @IBOutlet private weak var uvIndexLabel: UILabel! { didSet {
+    uvIndexLabel.text = "\(data.uvIndex)"
+  }}
+  
   @IBAction func backAction(_ sender: UIButton) {
     _ = navigationController?.popViewController(animated: true)
   }
