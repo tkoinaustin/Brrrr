@@ -62,22 +62,24 @@ class MainViewModel {
     }
   }
 
-  //typealias DarkSkyBuilder = () throws -> (DarkSkyResponse)
   func dataRequest(_ location: CLLocation) {
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    do {
-      try DarkSkyResponse.loadWeather(location) { darkSkyData  in
+    
+      DarkSkyResponse.loadWeather(location) { darkSkyData, error  in
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        self.darkSky = darkSkyData
+        
+        if let data = darkSkyData { self.darkSky = data }
+        else { self.darkSky = DarkSkyResponse.empty }
+        
         DispatchQueue.main.async {
           self.updateUI()
         }
-        if darkSkyData.data == JSON.null {
-          self.showError(APIError.noResults)
+        
+        if error != nil {
+          DispatchQueue.main.async {
+            self.showError(error!)
+          }
         }
       }
-    } catch { 
-        
-    }
   }
 }

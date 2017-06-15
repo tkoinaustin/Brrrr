@@ -12,6 +12,7 @@ import SwiftyJSON
 struct APIResponse {
   var raw: URLResponse?
   var body: JSON?
+  var error: APIError?
 }
 
 enum HTTPMethod: String {
@@ -36,7 +37,7 @@ enum APIError: Error {
     case .server: return "Server Error"
     case .reachability: return "Network is unreachable, check network settings"
     case .geocoder(let location): return "Unable to find location matching \(location)"
-    case .badkey: return "OpenCage API key problem"
+    case .badkey: return "DarkSky API key problem"
     case .noResults: return "The query returned no results"
     }
   }
@@ -66,8 +67,6 @@ struct APIRequest {
   }
 }
 
-typealias ResponseBuilder = () throws -> (APIResponse)
-
 class API {
   static var baseURL = URL(string: "https://api.darksky.net")!
   
@@ -84,27 +83,51 @@ class API {
     shared.configuration.timeoutIntervalForRequest = 10.0
     return shared
   }
+  
+  static func fire(_ request: APIRequest, completion: @escaping (() -> (APIResponse)) -> Void) {
+    session.dataTask(with: request.urlRequest) { (data, response, error) -> Void in
+      completion({ _ in
+        guard validateKey(API.apiKey) else {
+          return APIResponse(raw: nil, body: nil, error: APIError.badkey)
+        }
 
-  static func fire(_ request: APIRequest, completion: @escaping (() throws -> (APIResponse)) -> Void) {
-      session.dataTask(with: request.urlRequest) { (data, response, error) -> Void in
-        completion({ _ in
-          switch (data, response, error) {
-          case (_, _, .some(_)): throw APIError.request
-            
-          case (.none, _, _): throw APIError.body
-            
-          case (.some(let data), .some(let response as HTTPURLResponse), _):
-            switch response.statusCode {
-            case 400...499: throw APIError.request
-            case 500...599: throw APIError.server
-            default:
-              print("raw: \(response)\nbody: \(JSON(data: data))")
-              return APIResponse(raw: response, body: JSON(data: data))
-            }
-            
-          default: throw APIError.body
+        switch (data, response, error) {
+        case (_, _, .some(_)): return APIResponse(raw: nil, body: nil, error: APIError.request)
+          
+        case (.none, _, _): return APIResponse(raw: nil, body: nil, error: APIError.body)
+          
+        case (.some(let data), .some(let response as HTTPURLResponse), _):
+          switch response.statusCode {
+          case 400...499: return APIResponse(raw: nil, body: nil, error: APIError.request)
+          case 500...599: return APIResponse(raw: nil, body: nil, error: APIError.server)
+          default:
+            print("raw: \(response)\nbody: \(JSON(data: data))")
+            return APIResponse(raw: response, body: JSON(data: data), error: nil)
           }
-        })
-        }.resume()
+          
+        default: return APIResponse(raw: nil, body: nil, error: APIError.body)
+        }
+      })
+      }.resume()
+  }
+  
+  static func validateKey(_ key: String) -> Bool {
+    do {
+      var regex = try NSRegularExpression(pattern: "[0-9a-f]")
+      let nsString = key as NSString
+      var results = regex.matches(in: key, range: NSRange(location: 0, length: nsString.length))
+      // Need to validate if there are length specifics for the API key
+      guard results.count > 25 else { return false }
+      
+      regex = try NSRegularExpression(pattern:"\\s")
+      results = regex.matches(in: key, range: NSRange(location: 0, length: nsString.length))
+      guard results.isEmpty else { return false }
+      
+      return true
+      
+    } catch let error {
+      print("invalid regex: \(error.localizedDescription)")
+      return false
     }
   }
+}

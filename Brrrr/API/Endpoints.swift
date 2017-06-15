@@ -24,14 +24,13 @@ class Endpoints {
     }
   }
   
-  static func getForcast(_ location: CLLocation, completion: @escaping (() throws -> (APIResponse)) -> Void) {
+  static func getForcast(_ location: CLLocation, completion: @escaping (() -> (APIResponse)) -> Void) {
     let request = APIRequest(.get, path: Endpoints.forecast(location: location).path())
     return API.fire(request, completion: completion)
   }
   
-  static func getHistory(_ location: CLLocation, date: Date, completion: @escaping (ResponseBuilder) -> Void) {
+  static func getHistory(_ location: CLLocation, date: Date, completion: @escaping (() -> (APIResponse)) -> Void) {
     let request = APIRequest(.get, path: Endpoints.history(location: location, date: date).path())
     return API.fire(request, completion: completion)
   }
 }
-//typealias ResponseBuilder = () throws -> (APIResponse)
