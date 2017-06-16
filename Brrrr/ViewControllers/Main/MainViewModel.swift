@@ -49,7 +49,7 @@ class MainViewModel {
   
   func getWeather() {
     guard searchString != "" else { return }
-    Location.getCoordinates(searchString) { (placemarkBuilder: PlacemarkBuilder) in
+    LocationService.getCoordinates(searchString) { (placemarkBuilder: PlacemarkBuilder) in
       do {
         let places = try placemarkBuilder()
         self.place = places[0]
@@ -63,8 +63,8 @@ class MainViewModel {
   }
   
   func getLocalWeather() {
-    Location.shared.updateUI = dataRequest
-    Location.shared.getCurrentCoordinates()
+    LocationService.shared.updateUI = dataRequest
+    LocationService.shared.getCurrentCoordinates()
   }
   
   func dataRequest(_ location: CLLocation) {

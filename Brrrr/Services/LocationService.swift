@@ -1,5 +1,5 @@
 //
-//  Location.swift
+//  LocationService.swift
 //  Brrrr
 //
 //  Created by Tom Nelson on 5/25/17.
@@ -11,9 +11,9 @@ import CoreLocation
 
 typealias PlacemarkBuilder = () throws -> [CLPlacemark]
 
-class Location: NSObject {
+class LocationService: NSObject {
   static var geocoder = CLGeocoder()
-  static var shared = Location()
+  static var shared = LocationService()
   let manager = CLLocationManager()
   var updateUI: (CLLocation) -> Void = { _ in }
   
@@ -45,11 +45,15 @@ class Location: NSObject {
   }
 }
 
-extension Location: CLLocationManagerDelegate {
+extension LocationService: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     let location = locations[0]
     print("didUpdateLocations to \(location)")
-    self.updateUI(location)
+    // maybe here raise notification and let main view controller handle updateUI
+    // we could also grab the name based on the location
+    DispatchQueue.main.async {
+      self.updateUI(location)
+    }
   }
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

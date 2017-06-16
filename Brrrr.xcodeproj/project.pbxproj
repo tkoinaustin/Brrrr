@@ -20,6 +20,7 @@
 		CB526D0D1EF0CC9D0010EE38 /* DailyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB526D0C1EF0CC9D0010EE38 /* DailyViewModel.swift */; };
 		CB526D101EF340250010EE38 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB526D0F1EF340250010EE38 /* IntroViewController.swift */; };
 		CB526D121EF3403A0010EE38 /* IntroView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB526D111EF3403A0010EE38 /* IntroView.storyboard */; };
+		CB526D141EF414340010EE38 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB526D131EF414340010EE38 /* LocationService.swift */; };
 		CB5918C71EE083AF0093AC57 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C51EE083AF0093AC57 /* LICENSE */; };
 		CB5918C81EE083AF0093AC57 /* weather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C61EE083AF0093AC57 /* weather.ttf */; };
 		CB5918D71EE1F4510093AC57 /* FormatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D51EE1F4510093AC57 /* FormatService.swift */; };
@@ -35,7 +36,6 @@
 		CB5919001EEAED740093AC57 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5918FD1EEAED740093AC57 /* MainView.storyboard */; };
 		CB5919011EEAED740093AC57 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918FE1EEAED740093AC57 /* MainViewController.swift */; };
 		CB5919021EEAED740093AC57 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918FF1EEAED740093AC57 /* MainViewModel.swift */; };
-		CB5D08E81ED768F4008F51FD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D08E71ED768F4008F51FD /* Location.swift */; };
 		CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD512C31E63B4A500614C3A /* AppDelegate.swift */; };
 		CBD512CB1E63B4A500614C3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBD512CA1E63B4A500614C3A /* Assets.xcassets */; };
 		CBD512CE1E63B4A500614C3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD512CC1E63B4A500614C3A /* LaunchScreen.storyboard */; };
@@ -72,6 +72,7 @@
 		CB526D0C1EF0CC9D0010EE38 /* DailyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyViewModel.swift; path = ViewControllers/Daily/DailyViewModel.swift; sourceTree = "<group>"; };
 		CB526D0F1EF340250010EE38 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = ViewControllers/Intro/IntroViewController.swift; sourceTree = "<group>"; };
 		CB526D111EF3403A0010EE38 /* IntroView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IntroView.storyboard; path = ViewControllers/Intro/IntroView.storyboard; sourceTree = "<group>"; };
+		CB526D131EF414340010EE38 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Services/LocationService.swift; sourceTree = "<group>"; };
 		CB5918C51EE083AF0093AC57 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Assets/LICENSE; sourceTree = "<group>"; };
 		CB5918C61EE083AF0093AC57 /* weather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = weather.ttf; path = Assets/weather.ttf; sourceTree = "<group>"; };
 		CB5918D51EE1F4510093AC57 /* FormatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatService.swift; path = Services/FormatService.swift; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		CB5918FD1EEAED740093AC57 /* MainView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainView.storyboard; path = ViewControllers/Main/MainView.storyboard; sourceTree = "<group>"; };
 		CB5918FE1EEAED740093AC57 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/Main/MainViewController.swift; sourceTree = "<group>"; };
 		CB5918FF1EEAED740093AC57 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewModel.swift; path = ViewControllers/Main/MainViewModel.swift; sourceTree = "<group>"; };
-		CB5D08E71ED768F4008F51FD /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = API/Location.swift; sourceTree = "<group>"; };
 		CBD512C01E63B4A500614C3A /* Brrrr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brrrr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD512C31E63B4A500614C3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBD512CA1E63B4A500614C3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -174,6 +174,7 @@
 		CB5918D41EE1F30E0093AC57 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CB526D131EF414340010EE38 /* LocationService.swift */,
 				CB5918D51EE1F4510093AC57 /* FormatService.swift */,
 				CB5918D61EE1F4510093AC57 /* Icons.swift */,
 			);
@@ -298,7 +299,6 @@
 			children = (
 				CBD512E71E65245200614C3A /* API.swift */,
 				CB3C60C21E66E18400B5DE01 /* Endpoints.swift */,
-				CB5D08E71ED768F4008F51FD /* Location.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -568,8 +568,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB3C60CC1E67C19A00B5DE01 /* DarkSkyResponse.swift in Sources */,
-				CB5D08E81ED768F4008F51FD /* Location.swift in Sources */,
 				CB526D0B1EF0B3B40010EE38 /* DailyViewController.swift in Sources */,
+				CB526D141EF414340010EE38 /* LocationService.swift in Sources */,
 				CB3C60C81E6709F700B5DE01 /* DataBlock.swift in Sources */,
 				CB5918F11EEAED250093AC57 /* HeaderCell.swift in Sources */,
 				CBD512E81E65245200614C3A /* API.swift in Sources */,
