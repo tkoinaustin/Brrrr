@@ -37,7 +37,7 @@
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3d-Tp-vw0">
                             <rect key="frame" x="0.0" y="131.5" width="198" height="48.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
