@@ -37,7 +37,7 @@ class MainViewController: UIViewController {
     tableView.delegate = self
     tableView.estimatedRowHeight = 44
     tableView.rowHeight = UITableViewAutomaticDimension
-    tableView.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
+    tableView.contentInset = UIEdgeInsets(top: 120, left: 0, bottom: 0, right: 0)
   }}
 
   override func viewDidLoad() {

@@ -8,6 +8,8 @@
 
 import UIKit
 
+let inset: CGFloat = 120
+
 class HeaderCell: UIView, XibLoadable {
   var ibTag: Int = 43
   var data: DataPoint! { didSet {
@@ -19,19 +21,31 @@ class HeaderCell: UIView, XibLoadable {
       cityLabel.text = ""
     }
   }}
-  
-  var offset: CGFloat = -120 { didSet {
-    var scale: CGFloat = 1.0
+  var offset: CGFloat = -inset { didSet {
+    print("offset is \(offset)")
+    var cityScale: CGFloat = 1
+    var tempScale: CGFloat = 1
+    var tempTrans: CGFloat = 0
     if offset < 0 {
-      scale = (max(offset, -50) - 50) / (-100)
-      self.tempLabel.alpha = max((-75.0 - offset)/75.0, 0)
+      cityScale = (max(offset, -50) - 50) / (-100)
+      self.tempLabel.alpha = max((-75.0 - offset)/(inset - 75.0), 0)
     } else {
-      scale = 0.5
+      cityScale = 0.5
       self.tempLabel.alpha = 0.0
     }
-    self.cityLabel.transform = CGAffineTransform.init(scaleX: scale, y: scale)
-    self.cityLabelConstraint.constant = 20 * scale * scale
-    self.forecastLabelConstraint.constant = 8 * scale * scale
+    self.cityLabel.transform = CGAffineTransform.init(scaleX: cityScale, y: cityScale)
+    self.cityLabelConstraint.constant = 20 * cityScale * cityScale
+    self.forecastLabelConstraint.constant = 8 * cityScale * cityScale
+    
+    if offset < -inset {
+      tempScale = 1 + (-inset - offset) / 220
+      tempTrans = (-inset - offset) / 3
+    } else if offset < -75 {
+      tempScale = 1 + (-inset - offset) / inset
+      tempTrans = (-inset - offset) / 2
+    }
+    self.tempLabel.transform = CGAffineTransform.init(scaleX: tempScale, y: tempScale)
+      .translatedBy(x: 0, y: tempTrans)
   }}
   
   @IBOutlet weak var cityLabel: UILabel!

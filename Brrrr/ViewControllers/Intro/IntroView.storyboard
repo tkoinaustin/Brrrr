@@ -38,7 +38,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JyR-OC-fvQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="275" height="223.5"/>
-                                                <mutableString key="text">Using the predictive power of DarkSky weather's API, you can find the local forecast for your neighborhood as well as any spot in the country, or other countries as well.  Along withaccurate forecasts for the current conditions, you also get hourly and daily forecasts, so you can plan your days ahead.</mutableString>
+                                                <mutableString key="text">Using the predictive power of DarkSky's weather API, you can find the local forecast for your neighborhood as well as any spot in the country, or other countries as well.  Along with accurate forecasts for the current conditions, you also get hourly and daily forecasts, so you can plan days ahead.</mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
