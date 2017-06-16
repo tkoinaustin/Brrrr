@@ -43,5 +43,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>You can type in your location, but really, that sounds exausting! If you want I will just grab it and save you the trouble.</string>
 </dict>
 </plist>

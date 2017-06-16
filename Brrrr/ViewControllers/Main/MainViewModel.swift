@@ -47,7 +47,7 @@ class MainViewModel {
     }
     }}
   
-  func searchForEvents() {
+  func getWeather() {
     guard searchString != "" else { return }
     Location.getCoordinates(searchString) { (placemarkBuilder: PlacemarkBuilder) in
       do {
@@ -60,6 +60,11 @@ class MainViewModel {
         self.showError(apiError)
       }
     }
+  }
+  
+  func getLocalWeather() {
+    Location.shared.updateUI = dataRequest
+    Location.shared.getCurrentCoordinates()
   }
   
   func dataRequest(_ location: CLLocation) {

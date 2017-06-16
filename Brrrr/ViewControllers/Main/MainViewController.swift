@@ -140,7 +140,7 @@ extension MainViewController: UISearchBarDelegate {
   }
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    viewModel.searchForEvents()
+    viewModel.getWeather()
     searchBar.endEditing(true)
   }
 }
