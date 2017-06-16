@@ -25,6 +25,7 @@ class IntroViewController: UIViewController {
     let welcomeTransform = CGAffineTransform.identity.translatedBy(x: 0, y: height)
     welcomeView.transform = welcomeTransform
     continueButton.tintColor = UIColor.black
+    if needFTUE() { self.welcomeView.alpha = 0 }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -34,7 +35,9 @@ class IntroViewController: UIViewController {
     UIView.animate(withDuration: 0.8, delay: 0.1, options: UIViewAnimationOptions(), animations: {
       self.brrrrLabel.transform = transformLogo
       self.welcomeView.transform = CGAffineTransform.identity
-    }, completion: nil)
+    }, completion: { _ in
+      if self.needFTUE() { self.startNextSegue() }
+    })
   }
   
   private func startNextSegue() {

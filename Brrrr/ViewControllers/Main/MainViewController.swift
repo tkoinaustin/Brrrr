@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
     layout.minimumInteritemSpacing = 0
     layout.minimumLineSpacing = 0
     layout.scrollDirection = .horizontal
-    layout.itemSize = CGSize(width: 55, height: 75)
+    layout.itemSize = CGSize(width: 55, height: 80)
     hourlyConditions.collectionViewLayout = layout
     }}
 
@@ -44,15 +44,20 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     navigationController?.isNavigationBarHidden = true
     bind()
-    loadLastLocation()
+    loadInitialWeather()
   }
   
-  private func loadLastLocation() {
+  private func loadInitialWeather() {
     let defaults = UserDefaults.standard
-    guard let searchCity = defaults.string(forKey: "LastSuccessfulLocation") else { return }
-    self.viewModel.searchString = searchCity
-    self.viewModel.getWeather()
+    if let searchCity = defaults.string(forKey: "LastSuccessfulLocation") {
+      self.searchBar.text = searchCity
+      self.viewModel.searchString = searchCity
+      self.viewModel.getWeather()
+    } else {
+      viewModel.getLocalWeather()
+    }
   }
+  
   private func bind() {
     viewModel.showError = showConnectionProblems
     viewModel.updateUI = {

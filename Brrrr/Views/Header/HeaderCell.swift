@@ -22,7 +22,7 @@ class HeaderCell: UIView, XibLoadable {
     }
   }}
   var offset: CGFloat = -inset { didSet {
-    print("offset is \(offset)")
+//    print("offset is \(offset)")
     var cityScale: CGFloat = 1
     var tempScale: CGFloat = 1
     var tempTrans: CGFloat = 0

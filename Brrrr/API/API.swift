@@ -101,7 +101,7 @@ class API {
           case 400...499: return APIResponse(raw: nil, body: nil, error: APIError.request)
           case 500...599: return APIResponse(raw: nil, body: nil, error: APIError.server)
           default:
-            print("raw: \(response)\nbody: \(JSON(data: data))")
+//            print("raw: \(response)\nbody: \(JSON(data: data))")
             return APIResponse(raw: response, body: JSON(data: data), error: nil)
           }
           

@@ -33,9 +33,10 @@ class MainViewModel {
   var place: CLPlacemark?
   
   var city: String {
+//    print("Place is: \(place?.addressDictionary)")
     let countryCode = place?.addressDictionary?["CountryCode"] as? String
     let state = place?.addressDictionary?["State"] as? String ?? ""
-    let city = place?.addressDictionary?["City"] as? String ?? ""
+    let city = place?.addressDictionary?["Name"] as? String ?? ""
     let suffix = countryCode == "US" ? state : countryCode ?? ""
     return"\(city), \(suffix)"
   }
