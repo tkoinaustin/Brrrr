@@ -49,7 +49,6 @@
                                                 <state key="normal" title="Continue"/>
                                                 <connections>
                                                     <action selector="continueAction:" destination="mbV-2V-dNw" eventType="touchUpInside" id="drS-5z-pvA"/>
-                                                    <segue destination="Tt0-qj-hoG" kind="show" id="tnG-XA-jyX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -81,6 +80,8 @@
                         <outlet property="brrrrLabel" destination="Fj0-ul-k7T" id="JbU-AU-K4G"/>
                         <outlet property="continueButton" destination="ZfW-pZ-FM1" id="u2r-Kg-5o8"/>
                         <outlet property="welcomeView" destination="bT1-yH-UL1" id="PcH-zQ-RXE"/>
+                        <segue destination="Tt0-qj-hoG" kind="show" identifier="mainSegue" id="MFS-kT-Jaa"/>
+                        <segue destination="e0q-GX-vXL" kind="show" identifier="FTUESegue" id="BES-yf-aZ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0C-7s-yvr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -93,7 +94,15 @@
                 <viewControllerPlaceholder storyboardName="MainView" id="Tt0-qj-hoG" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oue-XE-JcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="469" y="184"/>
+            <point key="canvasLocation" x="469" y="121"/>
+        </scene>
+        <!--FTUEView-->
+        <scene sceneID="21e-RF-AOf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FTUEView" id="e0q-GX-vXL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5sL-ba-cuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="472" y="243"/>
         </scene>
     </scenes>
     <resources>

@@ -19,7 +19,7 @@
         <!--Main View Controller-->
         <scene sceneID="IRo-Y9-4Sm">
             <objects>
-                <viewController id="zHG-sg-NLP" customClass="MainViewController" customModule="Brrrr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainView" id="zHG-sg-NLP" customClass="MainViewController" customModule="Brrrr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BMb-NA-4OB"/>
                         <viewControllerLayoutGuide type="bottom" id="79f-lj-C5v"/>
