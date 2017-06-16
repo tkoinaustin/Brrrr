@@ -43,6 +43,17 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController?.isNavigationBarHidden = true
+    bind()
+    loadLastLocation()
+  }
+  
+  private func loadLastLocation() {
+    let defaults = UserDefaults.standard
+    guard let searchCity = defaults.string(forKey: "LastSuccessfulLocation") else { return }
+    self.viewModel.searchString = searchCity
+    self.viewModel.getWeather()
+  }
+  private func bind() {
     viewModel.showError = showConnectionProblems
     viewModel.updateUI = {
       self.tableView.reloadData()

@@ -63,7 +63,7 @@ class DarkSkyResponse {
     else { return false }
   }
   
-  static func loadWeather(_ location: CLLocation, closure: @escaping ((DarkSkyResponse?, APIError?) -> Void)) -> Void {
+  static func loadWeather(_ location: CLLocation, closure: @escaping ((DarkSkyResponse?, APIError?) -> Void)) {
     return Endpoints.getForcast(location) { response in
       if let error = response().error {
         closure(nil, error)
