@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I26-lz-nAI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G8c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I26-lz-nAI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,12 +29,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E34-3L-YaF">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E34-3L-YaF">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="4M8-oN-wrY">
                                 <rect key="frame" x="0.0" y="630" width="375" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,7 +74,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLY-ur-69a">
                             <rect key="frame" x="47" y="141" width="281" height="385.5"/>
-                            <mutableString key="text">Everything you could want to know about Brrrr will be explained in the next several panes. There is a lot of information, but not to worry, the use of Brrrr is simple and intuitive. And I will not bother you with these screens again!   Using the predictive power of DarkSky's weather API, you can find the local forecast for your neighborhood as well as any spot in the country, or other countries as well.  Along with accurate forecasts for the current conditions, you also get hourly and daily forecasts, so you can plan days ahead.</mutableString>
+                            <string key="text">Everything you could want to know about Brrrr will be explained in the next several panes. There is a lot of information, but not to worry, the use of Brrrr is simple and intuitive. And I will not bother you with these screens again!   Using the predictive power of DarkSky's weather API, you can find the local forecast for your neighborhood as well as any spot in the country, or other countries as well.  Along with accurate forecasts for the current conditions, you also get hourly and daily forecasts, so you can plan days ahead.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -89,9 +91,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcI-p0-frw">
-                            <rect key="frame" x="67" y="151" width="240" height="364"/>
-                            <mutableString key="text">The main display has the area, general conditions and current temperature. Under that is an hourly collection showing temperature, conditions, rain chance and time.  Below that is a daily list for the next 8 days. This abbreviated list contains high/low temperatures, precipitation chance, conditions, and sunrise and sunset times.  And finally at the bottom are the current conitions for the area selected.  </mutableString>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcI-p0-frw">
+                            <rect key="frame" x="47" y="161" width="281" height="345"/>
+                            <string key="text">The main display has the area, general conditions and current temperature. Under that is an hourly collection showing temperature, conditions, rain chance and time.  Below that is a daily list for the next 8 days. This abbreviated list contains high/low temperatures, precipitation chance, conditions, and sunrise and sunset times.  And finally at the bottom are the current conitions for the area selected.  </string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -110,7 +112,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUU-JL-ScV">
                             <rect key="frame" x="40" y="142" width="240" height="284.5"/>
-                            <mutableString key="text">That's a lot of information for a small space. But no worries, you can scroll up and down to access everything. In the hourly strip you can pan back and forth to access the hourly data for several day.  In addition, you can tap on the daily information to bring up a detail sheet that has just about everyting you could want to know about the weather that day.</mutableString>
+                            <string key="text">That's a lot of information for a small space. But no worries, you can scroll up and down to access everything. In the hourly strip you can pan back and forth to access the hourly data for several day.  In addition, you can tap on the daily information to bring up a detail sheet that has just about everyting you could want to know about the weather that day.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -129,7 +131,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCf-9v-LCI">
                             <rect key="frame" x="40" y="92" width="240" height="385.5"/>
-                            <mutableString key="text">Brrrr remembers the last location you looked up and will load that when you start the app. The first time you open Brrrr there is no history, so Brrrr will load the data from your current location. But to do this Brrrr needs access to your location, wo it will ask you permission.   It only asks once and you can say no, but it will not load your current conditions automatically. Allow it access to have the full experience.  Enjoy Brrrr, I hope you find the interface pleasing and useful.</mutableString>
+                            <string key="text">Brrrr remembers the last location you looked up and will load that when you start the app. The first time you open Brrrr there is no history, so Brrrr will load the data from your current location. But to do this Brrrr needs access to your location, wo it will ask you permission.   It only asks once and you can say no, but it will not load your current conditions automatically. Allow it access to have the full experience.  Enjoy Brrrr, I hope you find the interface pleasing and useful.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

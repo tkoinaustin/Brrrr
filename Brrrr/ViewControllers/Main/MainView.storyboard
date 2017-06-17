@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qvZ-Ej-RCc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G8c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qvZ-Ej-RCc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -242,7 +242,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </searchBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvB-Np-1ax">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvB-Np-1ax" userLabel="Top Line">
                                 <rect key="frame" x="0.0" y="328" width="375" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -273,7 +273,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAb-gj-Y32">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAb-gj-Y32" userLabel="Bottom Line">
                                 <rect key="frame" x="0.0" y="407" width="375" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -314,11 +314,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="lm4-zB-fcc"/>
                     <connections>
+                        <outlet property="bottomLine" destination="CAb-gj-Y32" id="Loh-ce-nub"/>
                         <outlet property="headerView" destination="9pI-E8-rtO" id="f6P-bs-Xdr"/>
                         <outlet property="hourlyConditions" destination="t0g-0p-Rim" id="tGP-5U-ZEK"/>
                         <outlet property="hourlyTopConstraint" destination="JHV-di-PIh" id="udI-Vp-pyf"/>
                         <outlet property="searchBar" destination="5hW-BR-yo8" id="mCU-ZY-YVS"/>
                         <outlet property="tableView" destination="ND1-2A-QQH" id="bez-nW-CR4"/>
+                        <outlet property="topLine" destination="uvB-Np-1ax" id="QJn-Pp-QSV"/>
                         <segue destination="wev-B6-Sww" kind="show" identifier="dailyViewSegue" id="N6M-cO-OH8"/>
                     </connections>
                 </viewController>

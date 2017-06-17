@@ -92,7 +92,7 @@ class API {
         }
 
         switch (data, response, error) {
-        case (_, _, .some(_)): return APIResponse(raw: nil, body: nil, error: APIError.request)
+        case (_, _, .some): return APIResponse(raw: nil, body: nil, error: APIError.request)
           
         case (.none, _, _): return APIResponse(raw: nil, body: nil, error: APIError.body)
           
@@ -116,7 +116,6 @@ class API {
       var regex = try NSRegularExpression(pattern: "[0-9a-f]")
       let nsString = key as NSString
       var results = regex.matches(in: key, range: NSRange(location: 0, length: nsString.length))
-      // Need to validate if there are length specifics for the API key
       guard results.count > 25 else { return false }
       
       regex = try NSRegularExpression(pattern: "[^0-9a-f]")

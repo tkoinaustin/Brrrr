@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
   }}
   @IBOutlet fileprivate weak var headerView: HeaderCell!
   
+  @IBOutlet weak var topLine: UIView!
+  @IBOutlet weak var bottomLine: UIView!
   @IBOutlet private weak var hourlyConditions: UICollectionView! { didSet {
     hourlyConditions.dataSource = self
     let hourlyCell = String(describing: HourlyCell.self)
@@ -63,6 +65,8 @@ class MainViewController: UIViewController {
     viewModel.updateUI = {
       self.tableView.reloadData()
       self.hourlyConditions.reloadData()
+      self.topLine.isHidden = self.viewModel.hourlyData.isEmpty
+      self.bottomLine.isHidden = self.viewModel.hourlyData.isEmpty
       self.headerView.cityLabel.text = self.viewModel.city
       self.headerView.data = self.viewModel.currentData
     }
@@ -124,6 +128,7 @@ extension MainViewController: UITableViewDataSource {
       
       if let currentData = viewModel.currentData {
         currentTableViewCell.data = currentData
+        currentTableViewCell.selectionStyle = .none
       }
       
       return currentTableViewCell

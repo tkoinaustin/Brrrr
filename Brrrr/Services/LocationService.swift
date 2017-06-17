@@ -12,10 +12,11 @@ import CoreLocation
 typealias PlacemarkBuilder = () throws -> [CLPlacemark]
 
 class LocationService: NSObject {
-  static var geocoder = CLGeocoder()
   static var shared = LocationService()
+  var geocoder = CLGeocoder()
   let manager = CLLocationManager()
   var updateUI: (CLLocation) -> Void = { _ in }
+  var updatePlace: (CLPlacemark) -> Void = { _ in }
   
   func getCurrentCoordinates() {
     self.manager.delegate = self
@@ -30,7 +31,7 @@ class LocationService: NSObject {
     }
   }
 
-  static func getCoordinates(_ location: String, completion: @escaping (PlacemarkBuilder) -> Void) {
+  func getCoordinates(_ location: String, completion: @escaping (PlacemarkBuilder) -> Void) {
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
     
     self.geocoder.geocodeAddressString(location) { placemarks, error -> Void in
@@ -48,16 +49,16 @@ class LocationService: NSObject {
 extension LocationService: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     let location = locations[0]
-    print("didUpdateLocations to \(location)")
-    // maybe here raise notification and let main view controller handle updateUI
-    // we could also grab the name based on the location
-    DispatchQueue.main.async {
-      self.updateUI(location)
+    self.geocoder.reverseGeocodeLocation(location) { placemarks, _ in
+      self.updatePlace((placemarks?[0])!)
+      DispatchQueue.main.async {
+        self.updateUI(location)
+      }
     }
   }
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    print("didChangeAuthorization to \(status)")
+    print("didChangeAuthorization to \(status.hashValue)")
     if status == .authorizedWhenInUse {
       self.manager.requestLocation()
     }
