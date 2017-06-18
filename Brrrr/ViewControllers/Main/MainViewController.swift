@@ -12,6 +12,7 @@ import CoreLocation
 //swiftlint:disable file_length
 class MainViewController: UIViewController {
   fileprivate var viewModel = MainViewModel()
+  fileprivate let tableOffset: CGFloat = 130
   var autoSearch = false
 
   @IBOutlet private weak var localWeatherButton: UIButton! { didSet { localWeatherButton.alpha = 0 } }
@@ -92,6 +93,7 @@ class MainViewController: UIViewController {
   private func bind() {
     viewModel.showError = showConnectionProblems
     viewModel.updateUI = {
+      self.tableView.contentOffset = CGPoint(x: 0, y: -self.tableOffset)
       self.tableView.reloadData()
       self.hourlyConditions.reloadData()
       self.topLine.isHidden = self.viewModel.hourlyData.isEmpty
@@ -133,8 +135,8 @@ extension MainViewController: UITableViewDelegate {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let offset = scrollView.contentOffset.y
     headerView.offset = offset
-    if offset < 0 { hourlyTopConstraint.constant = -(130 + offset) }
-    else { hourlyTopConstraint.constant = -130 }
+    if offset < 0 { hourlyTopConstraint.constant = -(tableOffset + offset) }
+    else { hourlyTopConstraint.constant = -tableOffset }
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
