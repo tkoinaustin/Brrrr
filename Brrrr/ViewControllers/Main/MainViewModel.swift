@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreLocation
-//import PromiseKit
 import SwiftyJSON
 
 class MainViewModel {
@@ -33,7 +32,6 @@ class MainViewModel {
   var place: CLPlacemark?
   
   var city: String {
-//    print("Place is: \(place?.addressDictionary)")
     let countryCode = place?.addressDictionary?["CountryCode"] as? String
     let state = place?.addressDictionary?["State"] as? String ?? ""
     let city = place?.addressDictionary?["Name"] as? String ?? ""
@@ -46,7 +44,13 @@ class MainViewModel {
       darkSky = DarkSkyResponse.empty
       updateUI()
     }
-    }}
+  }}
+  
+  init() {
+    LocationService.shared.updateUI = dataRequest
+    LocationService.shared.updatePlace = { place in self.place = place }
+
+  }
   
   func getWeather() {
     guard searchString != "" else { return }
@@ -64,8 +68,6 @@ class MainViewModel {
   }
   
   func getLocalWeather() {
-    LocationService.shared.updateUI = dataRequest
-    LocationService.shared.updatePlace = { place in self.place = place }
     LocationService.shared.getCurrentCoordinates()
   }
   
@@ -93,7 +95,6 @@ class MainViewModel {
   
   private func saveLocation(_ location: String) {
     let defaults = UserDefaults.standard
-    print("Saving city location \(location)")
     defaults.set(location, forKey: "LastSuccessfulLocation")
   }
 }

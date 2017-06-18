@@ -19,6 +19,7 @@ class LocationService: NSObject {
   var updatePlace: (CLPlacemark) -> Void = { _ in }
   
   func getCurrentCoordinates() {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = true
     self.manager.delegate = self
     self.manager.desiredAccuracy = kCLLocationAccuracyKilometer
     
@@ -65,6 +66,7 @@ extension LocationService: CLLocationManagerDelegate {
   }
   
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = false
     print("locationManager failed with error")
   }
 }

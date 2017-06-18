@@ -9,17 +9,20 @@
 import UIKit
 import CoreLocation
 
+//swiftlint:disable file_length
 class MainViewController: UIViewController {
   fileprivate var viewModel = MainViewModel()
+  var autoSearch = false
 
+  @IBOutlet private weak var localWeatherButton: UIButton! { didSet { localWeatherButton.alpha = 0 } }
+  @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
   @IBOutlet fileprivate weak var hourlyTopConstraint: NSLayoutConstraint!
-  @IBOutlet private weak var searchBar: UISearchBar! { didSet {
-    searchBar.delegate = self
-  }}
-  @IBOutlet fileprivate weak var headerView: HeaderCell!
+  @IBOutlet private weak var searchBar: UISearchBar! { didSet { searchBar.delegate = self } }
   
-  @IBOutlet weak var topLine: UIView!
-  @IBOutlet weak var bottomLine: UIView!
+  @IBOutlet fileprivate weak var headerView: HeaderCell!
+  @IBOutlet private weak var  topLine: UIView!
+  @IBOutlet private weak var bottomLine: UIView!
+
   @IBOutlet private weak var hourlyConditions: UICollectionView! { didSet {
     hourlyConditions.dataSource = self
     let hourlyCell = String(describing: HourlyCell.self)
@@ -30,9 +33,9 @@ class MainViewController: UIViewController {
     layout.minimumInteritemSpacing = 0
     layout.minimumLineSpacing = 0
     layout.scrollDirection = .horizontal
-    layout.itemSize = CGSize(width: 55, height: 80)
+    layout.itemSize = CGSize(width: 55, height: 90)
     hourlyConditions.collectionViewLayout = layout
-    }}
+  }}
 
   @IBOutlet fileprivate weak var tableView: UITableView! { didSet {
     tableView.dataSource = self
@@ -42,6 +45,24 @@ class MainViewController: UIViewController {
     tableView.contentInset = UIEdgeInsets(top: 120, left: 0, bottom: 0, right: 0)
   }}
 
+  @IBAction func localWeatherAction(_ sender: UIButton) {
+    self.startLocalSearch()
+  }
+  
+  func disableLocalWeatherButton() {
+    self.localWeatherButton.isEnabled = false
+    UIView.animate(withDuration: 0.25, animations: {
+      self.localWeatherButton.alpha = 0
+    })
+  }
+  
+  func enableLocalWeatherButton() {
+    self.localWeatherButton.isEnabled = true
+    UIView.animate(withDuration: 0.25, animations: {
+      self.localWeatherButton.alpha = 1
+    })
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController?.isNavigationBarHidden = true
@@ -56,8 +77,16 @@ class MainViewController: UIViewController {
       self.viewModel.searchString = searchCity
       self.viewModel.getWeather()
     } else {
-      viewModel.getLocalWeather()
+      self.startLocalSearch()
     }
+  }
+  
+  private func startLocalSearch() {
+    autoSearch = true
+    self.disableLocalWeatherButton()
+    activityIndicator.startAnimating()
+    self.activityIndicator.alpha = 1
+    viewModel.getLocalWeather()
   }
   
   private func bind() {
@@ -69,6 +98,14 @@ class MainViewController: UIViewController {
       self.bottomLine.isHidden = self.viewModel.hourlyData.isEmpty
       self.headerView.cityLabel.text = self.viewModel.city
       self.headerView.data = self.viewModel.currentData
+      
+      if self.autoSearch {
+        self.searchBar.text = self.viewModel.city
+        self.autoSearch = false 
+        self.searchBar.endEditing(true)
+      }
+      self.activityIndicator.stopAnimating()
+      self.activityIndicator.alpha = 0
     }
   }
   
@@ -96,8 +133,8 @@ extension MainViewController: UITableViewDelegate {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let offset = scrollView.contentOffset.y
     headerView.offset = offset
-    if offset < 0 { hourlyTopConstraint.constant = -(120 + offset) }
-    else { hourlyTopConstraint.constant = -120 }
+    if offset < 0 { hourlyTopConstraint.constant = -(130 + offset) }
+    else { hourlyTopConstraint.constant = -130 }
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -151,9 +188,10 @@ extension MainViewController: UICollectionViewDataSource {
 }
 
 extension MainViewController: UISearchBarDelegate {
-  
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     viewModel.searchString = searchText
+    if searchText == "" { self.enableLocalWeatherButton() }
+    else { self.disableLocalWeatherButton() }
   }
   
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -161,6 +199,7 @@ extension MainViewController: UISearchBarDelegate {
   }
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    autoSearch = false
     viewModel.getWeather()
     searchBar.endEditing(true)
   }

@@ -70,6 +70,8 @@ extension FTUEViewController: UIScrollViewDelegate {
     guard let navController = UIStoryboard(name: "MainView", bundle: nil)
       .instantiateInitialViewController() else { return }
     UIApplication.shared.keyWindow?.rootViewController = navController
+    UserDefaults.standard.set(false, forKey: "FTUE")
+
   }
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {

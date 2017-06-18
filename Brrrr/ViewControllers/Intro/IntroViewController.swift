@@ -44,7 +44,6 @@ class IntroViewController: UIViewController {
     guard firstTimeThrough else { return }
     firstTimeThrough = false
     if needFTUE() {
-      UserDefaults.standard.set(false, forKey: "FTUE")
       performSegue(withIdentifier: "FTUESegue", sender: self)
     } else {
       performSegue(withIdentifier: "mainSegue", sender: nil)
