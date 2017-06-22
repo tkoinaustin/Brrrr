@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
   fileprivate var viewModel = MainViewModel()
   fileprivate let tableOffset: CGFloat = 130
   fileprivate let navigationAnimator = NavigationAnimator()
+  fileprivate let navigationInteractor = NavigationInteractor()
   var autoSearch = false
 
   @IBOutlet private weak var localWeatherButton: UIButton! { didSet { localWeatherButton.alpha = 0 } }
@@ -144,8 +145,15 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
     from fromVC: UIViewController,
     to toVC: UIViewController
   ) -> UIViewControllerAnimatedTransitioning? {
-//    return nil
-    return operation == .pop ? navigationAnimator : nil 
+    if operation == .push { navigationInteractor.attachToViewController(toVC) }
+    return operation == .pop ? navigationAnimator : nil
+  }
+  
+  func navigationController(
+    _ navigationController: UINavigationController,
+    interactionControllerFor animationController: UIViewControllerAnimatedTransitioning
+  ) -> UIViewControllerInteractiveTransitioning? {
+    return navigationInteractor.transitionInProgress ? navigationInteractor : nil
   }
 }
 

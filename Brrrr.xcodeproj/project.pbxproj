@@ -24,6 +24,7 @@
 		CB526D171EF456570010EE38 /* FTUEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB526D161EF456570010EE38 /* FTUEViewController.swift */; };
 		CB526D191EF4566C0010EE38 /* FTUEView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB526D181EF4566C0010EE38 /* FTUEView.storyboard */; };
 		CB59085C1EFC309900D77DB5 /* NavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59085B1EFC309900D77DB5 /* NavigationAnimator.swift */; };
+		CB59085E1EFC353F00D77DB5 /* NavigationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59085D1EFC353F00D77DB5 /* NavigationInteractor.swift */; };
 		CB5918C71EE083AF0093AC57 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C51EE083AF0093AC57 /* LICENSE */; };
 		CB5918C81EE083AF0093AC57 /* weather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C61EE083AF0093AC57 /* weather.ttf */; };
 		CB5918D71EE1F4510093AC57 /* FormatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D51EE1F4510093AC57 /* FormatService.swift */; };
@@ -79,6 +80,7 @@
 		CB526D161EF456570010EE38 /* FTUEViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FTUEViewController.swift; path = ViewControllers/FTUE/FTUEViewController.swift; sourceTree = "<group>"; };
 		CB526D181EF4566C0010EE38 /* FTUEView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FTUEView.storyboard; path = ViewControllers/FTUE/FTUEView.storyboard; sourceTree = "<group>"; };
 		CB59085B1EFC309900D77DB5 /* NavigationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationAnimator.swift; path = Transitions/NavigationAnimator.swift; sourceTree = "<group>"; };
+		CB59085D1EFC353F00D77DB5 /* NavigationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationInteractor.swift; path = Transitions/NavigationInteractor.swift; sourceTree = "<group>"; };
 		CB5918C51EE083AF0093AC57 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Assets/LICENSE; sourceTree = "<group>"; };
 		CB5918C61EE083AF0093AC57 /* weather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = weather.ttf; path = Assets/weather.ttf; sourceTree = "<group>"; };
 		CB5918D51EE1F4510093AC57 /* FormatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatService.swift; path = Services/FormatService.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				CB59085B1EFC309900D77DB5 /* NavigationAnimator.swift */,
+				CB59085D1EFC353F00D77DB5 /* NavigationInteractor.swift */,
 			);
 			name = Transitions;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				CBD512C41E63B4A500614C3A /* AppDelegate.swift in Sources */,
 				CB3C60CA1E67BE5F00B5DE01 /* Alert.swift in Sources */,
 				CB5918FB1EEAED5B0093AC57 /* CurrentCell.swift in Sources */,
+				CB59085E1EFC353F00D77DB5 /* NavigationInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

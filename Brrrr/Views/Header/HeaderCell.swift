@@ -47,7 +47,7 @@ class HeaderCell: UIView, XibLoadable {
     self.tempLabel.transform = CGAffineTransform.init(scaleX: tempScale, y: tempScale)
       .translatedBy(x: 0, y: tempTrans)
   }}
-  
+  //swiftlint:disable private_outlet
   @IBOutlet weak var cityLabel: UILabel!
   @IBOutlet private weak var forecastLabel: UILabel!
   @IBOutlet private weak var tempLabel: UILabel!
