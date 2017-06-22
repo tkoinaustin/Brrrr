@@ -13,6 +13,7 @@ import CoreLocation
 class MainViewController: UIViewController {
   fileprivate var viewModel = MainViewModel()
   fileprivate let tableOffset: CGFloat = 130
+  fileprivate let navigationAnimator = NavigationAnimator()
   var autoSearch = false
 
   @IBOutlet private weak var localWeatherButton: UIButton! { didSet { localWeatherButton.alpha = 0 } }
@@ -67,6 +68,7 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController?.isNavigationBarHidden = true
+    navigationController?.delegate = self
     bind()
     loadInitialWeather()
   }
@@ -128,6 +130,22 @@ class MainViewController: UIViewController {
     dailyViewController.data = data
     dailyViewController.city = viewModel.city
     dailyViewController.date = data.longDate
+  }
+}
+
+extension MainViewController: UINavigationControllerDelegate {
+  
+}
+
+extension MainViewController: UIViewControllerTransitioningDelegate {
+  func navigationController(
+    _ navigationController: UINavigationController,
+    animationControllerFor operation: UINavigationControllerOperation,
+    from fromVC: UIViewController,
+    to toVC: UIViewController
+  ) -> UIViewControllerAnimatedTransitioning? {
+//    return nil
+    return operation == .pop ? navigationAnimator : nil 
   }
 }
 

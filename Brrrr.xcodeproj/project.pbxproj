@@ -23,6 +23,7 @@
 		CB526D141EF414340010EE38 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB526D131EF414340010EE38 /* LocationService.swift */; };
 		CB526D171EF456570010EE38 /* FTUEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB526D161EF456570010EE38 /* FTUEViewController.swift */; };
 		CB526D191EF4566C0010EE38 /* FTUEView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB526D181EF4566C0010EE38 /* FTUEView.storyboard */; };
+		CB59085C1EFC309900D77DB5 /* NavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59085B1EFC309900D77DB5 /* NavigationAnimator.swift */; };
 		CB5918C71EE083AF0093AC57 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C51EE083AF0093AC57 /* LICENSE */; };
 		CB5918C81EE083AF0093AC57 /* weather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB5918C61EE083AF0093AC57 /* weather.ttf */; };
 		CB5918D71EE1F4510093AC57 /* FormatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5918D51EE1F4510093AC57 /* FormatService.swift */; };
@@ -77,6 +78,7 @@
 		CB526D131EF414340010EE38 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Services/LocationService.swift; sourceTree = "<group>"; };
 		CB526D161EF456570010EE38 /* FTUEViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FTUEViewController.swift; path = ViewControllers/FTUE/FTUEViewController.swift; sourceTree = "<group>"; };
 		CB526D181EF4566C0010EE38 /* FTUEView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FTUEView.storyboard; path = ViewControllers/FTUE/FTUEView.storyboard; sourceTree = "<group>"; };
+		CB59085B1EFC309900D77DB5 /* NavigationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationAnimator.swift; path = Transitions/NavigationAnimator.swift; sourceTree = "<group>"; };
 		CB5918C51EE083AF0093AC57 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Assets/LICENSE; sourceTree = "<group>"; };
 		CB5918C61EE083AF0093AC57 /* weather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = weather.ttf; path = Assets/weather.ttf; sourceTree = "<group>"; };
 		CB5918D51EE1F4510093AC57 /* FormatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatService.swift; path = Services/FormatService.swift; sourceTree = "<group>"; };
@@ -163,6 +165,14 @@
 				CB526D181EF4566C0010EE38 /* FTUEView.storyboard */,
 			);
 			name = FTUE;
+			sourceTree = "<group>";
+		};
+		CB59085A1EFC307300D77DB5 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				CB59085B1EFC309900D77DB5 /* NavigationAnimator.swift */,
+			);
+			name = Transitions;
 			sourceTree = "<group>";
 		};
 		CB5918BE1EDF657A0093AC57 /* Views */ = {
@@ -293,6 +303,7 @@
 				CB5918C41EE083990093AC57 /* Assets */,
 				CB5918D41EE1F30E0093AC57 /* Services */,
 				CB3C60C41E6705F900B5DE01 /* Models */,
+				CB59085A1EFC307300D77DB5 /* Transitions */,
 				CB5918BE1EDF657A0093AC57 /* Views */,
 				CB5D08DD1ED5E558008F51FD /* ViewControllers */,
 			);
@@ -592,6 +603,7 @@
 				CB5918F51EEAED250093AC57 /* XibLoadable.swift in Sources */,
 				CB5918D71EE1F4510093AC57 /* FormatService.swift in Sources */,
 				CB5919011EEAED740093AC57 /* MainViewController.swift in Sources */,
+				CB59085C1EFC309900D77DB5 /* NavigationAnimator.swift in Sources */,
 				CB5919021EEAED740093AC57 /* MainViewModel.swift in Sources */,
 				CB5918FC1EEAED5B0093AC57 /* DailyTableCell.swift in Sources */,
 				CB5918F31EEAED250093AC57 /* HourlyCell.swift in Sources */,
